@@ -1,11 +1,16 @@
 import {resolve} from 'path'
 export default {
-  base: '/lesson-3j/',
+  // base: '/y/',
   build: {
     rollupOptions: {
       input: {
         // @ts-ignore
-        main: resolve(__dirname, 'index.html'),
+        main: resolve('index.html'),
+        entrance: resolve('entrance.html'),
+        items: resolve('items.html'),
+        prices: resolve('prices.html'),
+        registration: resolve('registration.html'),
+        tutors: resolve('tutors.html'),
       }
     }
   }

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/Group 11.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" crossorigin href="./src/interface_good_school.scss">
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <a href="./" class="igs_button_universal_A1 back_global">назад</a>
+    <h1>
+      Регистрация
+    </h1>
+    <div class="center_block">
+      <div class="width_block">
+        <span id="name_warning" class="warning">
+          не введено имя
+        </span>
+        <input id="name_input" class="receiving_data" type="text" placeholder="имя">
+        <span id="surname_warning" class="warning">
+          не введена фамилия
+        </span>
+        <input id="surname_input" class="receiving_data" type="text" placeholder="фамилия">
+        <span id="class_warning" class="warning">
+          не выбран класс
+        </span>
+        <select id="class_select" class="receiving_data"> 
+          <option value="" disabled selected hidden>класс</option> 
+          <option value="1-4">Класс 1-4</option> 
+          <option value="5-8">Класс 5-8</option> 
+          <option value="9-11">Класс 9-11</option>
+          <option value="programming">Программирование python</option>
+      </select>
+      <span id="sx_warning" class="warning">
+        не выбран предмет
+      </span>
+      <select id="s0_select" class="receiving_data"> 
+        <option value=""></option> 
+      </select>
+      <select id="s1_select" class="receiving_data" style="display: none;"> 
+        <option value="" disabled selected hidden>предмет</option> 
+        <option value="mathematics mathematics">Математика</option> 
+        <option value="VLOOKUP mathematics">ВПР</option> 
+      </select>
+      <select id="s2_select" class="receiving_data" style="display: none;"> 
+        <option value="" disabled selected hidden>предмет</option> 
+        <option value="algebra mathematics">Алгебра</option> 
+        <option value="geometry mathematics">Геометрия</option> 
+        <option value="computerScience mathematics">Информатика</option> 
+        <option value="programming programming">Программирование python</option>
+        <option value="VLOOKUP mathematics">ВПР</option> 
+      </select>
+      <select id="s3_select" class="receiving_data" style="display: none;"> 
+        <option value="" disabled selected hidden>предмет</option> 
+        <option value="algebra mathematics">Алгебра</option> 
+        <option value="geometry mathematics">Геометрия</option> 
+        <option value="computerScience mathematics">Информатика</option> 
+        <option value="programming programming">Программирование python</option>
+        <option value="EGE_OGE_computerScience mathematics">ЕГЭ, ОГЭ информатика</option> 
+        <option value="EGE_OGE_mathematics mathematics">ЕГЭ, ОГЭ математика</option>
+      </select>
+      <select id="s4_select" class="receiving_data" style="display: none;"> 
+        <option value="" disabled selected hidden>предмет</option>
+        <option value="basics programming">Основы</option>
+        <option value="mobileApp programming">Мобильное приложение</option>
+        <option value="godot programming">Godot</option>
+        <option value="websites programming">Сайты</option>
+      </select>
+      <span id="phone_warning" class="warning">
+        не введен телефон
+      </span>
+      <input id="phone_input" class="receiving_data" type="tel" placeholder="номер телефона">
+      <span id="email_warning" class="warning">
+        не введена почта
+      </span>
+      <input id="email_input" class="receiving_data" type="email" placeholder="электронная почта">
+      <span id="password_warning" class="warning">
+        не введен пароль
+      </span>
+      <input id="password_input" class="receiving_data" type="password" placeholder="пароль">
+      <span id="repeatPassword_warning" class="warning">
+        пароли не совпадают 
+      </span>
+      <input id="repeatPassword_input" class="receiving_data" type="password" placeholder="повторите пароль">
+    </div>
+  </div>
+  <div style="display: flex;justify-content: center;">
+    <button id="buttonSend_registrationStudent" class="igs_button_universal_B1">
+      зарегистрироваться
+    </button>
+  </div>
+      
+      
+
+    <script type="module" src="./src/registration-entrance/local_script.ts"></script>
+  </body>
+</html>

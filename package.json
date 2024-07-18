@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "host": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -12,5 +13,9 @@
     "sass": "^1.77.6",
     "typescript": "^5.2.2",
     "vite": "^5.3.1"
+  },
+  "dependencies": {
+    "js-md5": "^0.8.3",
+    "md5": "^2.3.0"
   }
 }

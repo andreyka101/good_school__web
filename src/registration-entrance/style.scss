@@ -1,0 +1,58 @@
+h1{
+    color: #031E47;
+    text-align: center;
+}
+.center_block{
+    display: flex;
+    justify-content: center;
+    .width_block{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        .receiving_data{
+            background-color: #FFCC73;
+            margin: 6px;
+            font-size: 17px;
+            border: 0 #000 solid;
+            padding: 6px;
+            border-radius: 5px;
+        }
+        input{
+            color: #A64300;
+            padding-left: 10px !important;
+        }
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus,
+        select:-webkit-autofill,
+        select:-webkit-autofill:hover,
+        select:-webkit-autofill:focus {
+          border: 0px solid green;
+          -webkit-text-fill-color: #A64300;
+          -webkit-box-shadow: 0 0 0px 1000px #FFCC73 inset;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+        select{
+            color: #757575;
+            option{
+                color: #A64300;
+            }
+            [value=""]{
+                color: #757575;
+
+            }
+        }
+    }
+}
+// .igs_button_universal_B1{
+//     padding: 8px;
+// }
+.warning{
+    text-align: center;
+    color: #fe2a2a;
+    display: none;
+}
+
