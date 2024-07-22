@@ -163,11 +163,11 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
             data = await data.json()
             console.log(data);
             if (data.password == md5(password_input.value)){
-                localStorage.setItem("name",data.name)
-                localStorage.setItem("surname",data.surname)
-                localStorage.setItem("id_student",data.id)
-                localStorage.setItem("id_teacher",data.teacher_id)
-                window.location.href = "./xs_student.html"
+                localStorage.setItem("name",data.name + "")
+                localStorage.setItem("surname",data.surname + "")
+                localStorage.setItem("id_student",data.id + "")
+                localStorage.setItem("id_teacher",data.teacher_id + "")
+                window.location.href = "./personal_area_student.html"
             }
         }
         else {
@@ -264,7 +264,7 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
             education_textarea.style.backgroundColor = "#FFCC73"
             description_textarea.style.backgroundColor = "#FFCC73"
             let list_items: any
-            if(item_select.value = "mathematics") list_items = ["mathematics"]
+            if(item_select.value == "mathematics") list_items = ["mathematics"]
             else list_items = ["programming"]
             let data = await fetch("http://localhost:3000/registration_teacher", {
                 method: "POST",
@@ -286,10 +286,10 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
             // let data_item = JSON.parse(data.item)
             // console.log(data_item);
             if (data.password == md5(password_input.value)){
-                localStorage.setItem("name",data.name)
-                localStorage.setItem("surname",data.surname)
-                localStorage.setItem("id_teacher",data.id)
-                window.location.href = "./xs_teacher.html"
+                localStorage.setItem("name",data.name + "")
+                localStorage.setItem("surname",data.surname + "")
+                localStorage.setItem("id_teacher",data.id + "")
+                window.location.href = "./personal_area_teacher.html"
             }
         }
         else {
@@ -368,18 +368,73 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
         }
 })
 buttonSend_entrance?.addEventListener("click", async ()=>{
-    let data = await fetch("http://localhost:3000/entrance", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            surname: "н",
-            name: "аня",
-            password: "81dc9bdb52d04dc20036dbd8313ed055"
-        })
-    }) as any
-    data = await data.json()
+    if(name_input.value != "" && surname_input.value != "" && password_input.value != ""){
+        let data = await fetch("http://localhost:3000/entrance", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                surname: surname_input.value,
+                name: name_input.value,
+                password: md5(password_input.value),
+            })
+        }) as any
+        data = await data.json()
+        console.log(data[0]);
+        
+        if(data[0]["teacher_id"]){
+            if (data[0].password == md5(password_input.value)){
+                localStorage.setItem("name",data[0].name + "")
+                localStorage.setItem("surname",data[0].surname + "")
+                localStorage.setItem("id_student",data[0].id + "")
+                localStorage.setItem("id_teacher",data[0].teacher_id + "")
+                window.location.href = "./personal_area_student.html"
+                console.log(0);
+                
+            }
+        }
+        else{
+            if (data[0].password == md5(password_input.value)){
+                localStorage.setItem("name",data[0].name + "")
+                localStorage.setItem("surname",data[0].surname + "")
+                localStorage.setItem("id_teacher",data[0].id + "")
+                window.location.href = "./personal_area_teacher.html"
+            }
+        }
+
+
+        
+        console.log(data[0]);
+        console.log(data[0].class);
+    }
+    else{
+        if (name_input.value == "") {
+            name_warning.style.display = "inline-block"
+            name_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            name_warning.style.display = "none"
+            name_input.style.backgroundColor = "#FFCC73"
+        }
+        if (surname_input.value == "") {
+            surname_warning.style.display = "inline-block"
+            surname_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            surname_warning.style.display = "none"
+            surname_input.style.backgroundColor = "#FFCC73"
+        }
+        if (password_input.value == "") {
+            password_warning.style.display = "inline-block"
+            password_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            password_warning.style.display = "none"
+            password_input.style.backgroundColor = "#FFCC73"
+        }
+    }
+    
 })
 
 

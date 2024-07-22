@@ -1,0 +1,49 @@
+h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 25px;
+}
+h2 {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+    margin: 25px;
+}
+// display: flex;
+.blockTop_name {
+    // height: 81.4px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    .fi{
+        margin-right: 20px;
+    }
+    .user_name_surname{
+        background-color: #D9D9D9;
+        padding: 13px 15px 4px 15px;
+        border-bottom: 1px #000 solid;
+        min-width: 230px;
+        font-size: 20px;
+        text-align: center;
+    }
+}
+.back_global{
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    margin: 0;
+}
+.timetable_classes{
+    background-color: #E3E3E3;
+    padding: 15px;
+    display: grid;
+    border: #000 1px solid;
+    border-radius: 10px;
+    .time_none{
+        border-radius: 10px;
+        width: 35px;
+        height: 35px;
+        background-color: #C4C4C4;
+    }
+}

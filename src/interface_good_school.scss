@@ -150,9 +150,7 @@ header{
     border-radius: 5px;
 }
 .back_global{
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    display: inline-block;
     margin: 20px;
 }
 .igs_button_universal_B1{
@@ -164,5 +162,9 @@ header{
     margin: 4px;
     padding: 6px;
     border-radius: 5px;
+}
+.flex_center{
+    display: flex;
+    justify-content: center;
 }
 
