@@ -1,0 +1,104 @@
+h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 25px;
+}
+h2 {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+    margin: 25px;
+}
+
+.back_global {
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    margin: 0;
+}
+.timetable_classes_block {
+    max-height: 420px;
+    overflow-y: auto;
+    border-radius: 10px;
+    .timetable_classes_up_day {
+        background-color: #e3e3e3;
+        padding: 11px 45px 7px 35px;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto auto auto;
+        gap: 10px;
+        position: sticky;
+        top: 0;
+        div{
+            color: #ffffff00;
+        }
+        .text_grid_day {
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            background-color: #e3e3e3;
+        }
+        .text_grid_time {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+    .timetable_classes {
+        background-color: #e3e3e3;
+        padding: 0px 45px 15px 35px;
+        display: grid;
+        // border: #000 1px solid;
+        // border-radius: 0 10px 0 10px;
+        grid-template-columns: auto auto auto auto auto auto auto auto;
+        // grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+        gap: 10px;
+        // max-height: 200px;
+        // overflow-y: scroll;
+
+        .text_grid_time {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .time_none {
+            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: #c4c4c4;
+        }
+        .time_work {
+            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: #51ff8c;
+        }
+    }
+}
+.igs_button_universal_B1 {
+    margin-top: 30px;
+    padding: 10px 16px;
+}
+.timetable_classes_block::-webkit-scrollbar {
+    width: 10px;
+    background-color: #6767ff00;
+    border: solid rgba(102, 44, 210, .5803921569) 3px;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 25px;
+}
+.timetable_classes_block::-webkit-scrollbar-button {
+    background-color: #6f0101;
+    display: none;
+}
+.timetable_classes_block::-webkit-scrollbar-thumb {
+    background-color: #672cd269;
+    border-radius: 25px;
+}
+.timetable_classes_block::-webkit-scrollbar-track {
+    background-color: #75757500;
+}

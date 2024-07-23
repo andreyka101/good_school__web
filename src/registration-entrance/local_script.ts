@@ -279,6 +279,7 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
                     patronymic: patronymic_input.value,
                     password: md5(password_input.value),
                     item: list_items[0],
+                    timetable_classes: "",
                 })
             }) as any
             data = await data.json()
@@ -289,6 +290,7 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
                 localStorage.setItem("name",data.name + "")
                 localStorage.setItem("surname",data.surname + "")
                 localStorage.setItem("id_teacher",data.id + "")
+                localStorage.setItem("timetable_classes_teacher", "")
                 window.location.href = "./personal_area_teacher.html"
             }
         }
@@ -399,6 +401,7 @@ buttonSend_entrance?.addEventListener("click", async ()=>{
                 localStorage.setItem("name",data[0].name + "")
                 localStorage.setItem("surname",data[0].surname + "")
                 localStorage.setItem("id_teacher",data[0].id + "")
+                localStorage.setItem("timetable_classes_teacher",data[0].timetable_classes + "")
                 window.location.href = "./personal_area_teacher.html"
             }
         }

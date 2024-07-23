@@ -36,14 +36,38 @@ h2 {
 }
 .timetable_classes{
     background-color: #E3E3E3;
-    padding: 15px;
+    padding: 15px 45px 15px 35px;
     display: grid;
     border: #000 1px solid;
     border-radius: 10px;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto;
+    gap: 10px;
+
+    .text_grid_day{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .text_grid_time{
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
     .time_none{
         border-radius: 10px;
         width: 35px;
         height: 35px;
         background-color: #C4C4C4;
     }
+    .time_work{
+        border-radius: 10px;
+        width: 35px;
+        height: 35px;
+        background-color: #51FF8C;
+    }
+}
+.igs_button_universal_B1{
+    margin-top: 30px;
+    padding: 10px 16px;
 }
