@@ -199,13 +199,10 @@ button123.addEventListener('click', () => {
     function del_busyTemporarily(index=0){
         console.log(index , obj.length);
         let num = 1
-        if (obj[index].type == "busyTemporarily" && obj[index].week == "this") {
-            obj.splice(+(index), 1)
-            num = 0
-        }
-        if(index+1 < obj.length){
-            if (obj[index+1].type == "busyTemporarily" && obj[index+1].week == "this") {
-                obj.splice(+(index+1), 1)
+        if(index+1 <= obj.length){
+            if (obj[index].type == "busyTemporarily" && obj[index].week == "this") {
+                obj.splice(+(index), 1)
+                num = 0
             }
             return del_busyTemporarily(index+num)   
         }
