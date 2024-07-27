@@ -184,7 +184,6 @@ timetableClasses_nextWeek?.addEventListener("click", (e) => {
         }
     }
     render_timetable()
-    window.navigator.vibrate(0);
 })
 
 
