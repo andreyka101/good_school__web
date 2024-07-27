@@ -41,7 +41,7 @@ let timetable_classes_arr:any
 // ]
 
 async function start_page(){
-    let data = await fetch("http://192.168.31.58:3000/get_teacher", {
+    let data = await fetch("http://192.168.31.204:3000/get_teacher", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
