@@ -10,13 +10,13 @@ userNameSurname_div.innerText = localStorage.getItem("name") + " " + localStorag
 
 
 async function start_page() {
-    let data = await fetch("http://localhost:3000/get_teacher_start_page", {
+    let data = await fetch("http://localhost:3000/get_student_start_page", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            id: +(localStorage.getItem("id_teacher") + "")
+            id: +(localStorage.getItem("id_student") + "")
         })
     }) as any
     data = await data.json()
@@ -25,6 +25,7 @@ async function start_page() {
         localStorage.setItem("name", "")
         localStorage.setItem("surname", "")
         localStorage.setItem("id_teacher", "")
+        localStorage.setItem("id_student", "")
         window.location.href = "./"
     }
 }
@@ -56,7 +57,7 @@ async function render_timetable_start() {
             for (let day = 1; day != 8; day++) {
                 let time_block = ""
                 for (let i in timetable_classes_arr) {
-                    if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
+                    if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work" && timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                     // if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                     // if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyTemporarily") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
                 }

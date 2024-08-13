@@ -1,0 +1,49 @@
+h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 25px;
+}
+h2 {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+    margin: 25px;
+}
+h3 {
+    display: none;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 400;
+    margin: 25px;
+    color: #d20000;
+}
+
+.back_global {
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    margin: 0;
+}
+.timetable_classes_global_block{
+    margin: 20px;
+}
+.flex_center{
+    justify-content:space-around;
+    flex-wrap: wrap;
+}
+#button_save{
+    margin-bottom: 16px;
+    padding: 10px;
+}
+.time_none{
+    background-color: #5193FF !important;
+}
+@media (hover: hover) {
+    .timetable_classes_global_block .timetable_classes .time_none:hover {
+        background-color: #3a6ab8 !important;
+    }
+    .timetable_classes_global_block .timetable_classes .time_work:hover {
+        background-color: #3ab363 !important;
+    }
+}

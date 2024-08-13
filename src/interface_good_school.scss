@@ -1,59 +1,59 @@
-body{
+body {
     margin: 0;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     font-family: system-ui;
 }
-header{
+header {
     // position: sticky;
     // top: 0;
-    .top_block{
+    .top_block {
         // height: 176px;
-        background-color: #ECD0A0;
+        background-color: #ecd0a0;
         padding: 15px 0;
-        svg{
+        svg {
             // width: 130px;
             height: 142px;
             position: absolute;
-            top:28px;
+            top: 28px;
             left: 38px;
         }
-        .site_name{
-            font-weight:bolder;
-            color: #031E47;
+        .site_name {
+            font-weight: bolder;
+            color: #031e47;
             height: 115px;
             display: flex;
             justify-content: center;
             align-items: center;
-            .span_top_block{
+            .span_top_block {
                 font-size: 50px;
                 display: inline-flex;
                 align-items: center;
-                span:nth-child(1){
+                span:nth-child(1) {
                     font-size: 58px;
                 }
-                span:nth-child(2){
+                span:nth-child(2) {
                     margin-top: 8px;
                 }
             }
         }
-        .block_a_global{
+        .block_a_global {
             position: relative;
             z-index: 20;
             display: flex;
-            justify-content: center;   
-            flex-wrap: wrap;     
-            a{
+            justify-content: center;
+            flex-wrap: wrap;
+            a {
                 text-decoration: none;
-                background-color: #51B4A3;
-                color: #031E47;
+                background-color: #51b4a3;
+                color: #031e47;
                 margin: 4px;
                 padding: 10px;
                 border-radius: 5px;
             }
-            span{
+            span {
                 text-decoration: none;
-                background-color: #144F45;
-                color: #5B7EB6;
+                background-color: #144f45;
+                color: #5b7eb6;
                 margin: 4px;
                 padding: 10px;
                 border-radius: 5px;
@@ -61,11 +61,11 @@ header{
         }
     }
     @media screen and (max-width: 1190px) {
-        .top_block{
+        .top_block {
             // svg{
             //     height: 96px;
             // }
-            .block_a_global{
+            .block_a_global {
                 // display: none;
                 max-width: 70%;
                 margin: 0 auto;
@@ -73,22 +73,22 @@ header{
         }
     }
     @media screen and (max-width: 800px) {
-        .top_block{
+        .top_block {
             // svg{
             //     height: 96px;
             // }
-            .block_a_global{
+            .block_a_global {
                 // display: none;
                 max-width: 81%;
                 margin: 0 0 0 auto;
-                a{
+                a {
                     padding: 8px;
                 }
-                span{
+                span {
                     padding: 8px;
                 }
             }
-            .site_name{
+            .site_name {
                 // display: none;
                 max-width: 81%;
                 margin: 0 0 0 auto;
@@ -96,30 +96,30 @@ header{
         }
     }
     @media screen and (max-width: 666px) {
-        .top_block{
-            svg{
+        .top_block {
+            svg {
                 left: 10px;
             }
-            .block_a_global{
+            .block_a_global {
                 // display: none;
                 // max-width: 81%;
                 // margin: 0 0 0 auto;
-                a{
+                a {
                     padding: 6px;
                 }
-                span{
+                span {
                     padding: 6px;
                 }
             }
         }
     }
     @media screen and (max-width: 460px) {
-        .top_block{
-            svg{
+        .top_block {
+            svg {
                 height: 107px;
                 top: auto;
             }
-            .block_a_global{
+            .block_a_global {
                 // display: none;
                 max-width: 100%;
                 margin: 0;
@@ -130,10 +130,10 @@ header{
                 //     padding: 6px;
                 // }
             }
-            .site_name{
-                .span_top_block{
+            .site_name {
+                .span_top_block {
                     font-size: 45px;
-                    span:nth-child(1){
+                    span:nth-child(1) {
                         font-size: 52px;
                     }
                 }
@@ -141,29 +141,29 @@ header{
         }
     }
 }
-.igs_button_universal_A1{
+.igs_button_universal_A1 {
     text-decoration: none;
-    background-color: #51B4A3;
-    color: #031E47;
+    background-color: #51b4a3;
+    color: #031e47;
     margin: 4px;
     padding: 10px;
     border-radius: 5px;
 }
-.back_global{
+.back_global {
     display: inline-block;
     margin: 20px;
 }
-.igs_button_universal_B1{
+.igs_button_universal_B1 {
     border: 0;
     font-size: 15px;
     text-decoration: none;
-    background-color: #51B4A3;
-    color: #031E47;
+    background-color: #51b4a3;
+    color: #031e47;
     margin: 4px;
     padding: 6px;
     border-radius: 5px;
 }
-.flex_center{
+.flex_center {
     display: flex;
     justify-content: center;
 }
@@ -232,13 +232,13 @@ header{
                 border-radius: 10px;
                 width: 35px;
                 height: 35px;
-                background-color: #A851FF;
+                background-color: #a851ff;
             }
             .time_busyAlways {
                 border-radius: 10px;
                 width: 35px;
                 height: 35px;
-                background-color: #FF5151;
+                background-color: #ff5151;
             }
         }
     }
@@ -265,7 +265,7 @@ header{
     }
 }
 @media screen and (max-width: 975px) {
-    .timetable_classes_global_block{
+    .timetable_classes_global_block {
         padding: 10px 10px;
         .timetable_classes_scroll {
             // max-width: 290px;
@@ -278,7 +278,7 @@ header{
                     height: 30px;
                 }
             }
-            .timetable_classes{
+            .timetable_classes {
                 padding: 0px 20px 15px 10px;
                 // .text_grid_time{
                 //     position: sticky;
@@ -305,30 +305,65 @@ header{
     }
 }
 @media screen and (max-width: 470px) {
-    .timetable_classes_global_block{
+    .timetable_classes_global_block {
         margin: 10px !important;
         .timetable_classes_scroll {
             .timetable_classes_up_day {
                 padding: 0px 5px 15px 5px;
                 gap: 5px;
-                .text_grid_day {
-                }
             }
-            .timetable_classes{
+            .timetable_classes {
                 gap: 7px;
                 padding: 0px 5px 15px 5px;
-                .time_none {
-                }
-                .time_work {
-                }
-                .time_busyTemporarily {
-                }
-                .time_busyAlways {
-                }
             }
         }
         .timetable_classes_scroll::-webkit-scrollbar {
             width: 0px;
         }
+    }
+}
+.information_time_global_block {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .information_block {
+        display: inline-flex;
+        align-items: center;
+        margin: 10px;
+        .time_none {
+            display: inline-block;
+            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: #c4c4c4;
+            margin-right: 10px;
+        }
+        .time_work {
+            display: inline-block;
+            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: #51ff8c;
+            margin-right: 10px;
+        }
+        .time_busyTemporarily {
+            display: inline-block;
+            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: #a851ff;
+            margin-right: 10px;
+        }
+        .time_busyAlways {
+            display: inline-block;
+            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: #ff5151;
+            margin-right: 10px;
+        }
+        // span{
+            //     margin-left: 10px;
+        // }
     }
 }

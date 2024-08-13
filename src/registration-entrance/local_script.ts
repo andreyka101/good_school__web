@@ -167,7 +167,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                 localStorage.setItem("surname",data.surname + "")
                 localStorage.setItem("id_student",data.id + "")
                 localStorage.setItem("id_teacher",data.teacher_id + "")
-                window.location.href = "./personal_area_student.html"
+                window.location.href = "./setting_up_timetable_student_start.html"
             }
         }
         else {
@@ -272,6 +272,8 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
                 body: JSON.stringify({
+                    education: education_textarea.value,
+                    description: description_textarea.value,
                     email: email_input.value,
                     phone: phone_input.value,
                     surname: surname_input.value,
@@ -279,7 +281,7 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
                     patronymic: patronymic_input.value,
                     password: md5(password_input.value),
                     item: list_items[0],
-                    timetable_classes: "",
+                    timetable_classes: JSON.stringify([]),
                 })
             }) as any
             data = await data.json()
