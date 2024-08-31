@@ -87,12 +87,33 @@
   </div>
   <div style="display: flex;justify-content: center;">
     <button id="buttonSend_registrationStudent" class="igs_button_universal_B1">
-      зарегистрироваться
+      далее
     </button>
   </div>
       
       
-
+  <script>
+    const class_select = document.querySelector("#class_select")
+    const s0_select = document.querySelector("#s0_select")
+    const s3_select = document.querySelector("#s3_select")
+    const s4_select = document.querySelector("#s4_select")
+    if(localStorage.getItem("registration_configuration") == "oge"){
+    class_select.style.color = "#A64300"
+    class_select.value = "9-11"
+    s3_select.style.color = "#A64300"
+    s3_select.value = "EGE_OGE_mathematics mathematics"
+    s0_select.style.display = "none"
+    s3_select.style.display = "inline-block"
+}
+if(localStorage.getItem("registration_configuration") == "prog"){
+    class_select.style.color = "#A64300"
+    class_select.value = "programming"
+    s4_select.style.color = "#A64300"
+    s4_select.value = "basics programming"
+    s0_select.style.display = "none"
+    s4_select.style.display = "inline-block"
+}
+  </script>
     <script type="module" src="./src/registration-entrance/local_script.ts"></script>
   </body>
 </html>

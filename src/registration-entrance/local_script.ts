@@ -122,7 +122,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
     if (name_input.value == "admin" && surname_input.value == "root" && password_input.value == "392ab4") {
         window.location.href = "./registration_teacher.html"
     }
-    else{
+    else {
         if (name_input.value != "" && surname_input.value != "" && s_num != "" && phone_input.value != "" && email_input.value != "" && class_select.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value) {
             name_warning.style.display = "none"
             name_input.style.backgroundColor = "#FFCC73"
@@ -143,13 +143,20 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
             s2_select.style.backgroundColor = "#FFCC73"
             s3_select.style.backgroundColor = "#FFCC73"
             s4_select.style.backgroundColor = "#FFCC73"
-    
-            let data = await fetch("http://localhost:3000/registration_student", {
+
+            let data = await fetch("http://192.168.31.58:3000/checking_email", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
                 body: JSON.stringify({
+                    email: email_input.value
+                })
+            }) as any
+            data = await data.json()
+            console.log(data);
+            if (data.length == 0) {
+                localStorage.setItem("dataUser", JSON.stringify({
                     email: email_input.value,
                     phone: phone_input.value,
                     surname: surname_input.value,
@@ -158,17 +165,44 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                     password: md5(password_input.value),
                     item: s_num[0],
                     item_teacher: s_num[1],
-                })
-            }) as any
-            data = await data.json()
-            console.log(data);
-            if (data.password == md5(password_input.value)){
-                localStorage.setItem("name",data.name + "")
-                localStorage.setItem("surname",data.surname + "")
-                localStorage.setItem("id_student",data.id + "")
-                localStorage.setItem("id_teacher",data.teacher_id + "")
-                window.location.href = "./setting_up_timetable_student_start.html"
+                }))
+                // localStorage.setItem("name",data.name + "")
+                // localStorage.setItem("surname",data.surname + "")
+                // localStorage.setItem("id_student",data.id + "")
+                // localStorage.setItem("id_teacher",data.teacher_id + "")
+                window.location.href = "./subscription_selection_start.html"
             }
+            else {
+                email_warning.style.display = "inline-block"
+                email_warning.innerText = "эта почта уже используется "
+                // email_input.value = ""
+                email_input.style.backgroundColor = "#ffb073"
+            }
+            // let data = await fetch("http://192.168.31.58:3000/registration_student", {
+            //     method: "POST",
+            //     headers: {
+            //         'Content-Type': 'application/json;charset=utf-8'
+            //     },
+            //     body: JSON.stringify({
+            //         email: email_input.value,
+            //         phone: phone_input.value,
+            //         surname: surname_input.value,
+            //         name: name_input.value,
+            //         class: class_select.value,
+            //         password: md5(password_input.value),
+            //         item: s_num[0],
+            //         item_teacher: s_num[1],
+            //     })
+            // }) as any
+            // data = await data.json()
+            // console.log(data);
+            // if (data.password == md5(password_input.value)){
+            //     localStorage.setItem("name",data.name + "")
+            //     localStorage.setItem("surname",data.surname + "")
+            //     localStorage.setItem("id_student",data.id + "")
+            //     localStorage.setItem("id_teacher",data.teacher_id + "")
+            //     window.location.href = "./setting_up_timetable_student_start.html"
+            // }
         }
         else {
             if (name_input.value == "") {
@@ -204,6 +238,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                 password_input.style.backgroundColor = "#FFCC73"
             }
             if (email_input.value == "") {
+                email_warning.innerText = "не введена почта"
                 email_warning.style.display = "inline-block"
                 email_input.style.backgroundColor = "#ffb073"
             }
@@ -248,132 +283,132 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
     if (name_input.value != "" && surname_input.value != "" && phone_input.value != "" && email_input.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value && patronymic_input.value != "" && item_select.value != "" && education_textarea.value != "" && description_textarea.value != "") {
         // name_warning.style.display = "none"
         name_input.style.backgroundColor = "#FFCC73"
-            // surname_warning.style.display = "none"
-            surname_input.style.backgroundColor = "#FFCC73"
-            // repeatPassword_warning.style.display = "none"
-            repeatPassword_input.style.backgroundColor = "#FFCC73"
-            // password_warning.style.display = "none"
-            password_input.style.backgroundColor = "#FFCC73"
-            // email_warning.style.display = "none"
-            email_input.style.backgroundColor = "#FFCC73"
-            // phone_warning.style.display = "none"
-            phone_input.style.backgroundColor = "#FFCC73"
+        // surname_warning.style.display = "none"
+        surname_input.style.backgroundColor = "#FFCC73"
+        // repeatPassword_warning.style.display = "none"
+        repeatPassword_input.style.backgroundColor = "#FFCC73"
+        // password_warning.style.display = "none"
+        password_input.style.backgroundColor = "#FFCC73"
+        // email_warning.style.display = "none"
+        email_input.style.backgroundColor = "#FFCC73"
+        // phone_warning.style.display = "none"
+        phone_input.style.backgroundColor = "#FFCC73"
 
-            patronymic_input.style.backgroundColor = "#FFCC73"
-            item_select.style.backgroundColor = "#FFCC73"
-            education_textarea.style.backgroundColor = "#FFCC73"
-            description_textarea.style.backgroundColor = "#FFCC73"
-            let list_items: any
-            if(item_select.value == "mathematics") list_items = ["mathematics"]
-            else list_items = ["programming"]
-            let data = await fetch("http://localhost:3000/registration_teacher", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify({
-                    education: education_textarea.value,
-                    description: description_textarea.value,
-                    email: email_input.value,
-                    phone: phone_input.value,
-                    surname: surname_input.value,
-                    name: name_input.value,
-                    patronymic: patronymic_input.value,
-                    password: md5(password_input.value),
-                    item: list_items[0],
-                    timetable_classes: JSON.stringify([]),
-                })
-            }) as any
-            data = await data.json()
-            // console.log(data);
-            // let data_item = JSON.parse(data.item)
-            // console.log(data_item);
-            if (data.password == md5(password_input.value)){
-                localStorage.setItem("name",data.name + "")
-                localStorage.setItem("surname",data.surname + "")
-                localStorage.setItem("id_teacher",data.id + "")
-                localStorage.setItem("timetable_classes_teacher", "")
-                window.location.href = "./personal_area_teacher.html"
-            }
+        patronymic_input.style.backgroundColor = "#FFCC73"
+        item_select.style.backgroundColor = "#FFCC73"
+        education_textarea.style.backgroundColor = "#FFCC73"
+        description_textarea.style.backgroundColor = "#FFCC73"
+        let list_items: any
+        if (item_select.value == "mathematics") list_items = ["mathematics"]
+        else list_items = ["programming"]
+        let data = await fetch("http://192.168.31.58:3000/registration_teacher", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                education: education_textarea.value,
+                description: description_textarea.value,
+                email: email_input.value,
+                phone: phone_input.value,
+                surname: surname_input.value,
+                name: name_input.value,
+                patronymic: patronymic_input.value,
+                password: md5(password_input.value),
+                item: list_items[0],
+                timetable_classes: JSON.stringify([]),
+            })
+        }) as any
+        data = await data.json()
+        // console.log(data);
+        // let data_item = JSON.parse(data.item)
+        // console.log(data_item);
+        if (data.password == md5(password_input.value)) {
+            localStorage.setItem("name", data.name + "")
+            localStorage.setItem("surname", data.surname + "")
+            localStorage.setItem("id_teacher", data.id + "")
+            localStorage.setItem("timetable_classes_teacher", "")
+            window.location.href = "./personal_area_teacher.html"
+        }
+    }
+    else {
+        if (item_select.value == "") {
+            patronymic_input.style.backgroundColor = "#ffb073"
         }
         else {
-            if (item_select.value == "") {
-                patronymic_input.style.backgroundColor = "#ffb073"
-            }
-            else {
-                patronymic_input.style.backgroundColor = "#FFCC73"
-            }
-            if (item_select.value == "") {
-                item_select.style.backgroundColor = "#ffb073"
-            }
-            else {
-                item_select.style.backgroundColor = "#FFCC73"
-            }
-            if (education_textarea.value == "") {
-                education_textarea.style.backgroundColor = "#ffb073"
-            }
-            else {
-                education_textarea.style.backgroundColor = "#FFCC73"
-            }
-            if (description_textarea.value == "") {
-                description_textarea.style.backgroundColor = "#ffb073"
-            }
-            else {
-                description_textarea.style.backgroundColor = "#FFCC73"
-            }
-            if (name_input.value == "") {
-                // name_warning.style.display = "inline-block"
-                name_input.style.backgroundColor = "#ffb073"
-            }
-            else {
-                // name_warning.style.display = "none"
-                name_input.style.backgroundColor = "#FFCC73"
-            }
-            if (surname_input.value == "") {
-                // surname_warning.style.display = "inline-block"
-                surname_input.style.backgroundColor = "#ffb073"
-            }
-            else {
-                // surname_warning.style.display = "none"
-                surname_input.style.backgroundColor = "#FFCC73"
-            }
-            if (repeatPassword_input.value != password_input.value) {
-                // repeatPassword_warning.style.display = "inline-block"
-                repeatPassword_input.style.backgroundColor = "#ffb073"
-            }
-            else {
-                // repeatPassword_warning.style.display = "none"
-                repeatPassword_input.style.backgroundColor = "#FFCC73"
-            }
-            if (password_input.value == "") {
-                // password_warning.style.display = "inline-block"
-                password_input.style.backgroundColor = "#ffb073"
-            }
-            else {
-                // password_warning.style.display = "none"
-                password_input.style.backgroundColor = "#FFCC73"
-            }
-            if (email_input.value == "") {
-                // email_warning.style.display = "inline-block"
-                email_input.style.backgroundColor = "#ffb073"
-            }
-            else {
-                // email_warning.style.display = "none"
-                email_input.style.backgroundColor = "#FFCC73"
-            }
-            if (phone_input.value == "") {
-                // phone_warning.style.display = "inline-block"
-                phone_input.style.backgroundColor = "#ffb073"
-            }
-            else {
-                // phone_warning.style.display = "none"
-                phone_input.style.backgroundColor = "#FFCC73"
-            }
+            patronymic_input.style.backgroundColor = "#FFCC73"
         }
+        if (item_select.value == "") {
+            item_select.style.backgroundColor = "#ffb073"
+        }
+        else {
+            item_select.style.backgroundColor = "#FFCC73"
+        }
+        if (education_textarea.value == "") {
+            education_textarea.style.backgroundColor = "#ffb073"
+        }
+        else {
+            education_textarea.style.backgroundColor = "#FFCC73"
+        }
+        if (description_textarea.value == "") {
+            description_textarea.style.backgroundColor = "#ffb073"
+        }
+        else {
+            description_textarea.style.backgroundColor = "#FFCC73"
+        }
+        if (name_input.value == "") {
+            // name_warning.style.display = "inline-block"
+            name_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            // name_warning.style.display = "none"
+            name_input.style.backgroundColor = "#FFCC73"
+        }
+        if (surname_input.value == "") {
+            // surname_warning.style.display = "inline-block"
+            surname_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            // surname_warning.style.display = "none"
+            surname_input.style.backgroundColor = "#FFCC73"
+        }
+        if (repeatPassword_input.value != password_input.value) {
+            // repeatPassword_warning.style.display = "inline-block"
+            repeatPassword_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            // repeatPassword_warning.style.display = "none"
+            repeatPassword_input.style.backgroundColor = "#FFCC73"
+        }
+        if (password_input.value == "") {
+            // password_warning.style.display = "inline-block"
+            password_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            // password_warning.style.display = "none"
+            password_input.style.backgroundColor = "#FFCC73"
+        }
+        if (email_input.value == "") {
+            // email_warning.style.display = "inline-block"
+            email_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            // email_warning.style.display = "none"
+            email_input.style.backgroundColor = "#FFCC73"
+        }
+        if (phone_input.value == "") {
+            // phone_warning.style.display = "inline-block"
+            phone_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            // phone_warning.style.display = "none"
+            phone_input.style.backgroundColor = "#FFCC73"
+        }
+    }
 })
-buttonSend_entrance?.addEventListener("click", async ()=>{
-    if(name_input.value != "" && surname_input.value != "" && password_input.value != ""){
-        let data = await fetch("http://localhost:3000/entrance", {
+buttonSend_entrance?.addEventListener("click", async () => {
+    if (name_input.value != "" && surname_input.value != "" && password_input.value != "") {
+        let data = await fetch("http://192.168.31.58:3000/entrance", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -386,34 +421,34 @@ buttonSend_entrance?.addEventListener("click", async ()=>{
         }) as any
         data = await data.json()
         console.log(data[0]);
-        
-        if(data[0]["teacher_id"]){
-            if (data[0].password == md5(password_input.value)){
-                localStorage.setItem("name",data[0].name + "")
-                localStorage.setItem("surname",data[0].surname + "")
-                localStorage.setItem("id_student",data[0].id + "")
-                localStorage.setItem("id_teacher",data[0].teacher_id + "")
+
+        if (data[0]["teacher_id"]) {
+            if (data[0].password == md5(password_input.value)) {
+                localStorage.setItem("name", data[0].name + "")
+                localStorage.setItem("surname", data[0].surname + "")
+                localStorage.setItem("id_student", data[0].id + "")
+                localStorage.setItem("id_teacher", data[0].teacher_id + "")
                 window.location.href = "./personal_area_student.html"
                 console.log(0);
-                
+
             }
         }
-        else{
-            if (data[0].password == md5(password_input.value)){
-                localStorage.setItem("name",data[0].name + "")
-                localStorage.setItem("surname",data[0].surname + "")
-                localStorage.setItem("id_teacher",data[0].id + "")
-                localStorage.setItem("timetable_classes_teacher",data[0].timetable_classes + "")
+        else {
+            if (data[0].password == md5(password_input.value)) {
+                localStorage.setItem("name", data[0].name + "")
+                localStorage.setItem("surname", data[0].surname + "")
+                localStorage.setItem("id_teacher", data[0].id + "")
+                localStorage.setItem("timetable_classes_teacher", data[0].timetable_classes + "")
                 window.location.href = "./personal_area_teacher.html"
             }
         }
 
 
-        
+
         console.log(data[0]);
         console.log(data[0].class);
     }
-    else{
+    else {
         if (name_input.value == "") {
             name_warning.style.display = "inline-block"
             name_input.style.backgroundColor = "#ffb073"
@@ -439,7 +474,7 @@ buttonSend_entrance?.addEventListener("click", async ()=>{
             password_input.style.backgroundColor = "#FFCC73"
         }
     }
-    
+
 })
 
 

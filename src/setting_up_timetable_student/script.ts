@@ -47,7 +47,7 @@ let timetable_classes_arr: any
 // ]
 
 async function start_page() {
-    let data = await fetch("http://localhost:3000/get_student_start_page", {
+    let data = await fetch("http://192.168.31.58:3000/get_student_start_page", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -69,7 +69,7 @@ async function start_page() {
 start_page()
 
 async function render_timetable_start() {
-    let data = await fetch("http://localhost:3000/get_teacher", {
+    let data = await fetch("http://192.168.31.58:3000/get_teacher", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -272,7 +272,7 @@ timetableClasses_thisWeek?.addEventListener("click", (e) => {
 button_save?.addEventListener("click", async () => {
     start_page()
 
-        let data = await fetch("http://localhost:3000/change_teacher", {
+        let data = await fetch("http://192.168.31.58:3000/change_teacher", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -294,7 +294,7 @@ button_back_global?.addEventListener("click", async ()=>{
     start_page()
     if(confirm("сохранить изменение?")){
 
-        let data = await fetch("http://localhost:3000/change_teacher", {
+        let data = await fetch("http://192.168.31.58:3000/change_teacher", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'

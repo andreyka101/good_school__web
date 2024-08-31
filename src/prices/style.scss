@@ -1,0 +1,105 @@
+.prices_cards_block{
+    background-color: #6A93D4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 46px 15px;
+    margin: 20px;
+    border-radius: 25px;
+    h2{
+        margin: 0;
+        margin-bottom: 36px;
+        .span_h2{
+            display: inline-block;
+            background-color: #FFBA40;
+            padding: 8px 20px;
+            border-radius: 10px;
+        }
+    }
+    .item_card{
+        margin: 12px;
+        width: 270px;
+        height: 270px;
+        background-color: #ffffff;
+        border: #000 4px solid;
+        border-radius: 25px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        .item_card_flex{
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+            h3{
+                text-align: center;
+                margin-top: 20px;
+                background-color: #FFBA40;
+                padding: 8px 20px;
+                border-radius: 10px;
+            }
+            span{
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .span_big{
+                font-size: 30px;
+            }
+            .span_red{
+                margin-top: 15px;
+                color: #FF6700;
+            }
+        } 
+        a{
+            display: flex;
+            text-decoration: none;
+            margin-bottom: 24px;
+            span{
+                display: inline-flex;
+                align-items: center;
+                margin: 8px;
+                color: #496085;
+                // transition: .3s;
+            }
+            svg{
+                fill: #000000;
+                // transition: .3s;
+            }
+            font-size: 17.6px;
+            margin-bottom: 10px;
+        }
+    }
+    @media (hover: hover){
+        .item_card:hover{
+            background-color: #6A93D4;
+            .item_card_flex .span_red{
+                color: #FFAB73;
+            }
+            a{
+                svg{
+                    fill: #c4dafd;
+                }
+                span{
+                    color: #a7c6f7;
+                }
+            }
+            a:hover{
+                svg{
+                    fill: #284A7F;
+                    // transition: .3s;
+                }
+                span{
+                    // transition: .3s;
+        
+                    color: #284A7F;
+                }
+            }
+        }
+    }
+    .big_card{
+        height: 290px;
+    }
+}

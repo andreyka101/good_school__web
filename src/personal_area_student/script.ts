@@ -10,7 +10,7 @@ userNameSurname_div.innerText = localStorage.getItem("name") + " " + localStorag
 
 
 async function start_page() {
-    let data = await fetch("http://localhost:3000/get_student_start_page", {
+    let data = await fetch("http://192.168.31.58:3000/get_student_start_page", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -34,7 +34,7 @@ start_page()
 async function render_timetable_start() {
     try {
 
-        let data = await fetch("http://localhost:3000/get_teacher", {
+        let data = await fetch("http://192.168.31.58:3000/get_teacher", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'

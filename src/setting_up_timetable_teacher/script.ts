@@ -7,7 +7,19 @@ const button_back_global = document.querySelector(".back_global") as HTMLButtonE
 let str_timetableClasses_thisWeek = ""
 let str_timetableClasses_nextWeek = ""
 let data_now = new Date().getDay()
-let timetable_classes_arr:any
+let timetable_classes_arr: any
+let timetable_classes_groups_arr: any
+let key_G_down = false
+document.addEventListener('keydown', function (event) {
+    if (event.code == 'KeyG') {
+        key_G_down = true
+    }
+});
+document.addEventListener('keyup', function (event) {
+    if (event.code == 'KeyG') {
+        key_G_down = false
+    }
+});
 // let timetable_classes_arr = [
 //     {
 //         "type": "work",
@@ -42,7 +54,28 @@ let timetable_classes_arr:any
 // ]
 
 async function start_page() {
-    let data = await fetch("http://localhost:3000/get_teacher_start_page", {
+    let data = await fetch("http://192.168.31.58:3000/get_teacher_start_page", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            id: +(localStorage.getItem("id_teacher") + "")
+        })
+    }) as any
+    data = await data.json()
+    // console.log(data);
+    if (data.name != localStorage.getItem("name") || data.surname != localStorage.getItem("surname")) {
+        localStorage.setItem("name", "")
+        localStorage.setItem("surname", "")
+        localStorage.setItem("id_teacher", "")
+        window.location.href = "./"
+    }
+}
+start_page()
+
+async function render_timetable_start() {
+    let data = await fetch("http://192.168.31.58:3000/get_teacher", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -53,33 +86,14 @@ async function start_page() {
     }) as any
     data = await data.json()
     console.log(data);
-    if (data.name != localStorage.getItem("name") || data.surname != localStorage.getItem("surname")) {
-        localStorage.setItem("name", "")
-        localStorage.setItem("surname", "")
-        localStorage.setItem("id_teacher", "")
-        window.location.href = "./"
-    }
-}
-start_page()
-
-async function render_timetable_start(){
-    let data = await fetch("http://localhost:3000/get_teacher", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            id: +(localStorage.getItem("id_teacher")+"")
-        })
-    }) as any
-    data = await data.json()
-    console.log(data);
     timetable_classes_arr = JSON.parse(data.timetable_classes)
+    if (data.timetable_classes_groups == null) timetable_classes_groups_arr = []
+    else timetable_classes_groups_arr = JSON.parse(data.timetable_classes_groups)
     str_timetableClasses_thisWeek = ""
     str_timetableClasses_nextWeek = ""
     timetableClasses_thisWeek.innerHTML = ''
     timetableClasses_nextWeek.innerHTML = ''
-    console.log("data");
+    // console.log("data");
     for (let time = 8; time != 22; time++) {
         str_timetableClasses_thisWeek += `<span class="text_grid_time">
         ${time}.00
@@ -94,6 +108,9 @@ async function render_timetable_start(){
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyTemporarily") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
+                }
+                for (let i in timetable_classes_groups_arr) {
+                    if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups" && timetable_classes_groups_arr[i].week != "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
                 }
                 if (time_block != "") str_timetableClasses_thisWeek += time_block
                 else str_timetableClasses_thisWeek += `<div data-time="${time}" data-day="${day}" class="time_none"></div>`
@@ -112,6 +129,9 @@ async function render_timetable_start(){
                 if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "work") time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                 if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                 if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "busyTemporarily" && timetable_classes_arr[i].week == "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
+            }
+            for (let i in timetable_classes_groups_arr) {
+                if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups") time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
             }
             if (time_block != "") str_timetableClasses_nextWeek += time_block
             else str_timetableClasses_nextWeek += `<div data-time="${time}" data-day="${day}" class="time_none"></div>`
@@ -120,12 +140,12 @@ async function render_timetable_start(){
     timetableClasses_thisWeek.innerHTML = str_timetableClasses_thisWeek
     timetableClasses_nextWeek.innerHTML = str_timetableClasses_nextWeek
     return JSON.parse(data.timetable_classes)
-    
+
 }
 
 timetable_classes_arr = render_timetable_start()
-console.log("timetable_classes_arr");
-console.log(timetable_classes_arr);
+// console.log("timetable_classes_arr");
+// console.log(timetable_classes_arr);
 
 
 function render_timetable() {
@@ -133,7 +153,7 @@ function render_timetable() {
     str_timetableClasses_nextWeek = ""
     timetableClasses_thisWeek.innerHTML = ''
     timetableClasses_nextWeek.innerHTML = ''
-    console.log("data");
+    // console.log("data");
     for (let time = 8; time != 22; time++) {
         str_timetableClasses_thisWeek += `<span class="text_grid_time">
         ${time}.00
@@ -149,6 +169,9 @@ function render_timetable() {
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyTemporarily") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
                 }
+                for (let i in timetable_classes_groups_arr) {
+                    if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups" && timetable_classes_groups_arr[i].week != "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                }
                 if (time_block != "") str_timetableClasses_thisWeek += time_block
                 else str_timetableClasses_thisWeek += `<div data-time="${time}" data-day="${day}" class="time_none"></div>`
             }
@@ -158,6 +181,9 @@ function render_timetable() {
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                 }
+                for (let i in timetable_classes_groups_arr) {
+                    if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups" && timetable_classes_groups_arr[i].week != "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                }
                 if (time_block != "") str_timetableClasses_thisWeek += time_block
                 else str_timetableClasses_thisWeek += `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
             }
@@ -166,6 +192,9 @@ function render_timetable() {
                 if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "work") time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                 if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                 if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "busyTemporarily" && timetable_classes_arr[i].week == "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
+            }
+            for (let i in timetable_classes_groups_arr) {
+                if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups") time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
             }
             if (time_block != "") str_timetableClasses_nextWeek += time_block
             else str_timetableClasses_nextWeek += `<div data-time="${time}" data-day="${day}" class="time_none"></div>`
@@ -182,77 +211,122 @@ timetableClasses_nextWeek?.addEventListener("click", (e) => {
     let target = e.target as HTMLDivElement
     if (target.tagName == "SPAN" || target.className == "timetable_classes") return
 
-
-    if (target.className == "time_none") {
-        timetable_classes_arr.push({
-            "type": "busyAlways",
-            "dayWeek": +(target.dataset["day"] + ""),
-            "time": +(target.dataset["time"] + ""),
-            "week": "next",
-        })
-    }
-    if (target.className == "time_busyAlways") {
-        for (let i in timetable_classes_arr) {
-            if (timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "")) {
-                timetable_classes_arr.splice(+(i), 1)
-                console.log(i);
-
+    if (key_G_down) {
+        if (target.className == "time_none") {
+            timetable_classes_groups_arr.push({
+                "type": "groups",
+                "dayWeek": +(target.dataset["day"] + ""),
+                "time": +(target.dataset["time"] + ""),
+                "week": "next",
+                // "week": "this",
+            })
+        }
+        if (target.className == "time_groups") {
+            for (let i in timetable_classes_groups_arr) {
+                if (timetable_classes_groups_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_groups_arr[i].time == +(target.dataset["time"] + "")) {
+                    timetable_classes_groups_arr.splice(+(i), 1)
+                }
             }
         }
-        window.navigator.vibrate(70)
-    }
-    if (target.className == "time_busyTemporarily") {
-        for (let i in timetable_classes_arr) {
-            if (timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "") && timetable_classes_arr[i].week == "next") {
-                timetable_classes_arr.splice(+(i), 1)
-                console.log(i);
 
-            }
+    }
+    else {
+
+
+
+        if (target.className == "time_none") {
+            timetable_classes_arr.push({
+                "type": "busyAlways",
+                "dayWeek": +(target.dataset["day"] + ""),
+                "time": +(target.dataset["time"] + ""),
+                "week": "next",
+            })
         }
-        window.navigator.vibrate(70)
+        if (target.className == "time_busyAlways") {
+            for (let i in timetable_classes_arr) {
+                if (timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "")) {
+                    timetable_classes_arr.splice(+(i), 1)
+                    // console.log(i);
+
+                }
+            }
+            window.navigator.vibrate(70)
+        }
+        if (target.className == "time_busyTemporarily") {
+            for (let i in timetable_classes_arr) {
+                if (timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "") && timetable_classes_arr[i].week == "next") {
+                    timetable_classes_arr.splice(+(i), 1)
+                    // console.log(i);
+
+                }
+            }
+            window.navigator.vibrate(70)
+        }
+        // window.navigator.vibrate(200)
     }
     render_timetable()
-    // window.navigator.vibrate(200)
 })
 
 
 timetableClasses_thisWeek?.addEventListener("click", (e) => {
-    console.log("timetable_classes_arr");
-console.log(timetable_classes_arr);
+    // console.log("timetable_classes_arr");
+    // console.log(timetable_classes_arr);
     start_page()
     let target = e.target as HTMLDivElement
     if (target.tagName == "SPAN" || target.className == "timetable_classes") return
-    if (target.className == "time_none") {
-        for (let i in timetable_classes_arr) {
 
-            if (timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "") && timetable_classes_arr[i].type == "busyAlways") {
-                timetable_classes_arr.splice(+(i), 1)
+    if (key_G_down) {
+        if (target.className == "time_none") {
+            timetable_classes_groups_arr.push({
+                "type": "groups",
+                "dayWeek": +(target.dataset["day"] + ""),
+                "time": +(target.dataset["time"] + ""),
+                // "week": "next",
+                "week": "this",
+            })
+        }
+        if (target.className == "time_groups") {
+            for (let i in timetable_classes_groups_arr) {
+                if (timetable_classes_groups_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_groups_arr[i].time == +(target.dataset["time"] + "")) {
+                    timetable_classes_groups_arr.splice(+(i), 1)
+                }
             }
         }
-        timetable_classes_arr.push({
-            "type": "busyAlways",
-            "dayWeek": +(target.dataset["day"] + ""),
-            "time": +(target.dataset["time"] + ""),
-            "week": "this",
-        })
-    }
-    if (target.className == "time_busyAlways") {
-        for (let i in timetable_classes_arr) {
-            if (timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "")) {
-                timetable_classes_arr.splice(+(i), 1)
-            }
-        }
-        window.navigator.vibrate(70)
-    }
-    if (target.className == "time_busyTemporarily") {
-        for (let i in timetable_classes_arr) {
-            if (timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "") && timetable_classes_arr[i].week == "this") {
-                timetable_classes_arr.splice(+(i), 1)
-                console.log(i);
 
+    }
+    else {
+        if (target.className == "time_none") {
+            for (let i in timetable_classes_arr) {
+
+                if (timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "") && timetable_classes_arr[i].type == "busyAlways") {
+                    timetable_classes_arr.splice(+(i), 1)
+                }
             }
+            timetable_classes_arr.push({
+                "type": "busyAlways",
+                "dayWeek": +(target.dataset["day"] + ""),
+                "time": +(target.dataset["time"] + ""),
+                "week": "this",
+            })
         }
-        window.navigator.vibrate(70)
+        if (target.className == "time_busyAlways") {
+            for (let i in timetable_classes_arr) {
+                if (timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "")) {
+                    timetable_classes_arr.splice(+(i), 1)
+                }
+            }
+            window.navigator.vibrate(70)
+        }
+        if (target.className == "time_busyTemporarily") {
+            for (let i in timetable_classes_arr) {
+                if (timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "") && timetable_classes_arr[i].week == "this") {
+                    timetable_classes_arr.splice(+(i), 1)
+                    // console.log(i);
+
+                }
+            }
+            window.navigator.vibrate(70)
+        }
     }
     render_timetable()
 })
@@ -298,54 +372,54 @@ timetableClasses_nextWeek?.addEventListener("contextmenu", (e) => {
 })
 
 
-button_save?.addEventListener("click", async ()=>{
+button_save?.addEventListener("click", async () => {
     start_page()
-    let data = await fetch("http://localhost:3000/change_teacher", {
+    let data = await fetch("http://192.168.31.58:3000/change_teacher", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            where:{
-                id: +(localStorage.getItem("id_teacher")+"")
+            where: {
+                id: +(localStorage.getItem("id_teacher") + "")
             },
-            data:{
-                timetable_classes:JSON.stringify(timetable_classes_arr)
-
+            data: {
+                timetable_classes: JSON.stringify(timetable_classes_arr),
+                timetable_classes_groups: JSON.stringify(timetable_classes_groups_arr),
             }
         })
     }) as any
     data = await data.json()
-    if(data.id == +(localStorage.getItem("id_teacher")+"")) window.location.href = "./personal_area_teacher.html"
+    if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_teacher.html"
 })
 
 
-button_back_global?.addEventListener("click", async ()=>{
+button_back_global?.addEventListener("click", async () => {
     start_page()
-    if(confirm("сохранить изменение?")){
+    if (confirm("сохранить изменение?")) {
 
-        let data = await fetch("http://localhost:3000/change_teacher", {
+        let data = await fetch("http://192.168.31.58:3000/change_teacher", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                where:{
-                    id: +(localStorage.getItem("id_teacher")+"")
+                where: {
+                    id: +(localStorage.getItem("id_teacher") + "")
                 },
-                data:{
-                    timetable_classes:JSON.stringify(timetable_classes_arr)
-                    
+                data: {
+                    timetable_classes: JSON.stringify(timetable_classes_arr),
+                    timetable_classes_groups: JSON.stringify(timetable_classes_groups_arr),
+
                 }
             })
         }) as any
         data = await data.json()
-        if(data.id == +(localStorage.getItem("id_teacher")+"")) window.location.href = "./personal_area_teacher.html"
+        if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_teacher.html"
     }
-    else{
+    else {
         window.location.href = "./personal_area_teacher.html"
     }
 })
-
 
 

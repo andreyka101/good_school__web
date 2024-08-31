@@ -43,19 +43,21 @@ header {
             justify-content: center;
             flex-wrap: wrap;
             a {
+                font-size: 17px;
                 text-decoration: none;
                 background-color: #51b4a3;
                 color: #031e47;
                 margin: 4px;
-                padding: 10px;
+                padding: 8px;
                 border-radius: 5px;
             }
             span {
+                font-size: 17px;
                 text-decoration: none;
                 background-color: #144f45;
-                color: #5b7eb6;
+                color: #51b4a3;
                 margin: 4px;
-                padding: 10px;
+                padding: 8px;
                 border-radius: 5px;
             }
         }
@@ -140,6 +142,18 @@ header {
             }
         }
     }
+    @media screen and (max-width: 360px) {
+        .top_block {
+            .site_name {
+                .span_top_block {
+                    font-size: 40px;
+                    span:nth-child(1) {
+                        font-size: 47px;
+                    }
+                }
+            }
+        }
+    }
 }
 .igs_button_universal_A1 {
     text-decoration: none;
@@ -162,6 +176,14 @@ header {
     margin: 4px;
     padding: 6px;
     border-radius: 5px;
+}
+@media (hover: hover){
+    .igs_button_universal_B1:hover {
+        background-color: #429285;
+    }
+    .igs_button_universal_A1:hover {
+        background-color: #429285;
+    }
 }
 .flex_center {
     display: flex;
@@ -240,6 +262,12 @@ header {
                 height: 35px;
                 background-color: #ff5151;
             }
+            .time_groups {
+                border-radius: 10px;
+                width: 35px;
+                height: 35px;
+                background-color: #51cbff;
+            }
         }
     }
     .igs_button_universal_B1 {
@@ -256,12 +284,18 @@ header {
         background-color: #6f0101;
         display: none;
     }
+    .timetable_classes_scroll::-webkit-scrollbar-track {
+        background-color: #ffffff00;
+    }
     .timetable_classes_scroll::-webkit-scrollbar-thumb {
         background-color: #51b4a3;
         border-radius: 25px;
     }
-    .timetable_classes_scroll::-webkit-scrollbar-track {
-        background-color: #75757500;
+    .timetable_classes_scroll::-webkit-scrollbar-thumb:hover {
+        background-color: #459a8b;
+    }
+    .timetable_classes_scroll::-webkit-scrollbar-thumb:active {
+        background-color: #337267;
     }
 }
 @media screen and (max-width: 975px) {
