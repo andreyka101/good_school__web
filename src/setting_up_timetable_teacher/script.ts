@@ -85,7 +85,7 @@ async function render_timetable_start() {
         })
     }) as any
     data = await data.json()
-    console.log(data);
+    console.log(JSON.parse(data.timetable_classes));
     timetable_classes_arr = JSON.parse(data.timetable_classes)
     if (data.timetable_classes_groups == null) timetable_classes_groups_arr = []
     else timetable_classes_groups_arr = JSON.parse(data.timetable_classes_groups)
@@ -264,6 +264,8 @@ timetableClasses_nextWeek?.addEventListener("click", (e) => {
         }
         // window.navigator.vibrate(200)
     }
+    console.log(timetable_classes_arr.length);
+    
     render_timetable()
 })
 

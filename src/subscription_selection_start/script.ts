@@ -30,6 +30,13 @@ async function name() {
     data = await data.json()
     let dataUserClass = JSON.parse(localStorage.getItem("dataUser")+"").class
     if(dataUserClass == "1-4" || dataUserClass == "5-8") dataUserClass = "1-8"
+    if(JSON.parse(localStorage.getItem("dataUser")+"").item == "programming") dataUserClass = "programming"
+    if(dataUserClass == "1-8"){
+        const options_center = document.querySelector(".options_center") as HTMLElement
+        options_center.style.display = "none"
+        const h1 = document.querySelector("h1") as HTMLElement
+        h1.style.marginBottom = "100px"
+    }
     console.log(dataUserClass);
     console.log(data[dataUserClass + class_status][0]);
     let html_str = ""

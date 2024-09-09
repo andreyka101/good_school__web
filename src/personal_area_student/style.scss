@@ -38,3 +38,43 @@ h2 {
     margin-top: 30px;
     padding: 10px 16px;
 }
+.paid_lessons{
+    background-color: #284A7F;
+    color: white;
+    position: absolute;
+    right: calc(0% + 50px);
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 15px;
+}
+
+.link_payment{
+    position: absolute;
+    right: calc(0% + 50px);
+    top: 120px;
+    display: flex;
+    text-decoration: none;
+    margin-bottom: 24px;
+    span{
+        display: inline-flex;
+        align-items: center;
+        margin: 8px;
+        color: #496085;
+        transition: .3s;
+    }
+    svg{
+        fill: #000000;
+        transition: .3s;
+    }
+}
+.link_payment:hover{
+    svg{
+        fill: #284A7F;
+        transition: .3s;
+    }
+    span{
+        transition: .3s;
+
+        color: #284A7F;
+    }
+}

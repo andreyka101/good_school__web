@@ -80,4 +80,19 @@ async function render_timetable_start() {
     }
 }
 render_timetable_start()
-
+async function paid_lessons() {
+    let get_student = await fetch("http://192.168.31.58:3000/get_student", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            id: +(localStorage.getItem("id_student") + "")
+        })
+    }) as any
+    get_student = await get_student.json()
+    console.log(get_student);
+    const paid_lessons_span = document.querySelector(".paid_lessons") as HTMLElement
+    paid_lessons_span.innerText = "Оплаченные занятия: " + get_student.paid_lessons
+}
+paid_lessons()

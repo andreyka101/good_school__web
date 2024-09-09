@@ -31,6 +31,15 @@ const buttonSend_registrationTeacher = document.querySelector("#buttonSend_regis
 
 const buttonSend_entrance = document.querySelector("#buttonSend_entrance") as HTMLButtonElement
 
+if(localStorage.getItem("dataUser") != ""){
+    let dataUser = JSON.parse(localStorage.getItem("dataUser") as string)
+    name_input.value = dataUser.name
+    surname_input.value = dataUser.surname
+    phone_input.value = dataUser.phone
+    email_input.value = dataUser.email
+    class_select.value = dataUser.class
+    // name_input.value = dataUser.name
+}
 
 class_select?.addEventListener("click", () => {
     if (class_select.value != "") {
@@ -168,7 +177,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                 }))
                 // localStorage.setItem("name",data.name + "")
                 // localStorage.setItem("surname",data.surname + "")
-                // localStorage.setItem("id_student",data.id + "")
+                localStorage.setItem("id_student","0")
                 // localStorage.setItem("id_teacher",data.teacher_id + "")
                 window.location.href = "./subscription_selection_start.html"
             }
@@ -428,6 +437,7 @@ buttonSend_entrance?.addEventListener("click", async () => {
                 localStorage.setItem("surname", data[0].surname + "")
                 localStorage.setItem("id_student", data[0].id + "")
                 localStorage.setItem("id_teacher", data[0].teacher_id + "")
+                localStorage.setItem("classes_status_user", data[0].type_class + " " + data[0].paid_lessons)
                 window.location.href = "./personal_area_student.html"
                 console.log(0);
 

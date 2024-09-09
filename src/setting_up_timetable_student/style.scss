@@ -4,7 +4,7 @@ h1 {
     font-weight: 400;
     margin: 25px;
 }
-.h1_start{
+.h1_start {
     display: inline-block;
     padding: 10px 40px;
     border-radius: 10px;
@@ -30,25 +30,25 @@ h3 {
     position: absolute;
     margin: 0;
 }
-.timetable_classes_global_block{
+.timetable_classes_global_block {
     margin: 20px;
+    .timetable_classes .time_none {
+        background-color: #5193ff !important;
+    }
 }
-.flex_center{
-    justify-content:space-around;
+.flex_center {
+    justify-content: space-around;
     flex-wrap: wrap;
 }
-#button_save{
+#button_save {
     margin-bottom: 16px;
     padding: 10px;
 }
-.time_none{
-    background-color: #5193FF !important;
-}
 @media (hover: hover) {
-    .timetable_classes_global_block .timetable_classes .time_none:hover {
+    .timetable_classes_global_block .super_timetable .time_none:hover {
         background-color: #3a6ab8 !important;
     }
-    .timetable_classes_global_block .timetable_classes .time_work:hover {
+    .timetable_classes_global_block .super_timetable .time_work:hover {
         background-color: #3ab363 !important;
     }
 }
