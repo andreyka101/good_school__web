@@ -36,6 +36,14 @@
             margin-top: 25px;
         }
     }
+    .card_teacher:nth-child(1){
+        background: url("tutors_s_1.svg") 227% 131%/85% no-repeat;
+        background-color: #447BD4;
+    }
+    .card_teacher:nth-child(2){
+        background: url("tutors_s_2.svg") -96% 289%/110% no-repeat;
+        background-color: #447BD4;
+    }
 }
 @media screen and (max-width: 900px){
     .tutors_box{

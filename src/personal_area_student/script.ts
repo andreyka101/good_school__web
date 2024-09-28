@@ -5,6 +5,15 @@ const timetableClasses_thisWeek = document.querySelector("#timetable_classes_thi
 let str_timetableClasses_thisWeek = ""
 let data_now = new Date().getDay()
 let timetable_classes_arr: any
+const but_setup_1_platform_setup = document.querySelector("#but_setup_1") as HTMLButtonElement
+const but_setup_2_platform_setup = document.querySelector("#but_setup_2") as HTMLButtonElement
+const link_platform_setup = document.querySelector("#super_a") as HTMLLinkElement
+const button_1_copy_phone = document.querySelector("#button_1_copy_phone") as HTMLButtonElement
+let text_copy_phone = ""
+const information_about_teacherLink_1 = document.querySelector(".information_about_teacher #link_1") as HTMLLinkElement
+const information_about_teacherLink_2 = document.querySelector(".information_about_teacher #link_2") as HTMLLinkElement
+const link_to_lesson = document.querySelector("#link_to_lesson") as HTMLButtonElement
+const notification_button = document.querySelector(".notification_block button") as HTMLButtonElement
 
 userNameSurname_div.innerText = localStorage.getItem("name") + " " + localStorage.getItem("surname")
 
@@ -44,11 +53,14 @@ async function render_timetable_start() {
             })
         }) as any
         data = await data.json()
-        // console.log(data);
+        information_about_teacherLink_1.href = "https://wa.me/" + data.phone
+        information_about_teacherLink_2.href = "https://t.me/" + data.phone
+        text_copy_phone = data.phone
+        console.log("data");
+        console.log(data);
         timetable_classes_arr = JSON.parse(data.timetable_classes)
         str_timetableClasses_thisWeek = ""
         timetableClasses_thisWeek.innerHTML = ''
-        // console.log("data");
         for (let time = 8; time != 22; time++) {
             let derivation_on = false
             str_timetableClasses_thisWeek += `<span class="text_grid_time">
@@ -96,3 +108,200 @@ async function paid_lessons() {
     paid_lessons_span.innerText = "Оплаченные занятия: " + get_student.paid_lessons
 }
 paid_lessons()
+
+async function render_platform_setup() {
+    let get_student = await fetch("http://192.168.31.58:3000/get_student", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            id: +(localStorage.getItem("id_student") + "")
+        })
+    }) as any
+    get_student = await get_student.json()
+    but_setup_1_platform_setup.innerText = (get_student.item_teacher == "programming") ? "Discord" : "Zoom"
+    let get_student_platform_lesson = ""
+    if (get_student.platform_lesson == null) {
+        await fetch("http://192.168.31.58:3000/change_student", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                where: {
+                    id: +(localStorage.getItem("id_student") + "")
+                },
+                data: {
+                    platform_lesson: "Discord"
+                }
+            })
+        })
+        get_student_platform_lesson = "Discord"
+    }
+    else {
+        get_student_platform_lesson = get_student.platform_lesson
+    }
+    if (get_student_platform_lesson == "Discord" || get_student_platform_lesson == "Zoom") {
+        but_setup_1_platform_setup.classList.add("button_platform_setup_on")
+        link_platform_setup.href = (get_student_platform_lesson == "Discord") ? "https://volpi.ru/files/manuals/discord.pdf" : "https://support.zoom.com/hc/ru/article?id=zm_kb&sysparm_article=KB0061326"
+    }
+    else {
+        but_setup_2_platform_setup.classList.add("button_platform_setup_on")
+        link_platform_setup.href = "https://sferum.ru/?p=start"
+    }
+    if (get_student_platform_lesson == "Discord") {
+        link_to_lesson.innerText = "скопировать ник учителя"
+    }
+    else {
+        link_to_lesson.innerText = "скопировать ссылку на урок"
+    }
+}
+render_platform_setup()
+but_setup_1_platform_setup.addEventListener("click", async () => {
+    if (but_setup_1_platform_setup.className == "igs_button_universal_B1") {
+
+        await fetch("http://192.168.31.58:3000/change_student", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                where: {
+                    id: +(localStorage.getItem("id_student") + "")
+                },
+                data: {
+                    platform_lesson: but_setup_1_platform_setup.textContent
+                }
+            })
+        })
+        but_setup_1_platform_setup.classList.add("button_platform_setup_on")
+        but_setup_2_platform_setup.classList.remove("button_platform_setup_on")
+        console.log(but_setup_1_platform_setup.textContent);
+        link_platform_setup.href = (but_setup_1_platform_setup.textContent == "Discord") ? "https://volpi.ru/files/manuals/discord.pdf" : "https://support.zoom.com/hc/ru/article?id=zm_kb&sysparm_article=KB0061326"
+        if (but_setup_1_platform_setup.textContent == "Discord") {
+            link_to_lesson.innerText = "скопировать ник учителя"
+        }
+    }
+
+})
+but_setup_2_platform_setup.addEventListener("click", async () => {
+    if (but_setup_2_platform_setup.className == "igs_button_universal_B1") {
+
+        await fetch("http://192.168.31.58:3000/change_student", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                where: {
+                    id: +(localStorage.getItem("id_student") + "")
+                },
+                data: {
+                    platform_lesson: "Сферум"
+                }
+            })
+        })
+        but_setup_2_platform_setup.classList.add("button_platform_setup_on")
+        but_setup_1_platform_setup.classList.remove("button_platform_setup_on")
+        link_platform_setup.href = "https://sferum.ru/?p=start"
+        link_to_lesson.innerText = "скопировать ссылку на урок"
+    }
+})
+
+button_1_copy_phone.addEventListener('click', () => {
+    if (button_1_copy_phone.className != "igs_button_universal_B1") return
+    navigator.clipboard.writeText(text_copy_phone).then(function () {
+        console.log('Текст успешно скопирован в буфер обмена');
+        button_1_copy_phone.classList.add("button_active")
+        button_1_copy_phone.innerText = "телефон скопирован"
+        setTimeout(() => {
+            button_1_copy_phone.classList.remove("button_active")
+            button_1_copy_phone.innerText = "скопировать телефон"
+        }, 5000)
+    }, function (err) {
+        console.error('Произошла ошибка при копировании текста: ', err);
+    });
+})
+link_to_lesson.addEventListener('click', async () => {
+    if (link_to_lesson.className != "igs_button_universal_B1") return
+    let get_student = await fetch("http://192.168.31.58:3000/get_student", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            id: +(localStorage.getItem("id_student") + "")
+        })
+    }) as any
+    get_student = await get_student.json()
+    let get_teacher = await fetch("http://192.168.31.58:3000/get_teacher", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            id: +(localStorage.getItem("id_teacher") + "")
+        })
+    }) as any
+    get_teacher = await get_teacher.json()
+    // console.log(JSON.parse(get_teacher.lesson_link));
+    let timetable_classes = JSON.parse(get_teacher.timetable_classes)
+    let new_Date = new Date
+    let super_bool = false
+    for (let i in timetable_classes) if (timetable_classes[i].id == +(localStorage.getItem("id_student") + "") && timetable_classes[i].week == "this" && (timetable_classes[i].dayWeek == new_Date.getHours() || (timetable_classes[i].dayWeek == new_Date.getHours() - 1 && new_Date.getMinutes() >= 50))) super_bool = true
+    
+    if (super_bool) {
+        if (get_student.platform_lesson == "Zoom") {
+            navigator.clipboard.writeText(JSON.parse(get_teacher.lesson_link)[0]).then(function () {
+                console.log('Текст успешно скопирован в буфер обмена');
+                link_to_lesson.classList.add("button_active")
+                link_to_lesson.innerText = "ссылка скопирована"
+                setTimeout(() => {
+                    link_to_lesson.classList.remove("button_active")
+                    link_to_lesson.innerText = "скопировать ссылку на урок"
+                }, 5000)
+            }, function (err) {
+                console.error('Произошла ошибка при копировании текста: ', err);
+            });
+        }
+        else if (get_student.platform_lesson == "Discord") {
+            navigator.clipboard.writeText(JSON.parse(get_teacher.lesson_link)[0]).then(function () {
+                console.log('Текст успешно скопирован в буфер обмена');
+                link_to_lesson.classList.add("button_active")
+                link_to_lesson.innerText = "ник скопирован"
+                setTimeout(() => {
+                    link_to_lesson.classList.remove("button_active")
+                    link_to_lesson.innerText = "скопировать ник учителя"
+                }, 5000)
+            }, function (err) {
+                console.error('Произошла ошибка при копировании текста: ', err);
+            });
+
+        }
+        else {
+            navigator.clipboard.writeText(JSON.parse(get_teacher.lesson_link)[1]).then(function () {
+                console.log('Текст успешно скопирован в буфер обмена');
+                link_to_lesson.classList.add("button_active")
+                link_to_lesson.innerText = "ссылка скопирована"
+                setTimeout(() => {
+                    link_to_lesson.classList.remove("button_active")
+                    link_to_lesson.innerText = "скопировать ссылку на урок"
+                }, 5000)
+            }, function (err) {
+                console.error('Произошла ошибка при копировании текста: ', err);
+            });
+        }
+    }
+    else {
+
+        const notification_block_background = document.querySelector(".notification_block_background") as HTMLDivElement
+        notification_block_background.style.display = "flex"
+    }
+})
+notification_button.addEventListener("click", () => {
+    const notification_block_background = document.querySelector(".notification_block_background") as HTMLDivElement
+    notification_block_background.style.display = "none"
+})
+
+

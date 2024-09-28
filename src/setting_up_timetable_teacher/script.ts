@@ -110,7 +110,15 @@ async function render_timetable_start() {
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyTemporarily") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
                 }
                 for (let i in timetable_classes_groups_arr) {
-                    if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups" && timetable_classes_groups_arr[i].week != "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                    if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups" && timetable_classes_groups_arr[i].week != "next"){
+                        let num_work = 0
+                        for (let i in timetable_classes_arr){
+                            if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") num_work++
+                        }
+                        console.log(num_work);
+                        if(num_work > 0) time_block = `<div data-time="${time}" data-day="${day}" class="time_groups">${num_work}</div>`
+                        else time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                    }
                 }
                 if (time_block != "") str_timetableClasses_thisWeek += time_block
                 else str_timetableClasses_thisWeek += `<div data-time="${time}" data-day="${day}" class="time_none"></div>`
@@ -120,6 +128,17 @@ async function render_timetable_start() {
                 for (let i in timetable_classes_arr) {
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
+                }
+                for (let i in timetable_classes_groups_arr) {
+                    if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups" && timetable_classes_groups_arr[i].week != "next"){
+                        let num_work = 0
+                        for (let i in timetable_classes_arr){
+                            if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") num_work++
+                        }
+                        console.log(num_work);
+                        if(num_work > 0) time_block = `<div data-time="${time}" data-day="${day}" class="time_groups">${num_work}</div>`
+                        else time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                    }
                 }
                 if (time_block != "") str_timetableClasses_thisWeek += time_block
                 else str_timetableClasses_thisWeek += `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
@@ -131,7 +150,15 @@ async function render_timetable_start() {
                 if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "busyTemporarily" && timetable_classes_arr[i].week == "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
             }
             for (let i in timetable_classes_groups_arr) {
-                if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups") time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups"){
+                    let num_work = 0
+                    for (let i in timetable_classes_arr){
+                        if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "work") num_work++
+                    }
+                    console.log(num_work);
+                    if(num_work > 0) time_block = `<div data-time="${time}" data-day="${day}" class="time_groups">${num_work}</div>`
+                    else time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                }
             }
             if (time_block != "") str_timetableClasses_nextWeek += time_block
             else str_timetableClasses_nextWeek += `<div data-time="${time}" data-day="${day}" class="time_none"></div>`
@@ -170,7 +197,15 @@ function render_timetable() {
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyTemporarily") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
                 }
                 for (let i in timetable_classes_groups_arr) {
-                    if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups" && timetable_classes_groups_arr[i].week != "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                    if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups" && timetable_classes_groups_arr[i].week != "next"){
+                        let num_work = 0
+                        for (let i in timetable_classes_arr){
+                            if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") num_work++
+                        }
+                        console.log(num_work);
+                        if(num_work > 0) time_block = `<div data-time="${time}" data-day="${day}" class="time_groups">${num_work}</div>`
+                        else time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                    }
                 }
                 if (time_block != "") str_timetableClasses_thisWeek += time_block
                 else str_timetableClasses_thisWeek += `<div data-time="${time}" data-day="${day}" class="time_none"></div>`
@@ -182,7 +217,15 @@ function render_timetable() {
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                 }
                 for (let i in timetable_classes_groups_arr) {
-                    if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups" && timetable_classes_groups_arr[i].week != "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                    if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups" && timetable_classes_groups_arr[i].week != "next"){
+                        let num_work = 0
+                        for (let i in timetable_classes_arr){
+                            if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") num_work++
+                        }
+                        console.log(num_work);
+                        if(num_work > 0) time_block = `<div data-time="${time}" data-day="${day}" class="time_groups">${num_work}</div>`
+                        else time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                    }
                 }
                 if (time_block != "") str_timetableClasses_thisWeek += time_block
                 else str_timetableClasses_thisWeek += `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
@@ -194,7 +237,15 @@ function render_timetable() {
                 if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "busyTemporarily" && timetable_classes_arr[i].week == "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
             }
             for (let i in timetable_classes_groups_arr) {
-                if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups") time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                if (((timetable_classes_groups_arr[i].dayWeek == day && timetable_classes_groups_arr[i].time == time) || (timetable_classes_groups_arr[i].dayWeek == 0 && timetable_classes_groups_arr[i].time == time && day == 7)) && timetable_classes_groups_arr[i].type == "groups"){
+                    let num_work = 0
+                    for (let i in timetable_classes_arr){
+                        if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "work") num_work++
+                    }
+                    console.log(num_work);
+                    if(num_work > 0) time_block = `<div data-time="${time}" data-day="${day}" class="time_groups">${num_work}</div>`
+                    else time_block = `<div data-time="${time}" data-day="${day}" class="time_groups"></div>`
+                }
             }
             if (time_block != "") str_timetableClasses_nextWeek += time_block
             else str_timetableClasses_nextWeek += `<div data-time="${time}" data-day="${day}" class="time_none"></div>`

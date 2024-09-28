@@ -16,11 +16,11 @@ h2 {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    .fi{
+    .fi {
         margin-right: 20px;
     }
-    .user_name_surname{
-        background-color: #D9D9D9;
+    .user_name_surname {
+        background-color: #d9d9d9;
         padding: 13px 15px 4px 15px;
         border-bottom: 1px #000 solid;
         min-width: 230px;
@@ -28,13 +28,129 @@ h2 {
         text-align: center;
     }
 }
-.back_global{
+.back_global {
     top: 20px;
     left: 20px;
     position: absolute;
     margin: 0;
 }
-.igs_button_universal_B1{
+.igs_button_universal_B1 {
     margin-top: 30px;
     padding: 10px 16px;
+}
+.links_platforms {
+    margin-left: 40px;
+    width: 250px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 13px;
+    border: #000 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    position: absolute;
+    top: 22%;
+    span {
+        border-radius: 10px;
+        background-color: #e3e3e3;
+        text-align: center;
+        display: inline-block;
+    }
+    .span_grey_h1 {
+        padding: 18px 0;
+        font-size: 18px;
+        margin-bottom: 7px;
+    }
+    .span_grey {
+        padding: 7px 0;
+        font-size: 16.5px;
+        margin: 10px 0;
+    }
+    .span_super_margin {
+        margin-top: 40px;
+    }
+    .receiving_data {
+        background-color: #ffcc73;
+        // margin: 6px;
+        font-size: 17px;
+        border: 0 #000 solid;
+        padding: 6px;
+        border-radius: 5px;
+    }
+    .igs_button_universal_B1 {
+        margin-top: 20px;
+    }
+}
+.all_block_student_data {
+    top: 22%;
+    margin-right: 40px;
+    right: 0;
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    .student_choice {
+        margin-bottom: 20px;
+        width: 250px;
+        display: -webkit-box;
+        padding: 13px;
+        border: #000 1px solid;
+        border-radius: 10px;
+        background-color: white;
+        overflow-x: auto;
+        overflow-y: hidden;
+        div {
+            margin: 0 7.5px;
+        }
+        .student_none {
+            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: #c4c4c4;
+        }
+        .student_work {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            user-select: none;
+            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: #51ff8c;
+        }
+        .student_selected {
+            border-radius: 10px;
+            border: 2px #000000 solid;
+            width: 31.8px;
+            height: 31.8px;
+            background-color: #51ff8c;
+        }
+    }
+    .student_data {
+        width: 250px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 13px;
+        border: #000 1px solid;
+        border-radius: 10px;
+        background-color: white;
+        .span_grey {
+            border-radius: 10px;
+            background-color: #e3e3e3;
+            text-align: center;
+            display: inline-block;
+            padding: 7px 0;
+            font-size: 16.5px;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        .igs_button_universal_B1 {
+            margin-top: 10px;
+        }
+        .button_active{
+            background-color: #144F45;
+            color: #51B4A3;
+        }
+    }
 }
