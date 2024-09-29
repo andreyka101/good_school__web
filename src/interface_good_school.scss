@@ -165,12 +165,14 @@ header {
     background-color: #51b4a3;
     color: #031e47;
     margin: 4px;
-    padding: 10px;
+    padding: 10px 25px;
     border-radius: 5px;
 }
 .back_global {
+    font-size: 17px;
     display: inline-block;
     margin: 20px;
+    border: 0px #000 solid;
 }
 .igs_button_universal_B1 {
     border: 0;
@@ -179,7 +181,7 @@ header {
     background-color: #51b4a3;
     color: #031e47;
     margin: 4px;
-    padding: 6px;
+    padding: 6px 10px;
     border-radius: 5px;
 }
 @media (hover: hover){

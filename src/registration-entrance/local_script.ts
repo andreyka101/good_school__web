@@ -30,15 +30,22 @@ const description_textarea = document.querySelector("#description_textarea") as 
 const buttonSend_registrationTeacher = document.querySelector("#buttonSend_registrationTeacher") as HTMLButtonElement
 
 const buttonSend_entrance = document.querySelector("#buttonSend_entrance") as HTMLButtonElement
+console.log(window.location.href);
 
-if(localStorage.getItem("dataUser") != ""){
+if(localStorage.getItem("dataUser") != "" && localStorage.getItem("dataUser") != null){
     let dataUser = JSON.parse(localStorage.getItem("dataUser") as string)
-    name_input.value = dataUser.name
-    surname_input.value = dataUser.surname
-    phone_input.value = dataUser.phone
-    email_input.value = dataUser.email
-    class_select.value = dataUser.class
-    // name_input.value = dataUser.name
+    if(window.location.href == "http://localhost:5173/entrance.html" || window.location.href == "http://192.168.31.58:5173/entrance.html"){
+        name_input.value = dataUser.name
+        surname_input.value = dataUser.surname
+    }
+    else{
+        name_input.value = dataUser.name
+        surname_input.value = dataUser.surname
+        phone_input.value = dataUser.phone
+        email_input.value = dataUser.email
+        class_select.value = dataUser.class
+        // name_input.value = dataUser.name
+    }
 }
 
 class_select?.addEventListener("click", () => {
