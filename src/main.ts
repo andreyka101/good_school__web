@@ -1,17 +1,17 @@
-const rq0 = document.querySelector("#rq0") as HTMLElement
-rq0?.addEventListener("mouseover",()=>{
+const id_header_oge = document.querySelector("#id_header_oge") as HTMLElement
+id_header_oge?.addEventListener("mouseover",()=>{
     
     localStorage.setItem("dataUser","")
     localStorage.setItem("registration_configuration","oge")
 })
-const rq1 = document.querySelector("#rq1") as HTMLElement
-rq1?.addEventListener("mouseover",()=>{
+const id_header_prog = document.querySelector("#id_header_prog") as HTMLElement
+id_header_prog?.addEventListener("mouseover",()=>{
     
     localStorage.setItem("dataUser","")
     localStorage.setItem("registration_configuration","prog")
 })
-const rq2 = document.querySelector("#rq2") as HTMLElement
-rq2?.addEventListener("mouseover",()=>{
+const id_header_none = document.querySelector("#id_header_none") as HTMLElement
+id_header_none?.addEventListener("mouseover",()=>{
     localStorage.setItem("dataUser","")
     localStorage.setItem("registration_configuration","none")
 })
