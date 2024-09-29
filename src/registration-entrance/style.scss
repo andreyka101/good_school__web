@@ -4,18 +4,36 @@ h1{
 }
 .center_block{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    .photo_svg{
+        background: url("registration_student_s_1.svg") center/cover;
+        width: 477px;
+        height: 346px;
+        margin-right: 100px;
+        margin-bottom: 150px;
+    }
     .width_block{
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        width: 420px;
+        // margin-right: 50px;
+        margin-left: 150px;
+        .igs_button_universal_B1{
+            font-size: 19px;
+            padding: 10px 0px;
+            width: 134px;
+            text-align: center;
+        }
         .receiving_data{
             background-color: #FFCC73;
             margin: 6px;
-            font-size: 17px;
+            font-size: 21px;
             border: 0 #000 solid;
-            padding: 6px;
+            padding: 10px 0px;
             border-radius: 5px;
+            text-align: center;
         }
         input{
             color: #A64300;
@@ -56,5 +74,5 @@ h1{
     display: none;
 }
 // body{
-//     background: url("contacts_s_1.svg") 33% 114%/246px, url("contacts_s_2.svg") 98% 38%/246px;
+//     background: url("registration_student_s_1.svg") 107% 74%/691px no-repeat;
 // }
