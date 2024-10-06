@@ -9,108 +9,112 @@
 </head>
 
 <body>
-    <div>
 
-        <a href="./" class="igs_button_universal_A1 back_global">назад</a>
-        <h1>
-            Личный кабинет
-        </h1>
-    </div>
-    <div class="blockTop_name">
-        <span class="fi">
-            ФИ
-        </span>
-        <div class="user_name_surname">
+    <a href="./" class="igs_button_universal_A1 back_global">назад</a>
+
+
+
+    <div class="grid_center_three">
+
+        <div>
+            <div class="links_platforms">
+                <span class="span_grey_h1">
+                    Ссылки для платформ
+                </span>
+                <span class="span_grey" id="span_grey_Z_D">
+                    Ник Discord
+                </span>
+                <input type="text" class="receiving_data" id="inp_1">
+                <span class="span_grey span_super_margin">
+                    Ссылка Zoom
+                </span>
+                <input type="text" class="receiving_data" id="inp_2">
+                <button class="igs_button_universal_B1" id="save_links_platforms">
+                    сохранить
+                </button>
+            </div>
         </div>
-    </div>
 
-    <h2>
-        Расписание занятий
-    </h2>
-    <div class="flex_center">
-        <div class="timetable_classes_global_block">
-            <div class="timetable_classes_scroll">
-                <div class="timetable_classes_up_day">
-                    <div>
-                        10.01
-                    </div>
-                    <span class="text_grid_day">
-                        Пн
-                    </span>
-                    <span class="text_grid_day">
-                        Вт
-                    </span>
-                    <span class="text_grid_day">
-                        Ср
-                    </span>
-                    <span class="text_grid_day">
-                        Чт
-                    </span>
-                    <span class="text_grid_day">
-                        Пт
-                    </span>
-                    <span class="text_grid_day">
-                        Сб
-                    </span>
-                    <span class="text_grid_day">
-                        Вс
-                    </span>
+        <div>
+            <div>
+                <h1>
+                    Личный кабинет
+                </h1>
+            </div>
+            <div class="blockTop_name">
+                <span class="fi">
+                    ФИ
+                </span>
+                <div class="user_name_surname">
                 </div>
-                <div class="timetable_classes" id="timetable_classes_this_week">
+            </div>
+
+            <h2>
+                Расписание занятий
+            </h2>
+            <div class="flex_center">
+                <div class="timetable_classes_global_block">
+                    <div class="timetable_classes_scroll">
+                        <div class="timetable_classes_up_day">
+                            <div>
+                                10.01
+                            </div>
+                            <span class="text_grid_day">
+                                Пн
+                            </span>
+                            <span class="text_grid_day">
+                                Вт
+                            </span>
+                            <span class="text_grid_day">
+                                Ср
+                            </span>
+                            <span class="text_grid_day">
+                                Чт
+                            </span>
+                            <span class="text_grid_day">
+                                Пт
+                            </span>
+                            <span class="text_grid_day">
+                                Сб
+                            </span>
+                            <span class="text_grid_day">
+                                Вс
+                            </span>
+                        </div>
+                        <div class="timetable_classes" id="timetable_classes_this_week">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex_center">
+                <a href="./setting_up_timetable_teacher.html" class="igs_button_universal_B1">
+                    изменить время
+                </a>
+            </div>
+        </div>
+
+
+
+
+
+        <div>
+            <div class="all_block_student_data">
+                <div class="student_choice">
+                    <div class="student_none"></div>
+                    <div class="student_none"></div>
+                    <div class="student_none"></div>
+                    <div class="student_none"></div>
+                    <div class="student_none"></div>
+                </div>
+                <div class="student_data">
+                    <span class="span_grey">
+                        выберете время урока
+                    </span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="flex_center">
-        <a href="./setting_up_timetable_teacher.html" class="igs_button_universal_B1">
-            изменить время
-        </a>
-    </div>
-    <div class="links_platforms">
-        <span class="span_grey_h1">
-            Ссылки для платформ
-        </span>
-        <span class="span_grey" id="span_grey_Z_D">
-        </span>
-        <input type="text" class="receiving_data" id="inp_1">
-        <span class="span_grey span_super_margin">
-            Ссылка для Сферум
-        </span>
-        <input type="text" class="receiving_data" id="inp_2">
-        <button class="igs_button_universal_B1" id="save_links_platforms">
-            сохранить
-        </button>
-    </div>
-    <div class="all_block_student_data">
-        <div class="student_choice">
-            <div class="student_work student_selected">1</div>
-            <div class="student_work">2</div>
-            <div class="student_work">3</div>
-            <div class="student_none"></div>
-            <div class="student_none"></div>
-        </div>
-        <div class="student_data">
-            <span class="span_grey">
-                Ученик Квашнин Андрей
-            </span>
-            <span class="span_grey">
-                <div>
-                    Класс 9-11
-                </div>
-                <div>
-                    ЕГЭ, ОГЭ информатика
-                </div>
-                <div>
-                    Zoom
-                </div>
-            </span>
-            <span class="span_grey">
-                Оплаченные занятия: 1
-            </span>
-            <button class="igs_button_universal_B1">
-                скопровать телефон
-            </button>
-        </div>
+
+
     </div>
 
     <script type="module" src="./src/personal_area_teacher/script.ts"></script>

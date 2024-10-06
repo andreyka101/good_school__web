@@ -12,10 +12,16 @@ const button_1_copy_phone = document.querySelector("#button_1_copy_phone") as HT
 let text_copy_phone = ""
 const information_about_teacherLink_1 = document.querySelector(".information_about_teacher #link_1") as HTMLLinkElement
 const information_about_teacherLink_2 = document.querySelector(".information_about_teacher #link_2") as HTMLLinkElement
+const information_about_teacherTeacher_p = document.querySelector(".information_about_teacher #teacher_p") as HTMLDivElement
 const link_to_lesson = document.querySelector("#link_to_lesson") as HTMLButtonElement
 const notification_button = document.querySelector(".notification_block button") as HTMLButtonElement
 
-userNameSurname_div.innerText = localStorage.getItem("name") + " " + localStorage.getItem("surname")
+// userNameSurname_div.innerText = localStorage.getItem("name") + " " + localStorage.getItem("surname")
+let string_name = (localStorage.getItem("name")+"").split("")
+string_name[0] = string_name[0].toUpperCase()
+let string_surname = (localStorage.getItem("surname")+"").split("")
+string_surname[0] = string_surname[0].toUpperCase()
+userNameSurname_div.innerText = string_surname.join("") + " " + string_name.join("")
 
 
 async function start_page() {
@@ -55,6 +61,7 @@ async function render_timetable_start() {
         data = await data.json()
         information_about_teacherLink_1.href = "https://wa.me/" + data.phone
         information_about_teacherLink_2.href = "https://t.me/" + data.phone
+        information_about_teacherTeacher_p.innerText = data.name + " " + data.surname
         text_copy_phone = data.phone
         console.log("data");
         console.log(data);
@@ -120,7 +127,6 @@ async function render_platform_setup() {
         })
     }) as any
     get_student = await get_student.json()
-    but_setup_1_platform_setup.innerText = (get_student.item_teacher == "programming") ? "Discord" : "Zoom"
     let get_student_platform_lesson = ""
     if (get_student.platform_lesson == null) {
         await fetch("http://192.168.31.58:3000/change_student", {
@@ -142,13 +148,13 @@ async function render_platform_setup() {
     else {
         get_student_platform_lesson = get_student.platform_lesson
     }
-    if (get_student_platform_lesson == "Discord" || get_student_platform_lesson == "Zoom") {
+    if (get_student_platform_lesson == "Discord") {
         but_setup_1_platform_setup.classList.add("button_platform_setup_on")
-        link_platform_setup.href = (get_student_platform_lesson == "Discord") ? "https://volpi.ru/files/manuals/discord.pdf" : "https://support.zoom.com/hc/ru/article?id=zm_kb&sysparm_article=KB0061326"
+        link_platform_setup.href = "https://volpi.ru/files/manuals/discord.pdf"
     }
     else {
         but_setup_2_platform_setup.classList.add("button_platform_setup_on")
-        link_platform_setup.href = "https://sferum.ru/?p=start"
+        link_platform_setup.href = "https://support.zoom.com/hc/ru/article?id=zm_kb&sysparm_article=KB0061326"
     }
     if (get_student_platform_lesson == "Discord") {
         link_to_lesson.innerText = "скопировать ник учителя"
@@ -159,7 +165,7 @@ async function render_platform_setup() {
 }
 render_platform_setup()
 but_setup_1_platform_setup.addEventListener("click", async () => {
-    if (but_setup_1_platform_setup.className == "igs_button_universal_B1") {
+    if (but_setup_1_platform_setup.className == "igs_button_universal_B1 transparent_button") {
 
         await fetch("http://192.168.31.58:3000/change_student", {
             method: "POST",
@@ -171,22 +177,19 @@ but_setup_1_platform_setup.addEventListener("click", async () => {
                     id: +(localStorage.getItem("id_student") + "")
                 },
                 data: {
-                    platform_lesson: but_setup_1_platform_setup.textContent
+                    platform_lesson: "Discord"
                 }
             })
         })
         but_setup_1_platform_setup.classList.add("button_platform_setup_on")
         but_setup_2_platform_setup.classList.remove("button_platform_setup_on")
-        console.log(but_setup_1_platform_setup.textContent);
-        link_platform_setup.href = (but_setup_1_platform_setup.textContent == "Discord") ? "https://volpi.ru/files/manuals/discord.pdf" : "https://support.zoom.com/hc/ru/article?id=zm_kb&sysparm_article=KB0061326"
-        if (but_setup_1_platform_setup.textContent == "Discord") {
-            link_to_lesson.innerText = "скопировать ник учителя"
-        }
+        link_platform_setup.href = "https://volpi.ru/files/manuals/discord.pdf"
+        link_to_lesson.innerText = "скопировать ник учителя"
     }
 
 })
 but_setup_2_platform_setup.addEventListener("click", async () => {
-    if (but_setup_2_platform_setup.className == "igs_button_universal_B1") {
+    if (but_setup_2_platform_setup.className == "igs_button_universal_B1 transparent_button") {
 
         await fetch("http://192.168.31.58:3000/change_student", {
             method: "POST",
@@ -198,19 +201,19 @@ but_setup_2_platform_setup.addEventListener("click", async () => {
                     id: +(localStorage.getItem("id_student") + "")
                 },
                 data: {
-                    platform_lesson: "Сферум"
+                    platform_lesson: "Zoom"
                 }
             })
         })
         but_setup_2_platform_setup.classList.add("button_platform_setup_on")
         but_setup_1_platform_setup.classList.remove("button_platform_setup_on")
-        link_platform_setup.href = "https://sferum.ru/?p=start"
+        link_platform_setup.href = "https://support.zoom.com/hc/ru/article?id=zm_kb&sysparm_article=KB0061326"
         link_to_lesson.innerText = "скопировать ссылку на урок"
     }
 })
 
 button_1_copy_phone.addEventListener('click', () => {
-    if (button_1_copy_phone.className != "igs_button_universal_B1") return
+    if (button_1_copy_phone.className != "igs_button_universal_B1 transparent_button") return
     navigator.clipboard.writeText(text_copy_phone).then(function () {
         console.log('Текст успешно скопирован в буфер обмена');
         button_1_copy_phone.classList.add("button_active")
@@ -224,7 +227,7 @@ button_1_copy_phone.addEventListener('click', () => {
     });
 })
 link_to_lesson.addEventListener('click', async () => {
-    if (link_to_lesson.className != "igs_button_universal_B1") return
+    if (link_to_lesson.className != "igs_button_universal_B1 transparent_button") return
     let get_student = await fetch("http://192.168.31.58:3000/get_student", {
         method: "POST",
         headers: {

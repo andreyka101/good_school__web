@@ -13,7 +13,11 @@ let data_now = new Date().getDay()
 let timetable_classes_arr: any
 let timetable_classes_groups_arr: any
 
-userNameSurname_div.innerText = localStorage.getItem("name") + " " + localStorage.getItem("surname")
+let string_name = (localStorage.getItem("name")+"").split("")
+string_name[0] = string_name[0].toUpperCase()
+let string_surname = (localStorage.getItem("surname")+"").split("")
+string_surname[0] = string_surname[0].toUpperCase()
+userNameSurname_div.innerText = string_surname.join("") + " " + string_name.join("")
 
 
 async function start_page() {
@@ -146,13 +150,6 @@ async function render_link_block() {
     }
     else {
         data_lesson_link = JSON.parse(data_lesson_link)
-    }
-    let span_grey_Z_D = document.querySelector("#span_grey_Z_D") as HTMLSpanElement
-    if (data.item == "programming") {
-        span_grey_Z_D.innerText = "Ссылка Discord"
-    }
-    else {
-        span_grey_Z_D.innerText = "Ссылка Zoom"
     }
     inp_1_links_platforms.value = data_lesson_link[0]
     inp_2_links_platforms.value = data_lesson_link[1]

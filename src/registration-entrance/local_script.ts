@@ -14,6 +14,7 @@ const s2_select = document.querySelector("#s2_select") as HTMLSelectElement
 const s3_select = document.querySelector("#s3_select") as HTMLSelectElement
 const s4_select = document.querySelector("#s4_select") as HTMLSelectElement
 const name_warning = document.querySelector("#name_warning") as HTMLSpanElement
+const none_warning = document.querySelector("#none_warning") as HTMLSpanElement
 const surname_warning = document.querySelector("#surname_warning") as HTMLSpanElement
 const class_warning = document.querySelector("#class_warning") as HTMLSpanElement
 const sx_warning = document.querySelector("#sx_warning") as HTMLSpanElement
@@ -175,8 +176,8 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                 localStorage.setItem("dataUser", JSON.stringify({
                     email: email_input.value,
                     phone: phone_input.value,
-                    surname: surname_input.value,
-                    name: name_input.value,
+                    surname: surname_input.value.toLowerCase(),
+                    name: name_input.value.toLowerCase(),
                     class: class_select.value,
                     password: md5(password_input.value),
                     item: s_num[0],
@@ -327,8 +328,8 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
                 description: description_textarea.value,
                 email: email_input.value,
                 phone: phone_input.value,
-                surname: surname_input.value,
-                name: name_input.value,
+                surname: surname_input.value.toLowerCase(),
+                name: name_input.value.toLowerCase(),
                 patronymic: patronymic_input.value,
                 password: md5(password_input.value),
                 item: list_items[0],
@@ -422,6 +423,8 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
         }
     }
 })
+console.log("ee F FeeEFFF".toLowerCase());
+
 buttonSend_entrance?.addEventListener("click", async () => {
     if (name_input.value != "" && surname_input.value != "" && password_input.value != "") {
         let data = await fetch("http://192.168.31.58:3000/entrance", {
@@ -430,13 +433,25 @@ buttonSend_entrance?.addEventListener("click", async () => {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                surname: surname_input.value,
-                name: name_input.value,
+                surname: surname_input.value.toLowerCase(),
+                name: name_input.value.toLowerCase(),
                 password: md5(password_input.value),
             })
         }) as any
         data = await data.json()
-        console.log(data[0]);
+
+        if(data[0].name == "none" && data[0].password == "none"){
+            none_warning.style.display = "inline-block"
+            let s1 = name_input.value
+            let s2 = surname_input.value
+            name_input.value = ""
+            surname_input.value = ""
+            name_input.style.backgroundColor = "#ffb073"
+            surname_input.style.backgroundColor = "#ffb073"
+            password_input.style.backgroundColor = "#ffb073"
+            name_input.value = s1
+            surname_input.value = s2
+        }
 
         if (data[0]["teacher_id"]) {
             if (data[0].password == md5(password_input.value)) {
@@ -446,7 +461,7 @@ buttonSend_entrance?.addEventListener("click", async () => {
                 localStorage.setItem("id_teacher", data[0].teacher_id + "")
                 localStorage.setItem("classes_status_user", data[0].type_class + " " + data[0].paid_lessons)
                 window.location.href = "./personal_area_student.html"
-                console.log(0);
+                // console.log(0);
 
             }
         }
@@ -462,8 +477,8 @@ buttonSend_entrance?.addEventListener("click", async () => {
 
 
 
-        console.log(data[0]);
-        console.log(data[0].class);
+        // console.log(data[0]);
+        // console.log(data[0].class);
     }
     else {
         if (name_input.value == "") {

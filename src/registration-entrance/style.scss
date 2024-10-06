@@ -13,6 +13,13 @@ h1{
         margin-right: 100px;
         margin-bottom: 150px;
     }
+    .photo_svg_2{
+        background: url("entrance_s_1.svg") center/cover;
+        width: 477px;
+        height: 400px;
+        margin-right: 100px;
+        // margin-bottom: 150px;
+    }
     .width_block{
         display: flex;
         flex-direction: column;
@@ -70,6 +77,7 @@ h1{
 // }
 .warning{
     text-align: center;
+    font-size: 20px;
     color: #fe2a2a;
     display: none;
 }
