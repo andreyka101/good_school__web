@@ -39,7 +39,7 @@
         }
         @media screen and (max-width: 452px) {
             h2 {
-                max-width: 208px;
+                // max-width: 208px;
                 // font-size: 22px;
             }
         }
@@ -167,6 +167,30 @@
             }
         }
     }
+    @media screen and (max-width:590px){
+        .horizontally{
+            .information .yellow_block{
+                padding: 9px 50px;
+            }
+            h3{
+                span{
+                    width: 315px !important;
+                }
+            }
+        }
+    }
+    @media screen and (max-width:450px){
+        .horizontally{
+            // .information .yellow_block{
+            //     padding: 9px 50px;
+            // }
+            h3{
+                span{
+                    width: 224px !important;
+                }
+            }
+        }
+    }
 }
 
 .advantagesSchool_block {
@@ -232,9 +256,22 @@
             }
         }
     }
+    @media screen and (max-width:970px) {
+        .horizontally .information{
+            margin-left: 0;
+        }
+    }
     @media screen and (max-width:740px) {
         .svg_heart{
             display: none;
+        }
+        .div_a a{
+            margin-right: 0 !important;
+        }
+    }
+    @media screen and (max-width:370px) {
+        .horizontally .information ul{
+            padding-left: 0;
         }
     }
 }
@@ -397,16 +434,90 @@
             display: none;
         }
     }
+    @media screen and (max-width:510px){
+        .horizontally{
+            // .png{
+            //     display: none;
+            // }
+            // .list_group{
+            //     width: auto;
+            // }
+            h5 span{
+                padding: 0 40px;
+            }
+        }
+    }
+    @media screen and (max-width:370px){
+        .horizontally{
+            .list_group{
+                padding-left: 15px;
+            }
+        }
+        a{
+            margin-bottom: 0px;
+        }
+    }
 }
 
 
 @media screen and (max-width:1080px) {
         .groupClasses_block{
-            background: url("/public/math_book_2c3bj4bbwwii 3.svg") 48% 36%/28% no-repeat, url("/public/Group_svg_py.svg") 100% 114%/25% no-repeat;
+            background: url("/public/math_book_2c3bj4bbwwii 3.svg") 48% 36%/244px no-repeat, url("/public/Group_svg_py.svg") 100% 114%/200px no-repeat;
             background-color: #FFBA40;
         }
         .advantagesSchool_block{
             background: url("/public/Vectors11111.svg") 104% -2%/29% no-repeat;
             background-color: #7496cc;
+        }
+}
+@media screen and (max-width:1033px) {
+    .advantagesSchool_block{
+        background: url("/public/Vectors11111.svg") 104% -2%/35% no-repeat;
+        background-color: #7496cc;
+    }
+}
+@media screen and (max-width:894px) {
+        .groupClasses_block{
+            background: url("/public/math_book_2c3bj4bbwwii 3.svg") 48% 36%/244px no-repeat, url("/public/Group_svg_py.svg") 100% 114%/200px no-repeat;
+            background-color: #FFBA40;
+        }
+        .advantagesSchool_block{
+            background: url("/public/Vectors11111.svg") 104% -2%/43% no-repeat;
+            background-color: #7496cc;
+        }
+}
+@media screen and (max-width:741px) {
+        .groupClasses_block{
+            background: url("/public/math_book_2c3bj4bbwwii 3.svg") -12% 36%/244px no-repeat, url("/public/Group_svg_py.svg") 100% 110%/200px no-repeat;
+            background-color: #FFBA40;
+        }
+        .advantagesSchool_block{
+            background: url("/public/Vectors11111.svg") 104% 10%/288px no-repeat;
+            background-color: #7496cc;
+        }
+}
+@media screen and (max-width:430px) {
+        .groupClasses_block{
+            margin: 10px 6px;
+        }
+        .advantagesSchool_block{
+            margin: 10px 6px;
+        }
+        .programming_block{
+            margin: 10px 6px;
+        }
+        .announcement{
+            margin: 10px 6px;
+        }
+}
+@media screen and (max-width:370px) {
+        .groupClasses_block{
+            padding: 15px;
+        }
+        .advantagesSchool_block{
+            padding: 15px;
+        }
+        .programming_block{
+            padding: 15px;
         }
 }

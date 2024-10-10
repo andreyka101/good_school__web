@@ -98,3 +98,23 @@ body{
 .igs_button_universal_B1{
     font-size: 18px !important;
 }
+@media screen and (max-width: 1050px) {
+    .div_img{
+        width: 550px !important;
+        height: 336px !important;
+    }
+}
+@media screen and (max-width: 890px) {
+    .div_img{
+        width: 432px !important;
+        height: 268px !important;
+    }
+}
+@media screen and (max-width: 770px) {
+    .div_img_block{
+        display: none !important;
+    }
+    .main_grid_block{
+        grid-template-columns: auto;
+    }
+}

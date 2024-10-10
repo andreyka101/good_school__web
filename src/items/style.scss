@@ -78,3 +78,13 @@
         }
     }
 }
+@media screen and (max-width: 360px){
+    .items_cards_block{
+        .item_card{
+            width: 268px;
+            height: auto;
+            min-height: 480px;
+    
+        }
+    }
+}

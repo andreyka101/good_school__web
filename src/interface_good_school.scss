@@ -67,7 +67,7 @@ header {
             }
         }
     }
-    @media screen and (max-width: 1190px) {
+    @media screen and (max-width: 1295px) {
         .top_block {
             // svg{
             //     height: 96px;
@@ -185,6 +185,12 @@ header {
     margin: 4px;
     padding: 6px 10px;
     border-radius: 5px;
+}
+@media screen and (max-width: 1000px) {
+    .back_global{
+        padding: 8px 0px;
+        width: 120px;
+    }
 }
 @media (hover: hover){
     .igs_button_universal_B1:hover {

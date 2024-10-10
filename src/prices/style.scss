@@ -116,3 +116,25 @@
     background: url("prices_s_3.svg") 98% 1%/138px no-repeat;
     background-color: #6A93D4;
 }
+
+@media screen and (max-width:810px) {
+    h2 span{
+        max-width: 319px;
+    }
+}
+@media screen and (max-width:650px) {
+    // h2 span{
+    //     max-width: 160px;
+    // }
+    .prices_cards_block{
+        background: #6A93D4 !important;
+    }
+}
+@media screen and (max-width:360px) {
+    // .item_card{
+    //     padding: 0;
+    // }
+    .prices_cards_block{
+        margin: 20px 4px;
+    }
+}

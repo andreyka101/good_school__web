@@ -50,17 +50,10 @@
         .card_teacher{
             width: 350px;
             .img_text{
-                .photo{
-                }
                 span{
                     width: 152px;
-                    p{
-                    }
-                    .name{
-                    }
+                    word-break: break-all;
                 }
-            }
-            .teacher_text{
             }
         }
     }
@@ -78,16 +71,32 @@
                     width: 150px;
                     height: 150px;
                 }
-                span{
-                    p{
-                    }
-                    .name{
-                    }
-                }
             }
             .teacher_text{
                 margin-bottom: 0;
             }
+        }
+        .card_teacher:nth-child(2){
+        background: url(tutors_s_2.svg) -96% 236% / 110% no-repeat !important;
+        background-color: #447BD4 !important;
+        }
+    }
+}
+@media screen and (max-width: 360px){
+    .tutors_box{
+        .card_teacher{
+            width: 296px;
+            .img_text{
+                // justify-content: space-around;
+                .photo{
+                    width: 130px;
+                    height: 130px;
+                }
+            }
+        }
+        .card_teacher:nth-child(2){
+            background: url(tutors_s_2.svg) -96% 208% / 110% no-repeat !important;
+            background-color: #447BD4 !important;
         }
     }
 }

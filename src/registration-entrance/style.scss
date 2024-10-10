@@ -72,6 +72,9 @@ h1{
         }
     }
 }
+#buttonSend_registrationStudent{
+    margin-bottom: 30px;
+}
 // .igs_button_universal_B1{
 //     padding: 8px;
 // }
@@ -84,3 +87,46 @@ h1{
 // body{
 //     background: url("registration_student_s_1.svg") 107% 74%/691px no-repeat;
 // }
+
+@media screen and (max-width:1150px) {
+    .photo_svg{
+        margin-right: 0 !important;
+    }
+}
+@media screen and (max-width:1110px) {
+    .photo_svg_2{
+        margin-right: 0 !important;
+    }
+    .width_block{
+        margin-left: 20px !important;
+    }
+}
+@media screen and (max-width:910px) {
+    .photo_svg{
+        width: 345px !important;
+        height: 246px !important;
+    }
+}
+@media screen and (max-width:870px) {
+    .photo_svg_2{
+        width: 324px !important;
+        height: 292px !important;
+        margin-top: 68px;
+    }
+    .width_block{
+        max-width: 342px;
+    }
+}
+@media screen and (max-width:690px) {
+    .photo_svg{
+        display: none;
+    }
+    .photo_svg_2{
+        display: none;
+    }
+    .width_block{
+        width: auto;
+        max-width: 420px;
+        margin-left: 0px !important;
+    }
+}
