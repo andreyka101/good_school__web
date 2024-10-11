@@ -118,13 +118,67 @@
             сохранить
         </button>
     </div>
-    <div class="instruction_timetable_time">
+
+    <div class="instruction_timetable_time" id="instruction_group">
         <div class="div_timetable_time">
-            <div class="time_busyTemporarily"></div>
-            <span>– сегодняшнее и вчерашнее время, освободится на следующей неделе</span>
+            <div class="time_none"></div>
+            <span>– свободное время, можно записаться</span>
+        </div>
+        <div class="div_timetable_time">
+            <div class="time_work"></div>
+            <span>– ваше выбраное время</span>
+        </div>
+        <div class="div_timetable_time">
+            <div class="time_none_X"></div>
+            <span>– время занято</span>
         </div>
     </div>
 
+    <div class="instruction_timetable_time" id="instruction_individual">
+        <div class="div_timetable_time">
+            <div class="time_none"></div>
+            <span>– свободное время, можно записаться</span>
+        </div>
+        <div class="div_timetable_time">
+            <div class="time_work"></div>
+            <span>– ваше выбраное время</span>
+        </div>
+        <div class="div_timetable_time">
+            <div class="time_busyAlways"></div>
+            <span>– занято постоянно</span>
+        </div>
+        <div class="div_timetable_time">
+            <div class="time_busyTemporarily"></div>
+            <span>– занято времено ,освободится на следующей неделе</span>
+        </div>
+    </div>
+
+    <div class="notification_block_background" id="notification_timetable" style="display: none;">
+        <div class="notification_block">
+            <span>
+                Расписание текущей недели изменить нельзя
+            </span>
+            <button class="igs_button_universal_B1">
+                ок
+            </button>
+        </div>
+    </div>
+
+    <div class="notification_block_background" id="notification_exit" style="display: none;">
+        <div class="notification_block">
+            <span>
+                сохранить изменение?
+            </span>
+            <div>
+                <button class="igs_button_universal_B1" id="yes">
+                    да
+                </button>
+                <button class="igs_button_universal_B1" id="no">
+                    нет
+                </button>
+            </div>
+        </div>
+    </div>
     <script type="module" src="./src/setting_up_timetable_student/script.ts"></script>
 </body>
 

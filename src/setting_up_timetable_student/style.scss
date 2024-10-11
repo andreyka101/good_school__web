@@ -59,7 +59,7 @@ h3 {
         border-radius: 10px;
         width: 35px;
         height: 35px;
-        background-color: #c4c4c4;
+        background-color: #5193ff;
     }
     .time_none_X {
         border-radius: 10px;
@@ -97,10 +97,17 @@ h3 {
         user-select: none
     }
 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    margin-bottom: 22px;
+    
     .div_timetable_time{
         display: grid;
         grid-template-columns: 35px auto;
         align-items: start;
+        margin-top: 6px;
         div{
             display: inline-block;
         }
@@ -112,3 +119,36 @@ h3 {
         }
     }
 }
+#instruction_group{
+    width: 366px;
+}
+#instruction_individual{
+    width: 466px;
+}
+
+@media screen and (max-width: 540px) {
+    h1{
+        margin-top: 74px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .instruction_timetable_time{
+        width: 350px !important;
+    }
+}
+@media screen and (max-width: 470px) {
+    #button_save{
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 355px) {
+    .instruction_timetable_time{
+        width: 320px !important;
+    }
+    .timetable_classes_global_block{
+        padding: 3px;
+        margin: 0 !important;
+    }
+}
+
+

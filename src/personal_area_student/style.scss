@@ -239,39 +239,7 @@ h2 {
     background-color: #11423a;
     color: #48a595;
 }
-.notification_block_background {
-    background-color: #dcdcdc5e;
-    position: absolute;
-    z-index: 300;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .notification_block {
-        width: 378px;
-        height: 184px;
-        background-color: #ffcc73;
-        border-radius: 10px;
-        border: #a66a00 2px solid;
-        font-size: 19px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        span {
-            display: inline-block;
-            width: 296px;
-            margin-top: 24px;
-        }
-        .igs_button_universal_B1 {
-            font-size: 19px;
-            margin-top: 18px;
-        }
-    }
-}
+
 .timetable_classes_global_block {
     margin: 0 auto;
     width: 500px;

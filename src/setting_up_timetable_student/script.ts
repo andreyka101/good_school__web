@@ -6,6 +6,10 @@ const timetableClasses_thisWeek = document.querySelector("#timetable_classes_thi
 const timetableClasses_nextWeek = document.querySelector("#timetable_classes_next_week") as HTMLDivElement
 const button_save = document.querySelector("#button_save") as HTMLButtonElement
 const button_back_global = document.querySelector(".back_global") as HTMLButtonElement
+const notification_timetable = document.querySelector("#notification_timetable") as HTMLDivElement
+const notification_timetable_button = document.querySelector("#notification_timetable button") as HTMLDivElement
+const notification_exit_yes = document.querySelector("#notification_exit #yes") as HTMLButtonElement
+const notification_exit_no = document.querySelector("#notification_exit #no") as HTMLButtonElement
 let str_timetableClasses_thisWeek = ""
 let str_timetableClasses_nextWeek = ""
 let data_now = new Date().getDay()
@@ -70,6 +74,16 @@ async function start_page() {
 start_page()
 
 async function render_timetable_start() {
+    console.log((localStorage.getItem("classes_status_user") + "").split(" ")[0].split("_")[1]);
+    if ((localStorage.getItem("classes_status_user") + "").split(" ")[0].split("_")[1] == "group") {
+        const instruction_div = document.querySelector("#instruction_individual") as HTMLDivElement
+        instruction_div.style.display = "none"
+    }
+    else {
+        const instruction_div = document.querySelector("#instruction_group") as HTMLDivElement
+        instruction_div.style.display = "none"
+    }
+
     let data = await fetch("http://192.168.31.58:3000/get_teacher", {
         method: "POST",
         headers: {
@@ -101,8 +115,8 @@ async function render_timetable_start() {
                 if ((localStorage.getItem("classes_status_user") + "").split(" ")[0] == "9-11_individual" || (localStorage.getItem("classes_status_user") + "").split(" ")[0] == "programming_individual" || (localStorage.getItem("classes_status_user") + "").split(" ")[0] == "1-8_individual") {
 
                     for (let i in timetable_classes_arr) {
-                        if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work"){
-                            if(timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
+                        if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") {
+                            if (timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                             else time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                         }
                         if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
@@ -135,9 +149,9 @@ async function render_timetable_start() {
 
                     for (let i in timetable_classes_arr) {
                         if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") {
-                            if(timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
+                            if (timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                             else time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
-                        } 
+                        }
                         if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                     }
                     for (let i in timetable_classes_groups_arr) {
@@ -159,10 +173,10 @@ async function render_timetable_start() {
             if ((localStorage.getItem("classes_status_user") + "").split(" ")[0] == "9-11_individual" || (localStorage.getItem("classes_status_user") + "").split(" ")[0] == "programming_individual" || (localStorage.getItem("classes_status_user") + "").split(" ")[0] == "1-8_individual") {
 
                 for (let i in timetable_classes_arr) {
-                    if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "work" && timetable_classes_arr[i].week != "not_next"){
-                        if(timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
+                    if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "work" && timetable_classes_arr[i].week != "not_next") {
+                        if (timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                         else time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
-                    } 
+                    }
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].type == "busyTemporarily" && timetable_classes_arr[i].week == "next") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
                 }
@@ -215,8 +229,8 @@ function render_timetable() {
                 if ((localStorage.getItem("classes_status_user") + "").split(" ")[0] == "9-11_individual" || (localStorage.getItem("classes_status_user") + "").split(" ")[0] == "programming_individual" || (localStorage.getItem("classes_status_user") + "").split(" ")[0] == "1-8_individual") {
 
                     for (let i in timetable_classes_arr) {
-                        if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work"){
-                            if(timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
+                        if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") {
+                            if (timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                             else time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                         }
                         if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
@@ -249,9 +263,9 @@ function render_timetable() {
 
                     for (let i in timetable_classes_arr) {
                         if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") {
-                            if(timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
+                            if (timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
                             else time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
-                        } 
+                        }
                         if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
                     }
                     for (let i in timetable_classes_groups_arr) {
@@ -321,7 +335,7 @@ timetableClasses_nextWeek?.addEventListener("click", (e) => {
                 timetable_classes_arr[i].week = "this"
             }
         }
-        if(lesson_bool){
+        if (lesson_bool) {
             timetable_classes_arr.push({
                 "type": "work",
                 "dayWeek": +(target.dataset["day"] + ""),
@@ -337,7 +351,7 @@ timetableClasses_nextWeek?.addEventListener("click", (e) => {
                 // timetable_classes_arr.splice(+(i), 1)
                 timetable_classes_arr[i].week = "not_next"
                 console.log(i);
-                
+
             }
             if (timetable_classes_arr[i].id == +(localStorage.getItem("id_student") + "") && timetable_classes_arr[i].dayWeek == +(target.dataset["day"] + "") && timetable_classes_arr[i].time == +(target.dataset["time"] + "") && timetable_classes_arr[i].week == "next") {
                 timetable_classes_arr.splice(+(i), 1)
@@ -360,48 +374,66 @@ timetableClasses_nextWeek?.addEventListener("click", (e) => {
 button_save?.addEventListener("click", async () => {
     start_page()
 
-        let data = await fetch("http://192.168.31.58:3000/change_teacher", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
+    let data = await fetch("http://192.168.31.58:3000/change_teacher", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            where: {
+                id: +(localStorage.getItem("id_teacher") + "")
             },
-            body: JSON.stringify({
-                where: {
-                    id: +(localStorage.getItem("id_teacher") + "")
-                },
-                data: {
-                    timetable_classes: JSON.stringify(timetable_classes_arr)
+            data: {
+                timetable_classes: JSON.stringify(timetable_classes_arr)
 
-                }
-            })
-        }) as any
-        data = await data.json()
-        if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_student.html"
+            }
+        })
+    }) as any
+    data = await data.json()
+    if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_student.html"
 })
-button_back_global?.addEventListener("click", async ()=>{
+
+
+
+
+button_back_global?.addEventListener("click", async () => {
     start_page()
-    if(confirm("сохранить изменение?")){
-
-        let data = await fetch("http://192.168.31.58:3000/change_teacher", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify({
-                where:{
-                    id: +(localStorage.getItem("id_teacher")+"")
-                },
-                data:{
-                    timetable_classes:JSON.stringify(timetable_classes_arr)
-                    
-                }
-            })
-        }) as any
-        data = await data.json()
-        if(data.id == +(localStorage.getItem("id_teacher")+"")) window.location.href = "./personal_area_student.html"
-    }
-    else{
-        window.location.href = "./personal_area_student.html"
-    }
+    const notification_exit = document.querySelector("#notification_exit") as HTMLDivElement
+    notification_exit.style.display = "flex"
 })
+
+
+notification_exit_yes?.addEventListener("click", async () => {
+    let data = await fetch("http://192.168.31.58:3000/change_teacher", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            where: {
+                id: +(localStorage.getItem("id_teacher") + "")
+            },
+            data: {
+                timetable_classes: JSON.stringify(timetable_classes_arr)
+
+            }
+        })
+    }) as any
+    data = await data.json()
+    if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_student.html"
+})
+
+notification_exit_no?.addEventListener("click", () => {
+    window.location.href = "./personal_area_student.html"
+})
+
+
+timetableClasses_thisWeek?.addEventListener("click", () => {
+    notification_timetable.style.display = "flex"
+})
+notification_timetable_button?.addEventListener("click", () => {
+    notification_timetable.style.display = "none"
+})
+
+
 
