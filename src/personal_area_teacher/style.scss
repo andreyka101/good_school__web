@@ -28,7 +28,6 @@ h2 {
         min-width: 500px;
         font-size: 23px;
         text-align: center;
-        margin-right: 52px;
     }
 }
 .back_global {
@@ -152,10 +151,6 @@ h2 {
         .igs_button_universal_B1 {
             margin-top: 10px;
         }
-        .button_active{
-            background-color: #144F45;
-            color: #51B4A3;
-        }
     }
 }
 .timetable_classes_global_block{
@@ -169,4 +164,91 @@ h2 {
     grid-template-columns:  auto auto auto;
     justify-items: center;
     align-items: start;
+}
+.button_active{
+    background-color: #144F45 !important;
+    color: #51B4A3 !important;
+}
+
+
+@media screen and (max-width: 1200px){
+    .grid_center_three{
+        .user_name_surname{
+            min-width: auto;
+            width: 400px;
+        }
+        .timetable_classes_global_block{
+            width: 400px;
+        }
+    }
+}
+@media screen and (max-width: 1110px){
+    .grid_center_three{
+        .all_block_student_data{
+            margin-right: 0;
+        }
+        .links_platforms{
+            margin-left: 0;
+        }
+    }
+}
+@media screen and (max-width: 1050px){
+    .grid_center_three{
+        .timetable_classes_global_block{
+            padding: 3px;
+        }
+    }
+}
+@media screen and (max-width: 1050px){
+    .grid_center_three{
+        grid-template-columns:  auto;
+        grid-template-rows: auto auto auto;
+        margin: 0 auto;
+        .all_block_student_data{
+            top: 0;
+            // width: 329px;
+            display: flex;
+            align-items: center;
+            .student_choice{
+                margin-top: 30px;
+                width: 329px;
+                
+            }
+            .student_data{
+                width: 329px;
+                margin-bottom: 30px;
+            }
+        }
+        .links_platforms{
+            width: 329px;
+            top: 0;
+            margin-top: 566px;
+        }
+        .posAbsolute{
+            position: absolute;
+            width: 360px;
+        }
+        .user_name_surname{
+            padding: 4px 0px 4px 0px;
+        }
+    }
+}
+@media screen and (max-width: 470px){
+    .posAbsolute{
+        width: 320px !important;
+    }
+    .student_choice{
+        width: 290px !important;
+        
+    }
+    .student_data{
+        width: 290px !important;
+    }
+    .links_platforms{
+        width: 290px !important;
+        margin-top: 626px !important;
+    }
+    h1{
+        margin-top: 80px;
+    }
 }

@@ -152,6 +152,7 @@ h2 {
         flex-direction: column;
         margin: 10px;
         .igs_button_universal_B1 {
+            text-align: center;
             margin: 3px;
             // width: 200px;
             // display: inline-block;
@@ -367,6 +368,9 @@ h2 {
             top: 13px;
             width: 342px;
         }
+        .information_about_teacher{
+            margin-bottom: 40px;
+        }
     }
     .paid_lessons{
         right: 20px;
@@ -411,7 +415,7 @@ h2 {
     .paid_lessons{
         top: 56px;
         left: 20px;
-        width: 184px;
+        width: 206px;
         display: inline-block;
         text-align: center;
     }
@@ -432,6 +436,7 @@ h2 {
             margin-top: 13px;
             .igs_button_universal_B1{
                 width: 150px;
+                text-align: center;
             }
         }
         .information_about_teacher{

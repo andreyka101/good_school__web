@@ -4,6 +4,8 @@ const timetableClasses_thisWeek = document.querySelector("#timetable_classes_thi
 const timetableClasses_nextWeek = document.querySelector("#timetable_classes_next_week") as HTMLDivElement
 const button_save = document.querySelector("#button_save") as HTMLButtonElement
 const button_back_global = document.querySelector(".back_global") as HTMLButtonElement
+const notification_exit_yes = document.querySelector("#notification_exit #yes") as HTMLButtonElement
+const notification_exit_no = document.querySelector("#notification_exit #no") as HTMLButtonElement
 let str_timetableClasses_thisWeek = ""
 let str_timetableClasses_nextWeek = ""
 let data_now = new Date().getDay()
@@ -449,30 +451,35 @@ button_save?.addEventListener("click", async () => {
 
 button_back_global?.addEventListener("click", async () => {
     start_page()
-    if (confirm("сохранить изменение?")) {
-
-        let data = await fetch("http://192.168.31.58:3000/change_teacher", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify({
-                where: {
-                    id: +(localStorage.getItem("id_teacher") + "")
-                },
-                data: {
-                    timetable_classes: JSON.stringify(timetable_classes_arr),
-                    timetable_classes_groups: JSON.stringify(timetable_classes_groups_arr),
-
-                }
-            })
-        }) as any
-        data = await data.json()
-        if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_teacher.html"
-    }
-    else {
-        window.location.href = "./personal_area_teacher.html"
-    }
+    const notification_exit = document.querySelector("#notification_exit") as HTMLDivElement
+    notification_exit.style.display = "flex"
 })
 
+
+
+
+notification_exit_yes?.addEventListener("click", async () => {
+    let data = await fetch("http://192.168.31.58:3000/change_teacher", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            where: {
+                id: +(localStorage.getItem("id_teacher") + "")
+            },
+            data: {
+                timetable_classes: JSON.stringify(timetable_classes_arr),
+                timetable_classes_groups: JSON.stringify(timetable_classes_groups_arr),
+
+            }
+        })
+    }) as any
+    data = await data.json()
+    if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_teacher.html"
+})
+
+notification_exit_no?.addEventListener("click", () => {
+    window.location.href = "./personal_area_teacher.html"
+})
 

@@ -50,6 +50,15 @@ let data_student = JSON.parse(localStorage.getItem("dataUser") + "") as any
 
 
 async function render_timetable_start() {
+    if ((localStorage.getItem("classes_status_user") + "").split(" ")[0].split("_")[1] == "group") {
+        const instruction_div = document.querySelector("#instruction_individual") as HTMLDivElement
+        instruction_div.style.display = "none"
+    }
+    else {
+        const instruction_div = document.querySelector("#instruction_group") as HTMLDivElement
+        instruction_div.style.display = "none"
+    }
+
     let data = await fetch("http://192.168.31.58:3000/get_teacher", {
         method: "POST",
         headers: {

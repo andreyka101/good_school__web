@@ -156,22 +156,28 @@ async function render_link_block() {
 }
 render_link_block()
 save_links_platforms.addEventListener("click", async () => {
-    // console.log(JSON.stringify([inp_1_links_platforms.value,inp_2_links_platforms.value]));
-
-    await fetch("http://192.168.31.58:3000/change_teacher", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            where: {
-                id: +(localStorage.getItem("id_teacher") + "")
+    console.log(JSON.stringify([inp_1_links_platforms.value,inp_2_links_platforms.value]));
+    if(save_links_platforms.className == "igs_button_universal_B1"){
+        save_links_platforms.classList.add("button_active")
+        
+        await fetch("http://192.168.31.58:3000/change_teacher", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
             },
-            data: {
-                lesson_link: JSON.stringify([inp_1_links_platforms.value, inp_2_links_platforms.value])
-            }
-        })
-    }) as any
+            body: JSON.stringify({
+                where: {
+                    id: +(localStorage.getItem("id_teacher") + "")
+                },
+                data: {
+                    lesson_link: JSON.stringify([inp_1_links_platforms.value, inp_2_links_platforms.value])
+                }
+            })
+        }) as any
+        setTimeout(() => {
+            save_links_platforms.classList.remove("button_active")
+        }, 5000)
+    }
 })
 
 timetableClasses_thisWeek.addEventListener("click", async (event) => {
