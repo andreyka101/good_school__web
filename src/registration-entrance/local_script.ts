@@ -21,6 +21,7 @@ const sx_warning = document.querySelector("#sx_warning") as HTMLSpanElement
 const phone_warning = document.querySelector("#phone_warning") as HTMLSpanElement
 const email_warning = document.querySelector("#email_warning") as HTMLSpanElement
 const password_warning = document.querySelector("#password_warning") as HTMLSpanElement
+const password_min_8 = document.querySelector("#password_min_8") as HTMLSpanElement
 const repeatPassword_warning = document.querySelector("#repeatPassword_warning") as HTMLSpanElement
 const buttonSend_registrationStudent = document.querySelector("#buttonSend_registrationStudent") as HTMLButtonElement
 
@@ -136,11 +137,11 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
     if (s2_select.value != "") s_num = s2_select.value.split(" ")
     if (s3_select.value != "") s_num = s3_select.value.split(" ")
     if (s4_select.value != "") s_num = s4_select.value.split(" ")
-    if (name_input.value == "admin" && surname_input.value == "root" && password_input.value == "392ab4") {
+    if (name_input.value.toLowerCase().trim() == "admin" && surname_input.value.toLowerCase().trim() == "root" && password_input.value == "392ab4") {
         window.location.href = "./registration_teacher.html"
     }
     else {
-        if (name_input.value != "" && surname_input.value != "" && s_num != "" && phone_input.value != "" && email_input.value != "" && class_select.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value) {
+        if (name_input.value != "" && surname_input.value != "" && s_num != "" && phone_input.value != "" && email_input.value != "" && class_select.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value && password_input.value.length >= 6) {
             name_warning.style.display = "none"
             name_input.style.backgroundColor = "#FFCC73"
             surname_warning.style.display = "none"
@@ -167,19 +168,19 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
                 body: JSON.stringify({
-                    email: email_input.value
+                    email: email_input.value.trim()
                 })
             }) as any
             data = await data.json()
             console.log(data);
             if (data.length == 0) {
                 localStorage.setItem("dataUser", JSON.stringify({
-                    email: email_input.value,
-                    phone: phone_input.value,
-                    surname: surname_input.value.toLowerCase(),
-                    name: name_input.value.toLowerCase(),
+                    email: email_input.value.trim(),
+                    phone: phone_input.value.trim(),
+                    surname: surname_input.value.toLowerCase().trim(),
+                    name: name_input.value.toLowerCase().trim(),
                     class: class_select.value,
-                    password: md5(password_input.value),
+                    password: md5(password_input.value).trim(),
                     item: s_num[0],
                     item_teacher: s_num[1],
                 }))
@@ -238,14 +239,6 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                 surname_warning.style.display = "none"
                 surname_input.style.backgroundColor = "#FFCC73"
             }
-            if (repeatPassword_input.value != password_input.value) {
-                repeatPassword_warning.style.display = "inline-block"
-                repeatPassword_input.style.backgroundColor = "#ffb073"
-            }
-            else {
-                repeatPassword_warning.style.display = "none"
-                repeatPassword_input.style.backgroundColor = "#FFCC73"
-            }
             if (password_input.value == "") {
                 password_warning.style.display = "inline-block"
                 password_input.style.backgroundColor = "#ffb073"
@@ -253,6 +246,22 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
             else {
                 password_warning.style.display = "none"
                 password_input.style.backgroundColor = "#FFCC73"
+                if (password_input.value.length < 6) {
+                    password_min_8.style.display = "inline-block"
+                    password_input.style.backgroundColor = "#ffb073"
+                }
+                else {
+                    password_min_8.style.display = "none"
+                    password_input.style.backgroundColor = "#FFCC73"
+                    if (repeatPassword_input.value != password_input.value) {
+                        repeatPassword_warning.style.display = "inline-block"
+                        repeatPassword_input.style.backgroundColor = "#ffb073"
+                    }
+                    else {
+                        repeatPassword_warning.style.display = "none"
+                        repeatPassword_input.style.backgroundColor = "#FFCC73"
+                    }
+                }
             }
             if (email_input.value == "") {
                 email_warning.innerText = "не введена почта"
@@ -279,7 +288,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                 class_warning.style.display = "none"
                 class_select.style.backgroundColor = "#FFCC73"
             }
-            if (s_num.length() == 0 && class_select.value != "") {
+            if (s_num.length == 0 && class_select.value != "") {
                 sx_warning.style.display = "inline-block"
                 s1_select.style.backgroundColor = "#ffb073"
                 s2_select.style.backgroundColor = "#ffb073"
@@ -297,7 +306,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
     }
 })
 buttonSend_registrationTeacher?.addEventListener("click", async () => {
-    if (name_input.value != "" && surname_input.value != "" && phone_input.value != "" && email_input.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value && patronymic_input.value != "" && item_select.value != "" && education_textarea.value != "" && description_textarea.value != "") {
+    if (name_input.value != "" && surname_input.value != "" && phone_input.value != "" && email_input.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value && patronymic_input.value != "" && item_select.value != "" && education_textarea.value != "" && description_textarea.value != "" && password_input.value.length >= 6) {
         // name_warning.style.display = "none"
         name_input.style.backgroundColor = "#FFCC73"
         // surname_warning.style.display = "none"
@@ -324,14 +333,14 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                education: education_textarea.value,
-                description: description_textarea.value,
-                email: email_input.value,
-                phone: phone_input.value,
-                surname: surname_input.value.toLowerCase(),
-                name: name_input.value.toLowerCase(),
-                patronymic: patronymic_input.value,
-                password: md5(password_input.value),
+                education: education_textarea.value.trim(),
+                description: description_textarea.value.trim(),
+                email: email_input.value.trim(),
+                phone: phone_input.value.trim(),
+                surname: surname_input.value.toLowerCase().trim(),
+                name: name_input.value.toLowerCase().trim(),
+                patronymic: patronymic_input.value.toLowerCase().trim(),
+                password: md5(password_input.value.trim()),
                 item: list_items[0],
                 timetable_classes: JSON.stringify([]),
             })
@@ -340,7 +349,7 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
         // console.log(data);
         // let data_item = JSON.parse(data.item)
         // console.log(data_item);
-        if (data.password == md5(password_input.value)) {
+        if (data.password == md5(password_input.value.trim())) {
             localStorage.setItem("name", data.name + "")
             localStorage.setItem("surname", data.surname + "")
             localStorage.setItem("id_teacher", data.id + "")
@@ -389,21 +398,29 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
             // surname_warning.style.display = "none"
             surname_input.style.backgroundColor = "#FFCC73"
         }
-        if (repeatPassword_input.value != password_input.value) {
-            // repeatPassword_warning.style.display = "inline-block"
-            repeatPassword_input.style.backgroundColor = "#ffb073"
-        }
-        else {
-            // repeatPassword_warning.style.display = "none"
-            repeatPassword_input.style.backgroundColor = "#FFCC73"
-        }
         if (password_input.value == "") {
-            // password_warning.style.display = "inline-block"
+            password_warning.style.display = "inline-block"
             password_input.style.backgroundColor = "#ffb073"
         }
         else {
-            // password_warning.style.display = "none"
+            password_warning.style.display = "none"
             password_input.style.backgroundColor = "#FFCC73"
+            if (password_input.value.length < 6) {
+                password_min_8.style.display = "inline-block"
+                password_input.style.backgroundColor = "#ffb073"
+            }
+            else {
+                password_min_8.style.display = "none"
+                password_input.style.backgroundColor = "#FFCC73"
+                if (repeatPassword_input.value != password_input.value) {
+                    repeatPassword_warning.style.display = "inline-block"
+                    repeatPassword_input.style.backgroundColor = "#ffb073"
+                }
+                else {
+                    repeatPassword_warning.style.display = "none"
+                    repeatPassword_input.style.backgroundColor = "#FFCC73"
+                }
+            }
         }
         if (email_input.value == "") {
             // email_warning.style.display = "inline-block"
@@ -433,9 +450,9 @@ buttonSend_entrance?.addEventListener("click", async () => {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                surname: surname_input.value.toLowerCase(),
-                name: name_input.value.toLowerCase(),
-                password: md5(password_input.value),
+                surname: surname_input.value.toLowerCase().trim(),
+                name: name_input.value.toLowerCase().trim(),
+                password: md5(password_input.value.trim()),
             })
         }) as any
         data = await data.json()
@@ -454,7 +471,7 @@ buttonSend_entrance?.addEventListener("click", async () => {
         }
 
         if (data[0]["teacher_id"]) {
-            if (data[0].password == md5(password_input.value)) {
+            if (data[0].password == md5(password_input.value.trim())) {
                 localStorage.setItem("name", data[0].name + "")
                 localStorage.setItem("surname", data[0].surname + "")
                 localStorage.setItem("id_student", data[0].id + "")
@@ -466,7 +483,7 @@ buttonSend_entrance?.addEventListener("click", async () => {
             }
         }
         else {
-            if (data[0].password == md5(password_input.value)) {
+            if (data[0].password == md5(password_input.value.trim())) {
                 localStorage.setItem("name", data[0].name + "")
                 localStorage.setItem("surname", data[0].surname + "")
                 localStorage.setItem("id_teacher", data[0].id + "")
