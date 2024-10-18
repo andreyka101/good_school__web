@@ -24,6 +24,7 @@ const password_warning = document.querySelector("#password_warning") as HTMLSpan
 const password_min_8 = document.querySelector("#password_min_8") as HTMLSpanElement
 const repeatPassword_warning = document.querySelector("#repeatPassword_warning") as HTMLSpanElement
 const buttonSend_registrationStudent = document.querySelector("#buttonSend_registrationStudent") as HTMLButtonElement
+const width_block = document.querySelector(".width_block") as HTMLDivElement
 
 const patronymic_input = document.querySelector("#patronymic_input") as HTMLInputElement
 const item_select = document.querySelector("#item_select") as HTMLSelectElement
@@ -50,7 +51,7 @@ if(localStorage.getItem("dataUser") != "" && localStorage.getItem("dataUser") !=
     }
 }
 
-class_select?.addEventListener("click", () => {
+class_select?.addEventListener("change", () => {
     if (class_select.value != "") {
         class_select.style.color = "#A64300"
         s1_select.value = ""
@@ -90,13 +91,21 @@ class_select?.addEventListener("click", () => {
                 s3_select.style.display = "none"
                 s4_select.style.display = "inline-block"
                 break;
+            default:
+                s0_select.style.display = "inline-block"
+                s1_select.style.display = "none"
+                s2_select.style.display = "none"
+                s3_select.style.display = "none"
+                s4_select.style.display = "none"
+                break;
         }
     }
     else {
         class_select.style.color = "#757575"
     }
 })
-s1_select?.addEventListener("click", () => {
+
+s1_select?.addEventListener("change", () => {
     if (s1_select.value != "") {
         s1_select.style.color = "#A64300"
     }
@@ -104,7 +113,7 @@ s1_select?.addEventListener("click", () => {
         s1_select.style.color = "#757575"
     }
 })
-s2_select?.addEventListener("click", () => {
+s2_select?.addEventListener("change", () => {
     if (s2_select.value != "") {
         s2_select.style.color = "#A64300"
     }
@@ -112,7 +121,7 @@ s2_select?.addEventListener("click", () => {
         s2_select.style.color = "#757575"
     }
 })
-s3_select?.addEventListener("click", () => {
+s3_select?.addEventListener("change", () => {
     if (s3_select.value != "") {
         s3_select.style.color = "#A64300"
     }
@@ -120,7 +129,7 @@ s3_select?.addEventListener("click", () => {
         s3_select.style.color = "#757575"
     }
 })
-s4_select?.addEventListener("click", () => {
+s4_select?.addEventListener("change", () => {
     if (s4_select.value != "") {
         s4_select.style.color = "#A64300"
     }
