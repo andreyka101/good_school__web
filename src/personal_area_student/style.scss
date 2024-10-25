@@ -245,6 +245,13 @@ h2 {
     margin: 0 auto;
     width: 500px;
     border: #000 3px solid;
+    .none_lessons_this_week{
+        display: block !important;
+        text-align: center;
+        font-size: 20px;
+        padding: 0 !important;
+        margin-top: 10px;
+    }
     .igs_button_universal_B1 {
         width: 200px;
         height: 48px;
@@ -257,12 +264,15 @@ h2 {
     .igs_button_universal_A1 {
         width: 200px;
         height: 48px;
-        display: inline-block;
         padding: 0;
         margin: 0;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+    }
+    #link_to_lesson{
+        display: inline-block;
+        
     }
 }
 
@@ -330,6 +340,9 @@ h2 {
         }
         .igs_button_universal_A1{
             width: 160px
+        }
+        #link_to_lesson span{
+            display: inline-block;
         }
     }
     .platform_setup_all{

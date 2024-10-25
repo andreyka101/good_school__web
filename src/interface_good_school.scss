@@ -1,7 +1,11 @@
 body {
     margin: 0;
     background-color: #ffffff;
-    font-family: system-ui;
+    font-family: system-ui !important;
+}
+button{
+    
+    font-family: system-ui !important;
 }
 header {
     // position: sticky;

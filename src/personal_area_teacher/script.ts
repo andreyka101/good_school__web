@@ -6,12 +6,14 @@ const save_links_platforms = document.querySelector(".links_platforms #save_link
 const inp_1_links_platforms = document.querySelector('#inp_1') as HTMLInputElement
 const inp_2_links_platforms = document.querySelector('#inp_2') as HTMLInputElement
 // let button_phone = document.querySelector("#button_phone") as HTMLButtonElement
-let button_phone:HTMLButtonElement
+let button_phone:HTMLLinkElement
 let student_choice:HTMLDivElement
 let str_timetableClasses_thisWeek = ""
 let data_now = new Date().getDay()
 let timetable_classes_arr: any
 let timetable_classes_groups_arr: any
+// @ts-ignore
+let detect = new MobileDetect(window.navigator.userAgent)
 
 let string_name = (localStorage.getItem("name")+"").split("")
 string_name[0] = string_name[0].toUpperCase()
@@ -61,6 +63,7 @@ async function render_timetable_start() {
         str_timetableClasses_thisWeek = ""
         timetableClasses_thisWeek.innerHTML = ''
         // console.log("data");
+        let num_lessons_this_week = 0
         for (let time = 8; time != 22; time++) {
             let derivation_on = false
             str_timetableClasses_thisWeek += `<span class="text_grid_time">
@@ -81,6 +84,7 @@ async function render_timetable_start() {
                         }) as any
                         data = await data.json()
                         if(data.paid_lessons > 0){
+                            num_lessons_this_week++
                             time_block = `<div data-time="${time}" data-day="${day}" data-id="${timetable_classes_arr[i].id}" class="time_work"></div>`
                         }
                     }
@@ -110,7 +114,11 @@ async function render_timetable_start() {
                             }
                         }
                         console.log(num_work);
-                        if (num_work > 0) time_block = `<div data-id="${JSON.stringify(arr_work_id)}" data-time="${time}" data-day="${day}" class="time_groups">${num_work}</div>`
+                        if (num_work > 0) {
+                            
+                            // num_work++
+                            time_block = `<div data-id="${JSON.stringify(arr_work_id)}" data-time="${time}" data-day="${day}" class="time_groups">${num_work}</div>`
+                        }
                         else time_block = `<div data-time="${time}" data-day="${day}" class="time_none"></div>`
                     }
                 }
@@ -124,8 +132,16 @@ async function render_timetable_start() {
             if (derivation_on) timetableClasses_thisWeek.innerHTML += str_timetableClasses_thisWeek
             str_timetableClasses_thisWeek = ""
         }
+        if(num_lessons_this_week == 0){
+            timetableClasses_thisWeek.style.display = "none"
+            const timetable_classes_up_day = document.querySelector(".timetable_classes_up_day") as HTMLDivElement
+            timetable_classes_up_day.innerText = "На этой недели у вас нет занятий"
+            timetable_classes_up_day.classList.add("none_lessons_this_week")
+        }
     }
-    catch {
+    catch(e) {
+        console.log(e);
+        
         localStorage.setItem("name", "")
         localStorage.setItem("surname", "")
         localStorage.setItem("id_teacher", "")
@@ -237,9 +253,9 @@ timetableClasses_thisWeek.addEventListener("click", async (event) => {
             <span class="span_grey">
                 Оплаченные занятия: ${data.paid_lessons}
             </span>
-            <button class="igs_button_universal_B1" data-phone="${data.phone}" id="button_phone">
+            <a class="igs_button_universal_B1" data-phone="${data.phone}" id="button_phone">
                 скопровать телефон
-            </button>
+            </a>
         `
         student_choice.innerHTML = `
             <div class="student_work student_selected">1</div>
@@ -290,9 +306,9 @@ timetableClasses_thisWeek.addEventListener("click", async (event) => {
             <span class="span_grey">
                 Оплаченные занятия: ${data.paid_lessons}
             </span>
-            <button class="igs_button_universal_B1" data-phone="${data.phone}" id="button_phone">
+            <a class="igs_button_universal_B1" data-phone="${data.phone}" id="button_phone">
                 скопровать телефон
-            </button>
+            </a>
         `
         student_choice.innerHTML = `
             <div class="student_work student_selected" data-id="${JSON.parse(target.dataset.id + "")[0]}">1</div>
@@ -317,19 +333,25 @@ timetableClasses_thisWeek.addEventListener("click", async (event) => {
         //     <div class="student_none"></div>
         // `
     }
-    button_phone = document.querySelector("#button_phone") as HTMLButtonElement
+    button_phone = document.querySelector("#button_phone") as HTMLLinkElement
+    if (detect.mobile() != null) {
+        button_phone.href = "tel:" + button_phone.dataset.phone
+    }
     button_phone.addEventListener('click',()=>{
-        navigator.clipboard.writeText(button_phone.dataset.phone + "").then(function() {
-            console.log('Текст успешно скопирован в буфер обмена');
-            button_phone.classList.add("button_active")
-            button_phone.innerText = "ссылка скопирована"
-            setTimeout(()=>{
-                button_phone.classList.remove("button_active")
-                button_phone.innerText = "скопировать ссылку на урок"
-            },5000)
-          }, function(err) {
-            console.error('Произошла ошибка при копировании текста: ', err);
-          });
+        if (detect.mobile() == null){
+
+            navigator.clipboard.writeText(button_phone.dataset.phone + "").then(function() {
+                console.log('Текст успешно скопирован в буфер обмена');
+                button_phone.classList.add("button_active")
+                button_phone.innerText = "ссылка скопирована"
+                setTimeout(()=>{
+                    button_phone.classList.remove("button_active")
+                    button_phone.innerText = "скопировать ссылку на урок"
+                },5000)
+            }, function(err) {
+                console.error('Произошла ошибка при копировании текста: ', err);
+            });
+        }
     })
     
     student_choice.addEventListener('click', async (event)=>{
@@ -369,9 +391,9 @@ timetableClasses_thisWeek.addEventListener("click", async (event) => {
             <span class="span_grey">
                 Оплаченные занятия: ${data.paid_lessons}
             </span>
-            <button class="igs_button_universal_B1" data-phone="${data.phone}" id="button_phone">
+            <a class="igs_button_universal_B1" data-phone="${data.phone}" id="button_phone">
                 скопровать телефон
-            </button>
+            </a>
         `
     })
 })

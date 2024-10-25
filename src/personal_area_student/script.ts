@@ -8,18 +8,20 @@ let timetable_classes_arr: any
 const but_setup_1_platform_setup = document.querySelector("#but_setup_1") as HTMLButtonElement
 const but_setup_2_platform_setup = document.querySelector("#but_setup_2") as HTMLButtonElement
 const link_platform_setup = document.querySelector("#super_a") as HTMLLinkElement
-const button_1_copy_phone = document.querySelector("#button_1_copy_phone") as HTMLButtonElement
+const button_1_copy_phone = document.querySelector("#button_1_copy_phone") as HTMLLinkElement
 let text_copy_phone = ""
 const information_about_teacherLink_1 = document.querySelector(".information_about_teacher #link_1") as HTMLLinkElement
 const information_about_teacherLink_2 = document.querySelector(".information_about_teacher #link_2") as HTMLLinkElement
 const information_about_teacherTeacher_p = document.querySelector(".information_about_teacher #teacher_p") as HTMLDivElement
 const link_to_lesson = document.querySelector("#link_to_lesson") as HTMLButtonElement
 const notification_button = document.querySelector(".notification_block button") as HTMLButtonElement
+// @ts-ignore
+let detect = new MobileDetect(window.navigator.userAgent)
 
 // userNameSurname_div.innerText = localStorage.getItem("name") + " " + localStorage.getItem("surname")
-let string_name = (localStorage.getItem("name")+"").split("")
+let string_name = (localStorage.getItem("name") + "").split("")
 string_name[0] = string_name[0].toUpperCase()
-let string_surname = (localStorage.getItem("surname")+"").split("")
+let string_surname = (localStorage.getItem("surname") + "").split("")
 string_surname[0] = string_surname[0].toUpperCase()
 userNameSurname_div.innerText = string_surname.join("") + " " + string_name.join("")
 
@@ -61,13 +63,25 @@ async function render_timetable_start() {
         data = await data.json()
         information_about_teacherLink_1.href = "https://wa.me/" + data.phone
         information_about_teacherLink_2.href = "https://t.me/" + data.phone
-        information_about_teacherTeacher_p.innerText = data.name + " " + data.surname
+
+        let string_data_surname = data.surname.split("")
+        string_data_surname[0] = string_data_surname[0].toUpperCase()
+        let string_data_name = data.name.split("")
+        string_data_name[0] = string_data_name[0].toUpperCase()
+        let string_data_patronymic = data.patronymic.split("")
+        string_data_patronymic[0] = string_data_patronymic[0].toUpperCase()
+
+        information_about_teacherTeacher_p.innerHTML = "<div>" + string_data_surname.join("") + "</div>" + string_data_name.join("") + " " + string_data_patronymic.join("")
         text_copy_phone = data.phone
         console.log("data");
         console.log(data);
         timetable_classes_arr = JSON.parse(data.timetable_classes)
         str_timetableClasses_thisWeek = ""
         timetableClasses_thisWeek.innerHTML = ''
+        if (detect.mobile() != null) {
+            button_1_copy_phone.href = "tel:" + text_copy_phone
+        }
+        let num_lessons_this_week = 0
         for (let time = 8; time != 22; time++) {
             let derivation_on = false
             str_timetableClasses_thisWeek += `<span class="text_grid_time">
@@ -76,9 +90,10 @@ async function render_timetable_start() {
             for (let day = 1; day != 8; day++) {
                 let time_block = ""
                 for (let i in timetable_classes_arr) {
-                    if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work" && timetable_classes_arr[i].id == localStorage.getItem("id_student")) time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
-                    // if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyAlways") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyAlways"></div>`
-                    // if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "busyTemporarily") time_block = `<div data-time="${time}" data-day="${day}" class="time_busyTemporarily"></div>`
+                    if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work" && timetable_classes_arr[i].id == localStorage.getItem("id_student")){
+                        time_block = `<div data-time="${time}" data-day="${day}" class="time_work"></div>`
+                        num_lessons_this_week++
+                    } 
                 }
                 if (time_block != "") {
                     str_timetableClasses_thisWeek += time_block
@@ -90,6 +105,16 @@ async function render_timetable_start() {
             if (derivation_on) timetableClasses_thisWeek.innerHTML += str_timetableClasses_thisWeek
             str_timetableClasses_thisWeek = ""
         }
+        console.log(num_lessons_this_week);
+        if(num_lessons_this_week == 0){
+            timetableClasses_thisWeek.style.display = "none"
+            const timetable_classes_up_day = document.querySelector(".timetable_classes_up_day") as HTMLDivElement
+            timetable_classes_up_day.innerText = "На этой недели у вас нет занятий"
+            timetable_classes_up_day.classList.add("none_lessons_this_week")
+            const timetable_classes_up_day_vecino_div = document.querySelector(".timetable_classes_scroll + div") as HTMLDivElement
+            timetable_classes_up_day_vecino_div.style.marginTop = "20px"
+        }
+        
     }
     catch {
         localStorage.setItem("name", "")
@@ -157,7 +182,7 @@ async function render_platform_setup() {
         link_platform_setup.href = "https://support.zoom.com/hc/ru/article?id=zm_kb&sysparm_article=KB0061326"
     }
     if (get_student_platform_lesson == "Discord") {
-        link_to_lesson.innerText = "скопировать ник учителя"
+        link_to_lesson.innerHTML = "скопировать <span> ник учителя </span>"
     }
     else {
         link_to_lesson.innerText = "скопировать ссылку на урок"
@@ -212,19 +237,22 @@ but_setup_2_platform_setup.addEventListener("click", async () => {
     }
 })
 
+
 button_1_copy_phone.addEventListener('click', () => {
     if (button_1_copy_phone.className != "igs_button_universal_B1 transparent_button") return
-    navigator.clipboard.writeText(text_copy_phone).then(function () {
-        console.log('Текст успешно скопирован в буфер обмена');
-        button_1_copy_phone.classList.add("button_active")
-        button_1_copy_phone.innerText = "телефон скопирован"
-        setTimeout(() => {
-            button_1_copy_phone.classList.remove("button_active")
-            button_1_copy_phone.innerText = "скопировать телефон"
-        }, 5000)
-    }, function (err) {
-        console.error('Произошла ошибка при копировании текста: ', err);
-    });
+    if (detect.mobile() == null) {
+        navigator.clipboard.writeText(text_copy_phone).then(function () {
+            console.log('Текст успешно скопирован в буфер обмена');
+            button_1_copy_phone.classList.add("button_active")
+            button_1_copy_phone.innerText = "телефон скопирован"
+            setTimeout(() => {
+                button_1_copy_phone.classList.remove("button_active")
+                button_1_copy_phone.innerText = "скопировать телефон"
+            }, 5000)
+        }, function (err) {
+            console.error('Произошла ошибка при копировании текста: ', err);
+        });
+    }
 })
 link_to_lesson.addEventListener('click', async () => {
     if (link_to_lesson.className != "igs_button_universal_B1 transparent_button") return
@@ -253,7 +281,7 @@ link_to_lesson.addEventListener('click', async () => {
     let new_Date = new Date
     let super_bool = false
     for (let i in timetable_classes) if (timetable_classes[i].id == +(localStorage.getItem("id_student") + "") && timetable_classes[i].week == "this" && (timetable_classes[i].dayWeek == new_Date.getHours() || (timetable_classes[i].dayWeek == new_Date.getHours() - 1 && new_Date.getMinutes() >= 50))) super_bool = true
-    
+
     if (super_bool) {
         if (get_student.platform_lesson == "Zoom") {
             navigator.clipboard.writeText(JSON.parse(get_teacher.lesson_link)[0]).then(function () {
