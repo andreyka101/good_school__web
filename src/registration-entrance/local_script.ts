@@ -7,6 +7,7 @@ const phone_input = document.querySelector("#phone_input") as HTMLInputElement
 const email_input = document.querySelector("#email_input") as HTMLInputElement
 const password_input = document.querySelector("#password_input") as HTMLInputElement
 const repeatPassword_input = document.querySelector("#repeatPassword_input") as HTMLInputElement
+const code_input = document.querySelector("#code_input") as HTMLInputElement
 const class_select = document.querySelector("#class_select") as HTMLSelectElement
 const s0_select = document.querySelector("#s0_select") as HTMLSelectElement
 const s1_select = document.querySelector("#s1_select") as HTMLSelectElement
@@ -19,35 +20,44 @@ const surname_warning = document.querySelector("#surname_warning") as HTMLSpanEl
 const class_warning = document.querySelector("#class_warning") as HTMLSpanElement
 const sx_warning = document.querySelector("#sx_warning") as HTMLSpanElement
 const phone_warning = document.querySelector("#phone_warning") as HTMLSpanElement
+const phone_none_one_warning = document.querySelector("#phone_none_one_warning") as HTMLSpanElement
 const email_warning = document.querySelector("#email_warning") as HTMLSpanElement
 const password_warning = document.querySelector("#password_warning") as HTMLSpanElement
 const password_min_8 = document.querySelector("#password_min_8") as HTMLSpanElement
 const repeatPassword_warning = document.querySelector("#repeatPassword_warning") as HTMLSpanElement
 const buttonSend_registrationStudent = document.querySelector("#buttonSend_registrationStudent") as HTMLButtonElement
 const width_block = document.querySelector(".width_block") as HTMLDivElement
+const code_warning = document.querySelector("#code_warning") as HTMLSpanElement
+const code_warning_none = document.querySelector("#code_warning_none") as HTMLSpanElement
 
 const patronymic_input = document.querySelector("#patronymic_input") as HTMLInputElement
 const item_select = document.querySelector("#item_select") as HTMLSelectElement
 const education_textarea = document.querySelector("#education_textarea") as HTMLTextAreaElement
 const description_textarea = document.querySelector("#description_textarea") as HTMLTextAreaElement
 const buttonSend_registrationTeacher = document.querySelector("#buttonSend_registrationTeacher") as HTMLButtonElement
+const buttonSend_confirm_password = document.querySelector("#buttonSend_confirm_password") as HTMLButtonElement
+const buttonSend_confirm_password_2 = document.querySelector("#buttonSend_confirm_password_2") as HTMLButtonElement
+const buttonSend_confirm_password_3 = document.querySelector("#buttonSend_confirm_password_3") as HTMLButtonElement
 
 const buttonSend_entrance = document.querySelector("#buttonSend_entrance") as HTMLButtonElement
 console.log(window.location.href);
 
-if(localStorage.getItem("dataUser") != "" && localStorage.getItem("dataUser") != null){
+if (localStorage.getItem("dataUser") != "" && localStorage.getItem("dataUser") != null) {
     let dataUser = JSON.parse(localStorage.getItem("dataUser") as string)
-    if(window.location.href == "http://localhost:5173/entrance.html" || window.location.href == "http://192.168.31.58:5173/entrance.html"){
+    if (window.location.href == "http://localhost:5173/entrance.html" || window.location.href == "http://192.168.31.58:5173/entrance.html") {
         name_input.value = dataUser.name
         surname_input.value = dataUser.surname
     }
-    else{
-        name_input.value = dataUser.name
-        surname_input.value = dataUser.surname
-        phone_input.value = dataUser.phone
-        email_input.value = dataUser.email
-        class_select.value = dataUser.class
-        // name_input.value = dataUser.name
+    else {
+        if (window.location.href == "http://localhost:5173/registration_student.html" || window.location.href == "http://192.168.31.58:5173/registration_student.html") {
+            name_input.value = dataUser.name
+            surname_input.value = dataUser.surname
+            phone_input.value = dataUser.phone
+            email_input.value = dataUser.email
+            class_select.value = dataUser.class
+            // name_input.value = dataUser.name
+            
+        }
     }
 }
 
@@ -150,7 +160,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
         window.location.href = "./registration_teacher.html"
     }
     else {
-        if (name_input.value != "" && surname_input.value != "" && s_num != "" && phone_input.value != "" && email_input.value != "" && class_select.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value && password_input.value.length >= 6) {
+        if (name_input.value != "" && surname_input.value != "" && s_num != "" && phone_input.value != "" && email_input.value != "" && class_select.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value && password_input.value.length >= 6 && (phone_input.value.trim()[0] == "+" && phone_input.value.trim()[1] == "7")) {
             name_warning.style.display = "none"
             name_input.style.backgroundColor = "#FFCC73"
             surname_warning.style.display = "none"
@@ -171,6 +181,13 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
             s3_select.style.backgroundColor = "#FFCC73"
             s4_select.style.backgroundColor = "#FFCC73"
 
+            let arr_phone_input = phone_input.value.trim().split(" ")
+            let text_phone_input = ""
+            for (let i of arr_phone_input) {
+                text_phone_input += i
+            }
+            console.log(text_phone_input);
+
             let data = await fetch("http://192.168.31.58:3000/checking_email", {
                 method: "POST",
                 headers: {
@@ -185,7 +202,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
             if (data.length == 0) {
                 localStorage.setItem("dataUser", JSON.stringify({
                     email: email_input.value.trim(),
-                    phone: phone_input.value.trim(),
+                    phone: text_phone_input,
                     surname: surname_input.value.toLowerCase().trim(),
                     name: name_input.value.toLowerCase().trim(),
                     class: class_select.value,
@@ -195,7 +212,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                 }))
                 // localStorage.setItem("name",data.name + "")
                 // localStorage.setItem("surname",data.surname + "")
-                localStorage.setItem("id_student","0")
+                localStorage.setItem("id_student", "0")
                 // localStorage.setItem("id_teacher",data.teacher_id + "")
                 window.location.href = "./subscription_selection_start.html"
             }
@@ -251,6 +268,8 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
             if (password_input.value == "") {
                 password_warning.style.display = "inline-block"
                 password_input.style.backgroundColor = "#ffb073"
+                password_min_8.style.display = "none"
+                password_input.style.backgroundColor = "#FFCC73"
             }
             else {
                 password_warning.style.display = "none"
@@ -284,10 +303,20 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
             if (phone_input.value == "") {
                 phone_warning.style.display = "inline-block"
                 phone_input.style.backgroundColor = "#ffb073"
+                phone_none_one_warning.style.display = "none"
+                phone_input.style.backgroundColor = "#FFCC73"
             }
             else {
                 phone_warning.style.display = "none"
                 phone_input.style.backgroundColor = "#FFCC73"
+                if (phone_input.value.trim()[0] != "+" && phone_input.value.trim()[1] != "7") {
+                    phone_none_one_warning.style.display = "inline-block"
+                    phone_input.style.backgroundColor = "#ffb073"
+                }
+                else {
+                    phone_none_one_warning.style.display = "none"
+                    phone_input.style.backgroundColor = "#FFCC73"
+                }
             }
             if (class_select.value == "") {
                 class_warning.style.display = "inline-block"
@@ -466,7 +495,7 @@ buttonSend_entrance?.addEventListener("click", async () => {
         }) as any
         data = await data.json()
 
-        if(data[0].name == "none" && data[0].password == "none"){
+        if (data[0].name == "none" && data[0].password == "none") {
             none_warning.style.display = "inline-block"
             let s1 = name_input.value
             let s2 = surname_input.value
@@ -533,6 +562,167 @@ buttonSend_entrance?.addEventListener("click", async () => {
         }
     }
 
+})
+buttonSend_confirm_password?.addEventListener("click", async () => {
+    if (name_input.value != "" && surname_input.value != "" && phone_input.value != "" && (phone_input.value.trim()[0] == "+" && phone_input.value.trim()[1] == "7")) {
+        let arr_phone_input = phone_input.value.trim().split(" ")
+        let text_phone_input = ""
+        for (let i of arr_phone_input) {
+            text_phone_input += i
+        }
+        console.log(text_phone_input);
+        let data = await fetch("http://192.168.31.58:3000/post_confirm_password_1", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                surname: surname_input.value.toLowerCase().trim(),
+                name: name_input.value.toLowerCase().trim(),
+                phone: text_phone_input,
+            })
+        }) as any
+        data = await data.json()
+
+        if(data.answer){
+            localStorage.setItem("surname" , surname_input.value.toLowerCase().trim())
+            localStorage.setItem("name" , name_input.value.toLowerCase().trim())
+            localStorage.setItem("phone" , text_phone_input)
+            localStorage.setItem("email_cipher" , data.email_cipher)
+            window.location.href = "./confirm_password_2.html"
+        }
+        else{
+            none_warning.style.display = "inline-block"
+            name_input.style.backgroundColor = "#ffb073"
+            surname_input.style.backgroundColor = "#ffb073"
+            phone_input.style.backgroundColor = "#ffb073"
+        }
+    }
+    else {
+        if (name_input.value == "") {
+            name_warning.style.display = "inline-block"
+            name_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            name_warning.style.display = "none"
+            name_input.style.backgroundColor = "#FFCC73"
+        }
+        if (surname_input.value == "") {
+            surname_warning.style.display = "inline-block"
+            surname_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            surname_warning.style.display = "none"
+            surname_input.style.backgroundColor = "#FFCC73"
+        }
+        if (phone_input.value == "") {
+            phone_warning.style.display = "inline-block"
+            phone_input.style.backgroundColor = "#ffb073"
+            phone_none_one_warning.style.display = "none"
+            phone_input.style.backgroundColor = "#FFCC73"
+        }
+        else {
+            phone_warning.style.display = "none"
+            phone_input.style.backgroundColor = "#FFCC73"
+            if (phone_input.value.trim()[0] != "+" && phone_input.value.trim()[1] != "7") {
+                phone_none_one_warning.style.display = "inline-block"
+                phone_input.style.backgroundColor = "#ffb073"
+            }
+            else {
+                phone_none_one_warning.style.display = "none"
+                phone_input.style.backgroundColor = "#FFCC73"
+            }
+        }
+    }
+})
+buttonSend_confirm_password_2?.addEventListener("click", async () => {
+    if (code_input.value != "") {
+        code_warning.style.display = "none"
+        code_warning_none.style.display = "none"
+        code_input.style.backgroundColor = "#FFCC73"
+        let data = await fetch("http://192.168.31.58:3000/post_confirm_password_2", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                surname: localStorage.getItem("surname"),
+                name: localStorage.getItem("name"),
+                phone: localStorage.getItem("phone"),
+                code: code_input.value.trim(),
+            })
+        }) as any
+        data = await data.json()
+
+        if(data.answer){
+            localStorage.setItem("code", code_input.value.trim())
+            window.location.href = "./confirm_password_3.html"
+        }
+        else{
+            code_warning_none.style.display = "inline-block"
+            code_input.style.backgroundColor = "#ffb073"
+        }
+    }
+    else {
+        if (code_input.value == "") {
+            code_warning.style.display = "inline-block"
+            code_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            code_warning.style.display = "none"
+            code_input.style.backgroundColor = "#FFCC73"
+        }
+    }
+})
+buttonSend_confirm_password_3?.addEventListener("click", async () => {
+    if (password_input.value != "" && password_input.value == repeatPassword_input.value && password_input.value.length >= 6) {
+        let data = await fetch("http://192.168.31.58:3000/post_confirm_password_3", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                where:{
+                    surname: localStorage.getItem("surname"),
+                    name: localStorage.getItem("name"),
+                    phone: localStorage.getItem("phone"),
+                    code: localStorage.getItem("code"),
+                },
+                data:{
+                    password: md5(password_input.value.trim())
+                }
+            })
+        }) as any
+        data = await data.json()
+
+        window.location.href = "./entrance.html"
+    }
+    else {
+        if (password_input.value == "") {
+            password_warning.style.display = "inline-block"
+            password_input.style.backgroundColor = "#ffb073"
+        }
+        else {
+            password_warning.style.display = "none"
+            password_input.style.backgroundColor = "#FFCC73"
+            if (password_input.value.length < 6) {
+                password_min_8.style.display = "inline-block"
+                password_input.style.backgroundColor = "#ffb073"
+            }
+            else {
+                password_min_8.style.display = "none"
+                password_input.style.backgroundColor = "#FFCC73"
+                if (repeatPassword_input.value != password_input.value) {
+                    repeatPassword_warning.style.display = "inline-block"
+                    repeatPassword_input.style.backgroundColor = "#ffb073"
+                }
+                else {
+                    repeatPassword_warning.style.display = "none"
+                    repeatPassword_input.style.backgroundColor = "#FFCC73"
+                }
+            }
+        }
+    }
 })
 
 

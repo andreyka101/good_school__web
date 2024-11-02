@@ -2,6 +2,12 @@ h1{
     color: #031E47;
     text-align: center;
 }
+h2{
+    color: #031E47;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+}
 .center_block{
     display: flex;
     justify-content: space-around;
@@ -17,6 +23,13 @@ h1{
         background: url("entrance_s_1.svg") center/cover;
         width: 477px;
         height: 400px;
+        margin-right: 100px;
+        // margin-bottom: 150px;
+    }
+    .photo_svg_3{
+        background: url("confirm_password_s_3.svg") center/cover;
+        width: 477px;
+        height: 246px;
         margin-right: 100px;
         // margin-bottom: 150px;
     }
@@ -97,6 +110,9 @@ h1{
     .photo_svg_2{
         margin-right: 0 !important;
     }
+    .photo_svg_3{
+        margin-right: 0 !important;
+    }
     .width_block{
         margin-left: 20px !important;
     }
@@ -105,6 +121,9 @@ h1{
     .photo_svg{
         width: 345px !important;
         height: 246px !important;
+    }
+    .photo_svg_3{
+        display: none;
     }
 }
 @media screen and (max-width:870px) {
@@ -124,9 +143,16 @@ h1{
     .photo_svg_2{
         display: none;
     }
+    .photo_svg_3{
+        display: none;
+    }
     .width_block{
         width: auto;
         max-width: 420px;
         margin-left: 0px !important;
     }
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Кнопки спрятаны */
 }
