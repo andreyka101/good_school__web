@@ -25,6 +25,7 @@ const email_warning = document.querySelector("#email_warning") as HTMLSpanElemen
 const password_warning = document.querySelector("#password_warning") as HTMLSpanElement
 const password_min_8 = document.querySelector("#password_min_8") as HTMLSpanElement
 const repeatPassword_warning = document.querySelector("#repeatPassword_warning") as HTMLSpanElement
+const password_x0_err_warning = document.querySelector("#password_x0_err_warning") as HTMLSpanElement
 const buttonSend_registrationStudent = document.querySelector("#buttonSend_registrationStudent") as HTMLButtonElement
 const width_block = document.querySelector(".width_block") as HTMLDivElement
 const code_warning = document.querySelector("#code_warning") as HTMLSpanElement
@@ -694,8 +695,12 @@ buttonSend_confirm_password_3?.addEventListener("click", async () => {
             })
         }) as any
         data = await data.json()
-
-        window.location.href = "./entrance.html"
+        if(data.answer_password == md5(password_input.value.trim())) window.location.href = "./entrance.html"
+        else{
+            password_x0_err_warning.style.display = "inline-block"
+            password_input.style.backgroundColor = "#ffb073"
+            repeatPassword_input.style.backgroundColor = "#ffb073"
+        }
     }
     else {
         if (password_input.value == "") {
