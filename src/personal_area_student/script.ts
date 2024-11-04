@@ -3,7 +3,7 @@ import "./style.scss"
 let userNameSurname_div = document.querySelector(".blockTop_name .user_name_surname") as HTMLDivElement
 const timetableClasses_thisWeek = document.querySelector("#timetable_classes_this_week") as HTMLDivElement
 let str_timetableClasses_thisWeek = ""
-let data_now = new Date().getDay()
+// let data_now = new Date().getDay()
 let timetable_classes_arr: any
 const but_setup_1_platform_setup = document.querySelector("#but_setup_1") as HTMLButtonElement
 const but_setup_2_platform_setup = document.querySelector("#but_setup_2") as HTMLButtonElement

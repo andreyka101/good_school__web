@@ -24,7 +24,7 @@ async function start_page() {
 }
 start_page()
 
-let class_status = "_individual"
+// let class_status = "_individual"
 
 
 async function name() {

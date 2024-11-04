@@ -9,7 +9,7 @@ const inp_2_links_platforms = document.querySelector('#inp_2') as HTMLInputEleme
 let button_phone:HTMLLinkElement
 let student_choice:HTMLDivElement
 let str_timetableClasses_thisWeek = ""
-let data_now = new Date().getDay()
+// let data_now = new Date().getDay()
 let timetable_classes_arr: any
 let timetable_classes_groups_arr: any
 // @ts-ignore

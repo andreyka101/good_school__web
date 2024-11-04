@@ -27,7 +27,7 @@ const password_min_8 = document.querySelector("#password_min_8") as HTMLSpanElem
 const repeatPassword_warning = document.querySelector("#repeatPassword_warning") as HTMLSpanElement
 const password_x0_err_warning = document.querySelector("#password_x0_err_warning") as HTMLSpanElement
 const buttonSend_registrationStudent = document.querySelector("#buttonSend_registrationStudent") as HTMLButtonElement
-const width_block = document.querySelector(".width_block") as HTMLDivElement
+// const width_block = document.querySelector(".width_block") as HTMLDivElement
 const code_warning = document.querySelector("#code_warning") as HTMLSpanElement
 const code_warning_none = document.querySelector("#code_warning_none") as HTMLSpanElement
 
