@@ -52,7 +52,7 @@ let timetable_classes_groups_arr: any
 // ]
 
 async function start_page() {
-    let data = await fetch("http://192.168.31.58:3000/get_student_start_page", {
+    let data = await fetch("https://api.goodschool.online/get_student_start_page", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -84,7 +84,7 @@ async function render_timetable_start() {
         instruction_div.style.display = "none"
     }
 
-    let data = await fetch("http://192.168.31.58:3000/get_teacher", {
+    let data = await fetch("https://api.goodschool.online/get_teacher", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -374,7 +374,7 @@ timetableClasses_nextWeek?.addEventListener("click", (e) => {
 button_save?.addEventListener("click", async () => {
     start_page()
 
-    let data = await fetch("http://192.168.31.58:3000/change_teacher", {
+    let data = await fetch("https://api.goodschool.online/change_teacher", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -404,7 +404,7 @@ button_back_global?.addEventListener("click", async () => {
 
 
 notification_exit_yes?.addEventListener("click", async () => {
-    let data = await fetch("http://192.168.31.58:3000/change_teacher", {
+    let data = await fetch("https://api.goodschool.online/change_teacher", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

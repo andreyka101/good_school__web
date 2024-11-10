@@ -1,11 +1,14 @@
 .announcement {
     background-color: #60e9d2;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: auto 358px;
+    align-items: center;
+    padding: 10px;
     margin: 10px 20px;
     border-radius: 10px;
     .horizontally {
         display: grid;
+        justify-content: center;
         gap: 15px;
         grid-template-columns: 52px auto;
         align-items: center;
@@ -43,6 +46,17 @@
                 // font-size: 22px;
             }
         }
+    }
+    .igs_button_universal_A1{
+        padding: 10px;
+        width: auto;
+        font-size: 19px;
+        background-color: #60e9d2;
+        border: 3px #000000 solid;
+    }
+    .igs_button_universal_A1:hover{
+        background-color: #429e8e;
+        border: 3px #000000 solid;
     }
 }
 

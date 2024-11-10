@@ -92,6 +92,12 @@
         background: url("phone_s12.svg") center/cover !important;
     }
 }
+.free_block{
+    grid-template-rows: auto auto auto auto auto;
+    .div_img_block{
+        grid-row: 1 / 5;
+    }
+}
 body{
     background: url("contacts_s_1.svg") 33% 114%/246px, url("contacts_s_2.svg") 98% 38%/246px;
 }

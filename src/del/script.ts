@@ -1,5 +1,5 @@
 document.querySelector("button")?.addEventListener("click",async ()=>{
-    let data = await fetch("http://192.168.31.58:3000/payment_confirmation", {
+    let data = await fetch("https://api.goodschool.online/payment_confirmation", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

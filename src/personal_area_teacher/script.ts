@@ -23,7 +23,7 @@ userNameSurname_div.innerText = string_surname.join("") + " " + string_name.join
 
 
 async function start_page() {
-    let data = await fetch("http://192.168.31.58:3000/get_teacher_start_page", {
+    let data = await fetch("https://api.goodschool.online/get_teacher_start_page", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -46,7 +46,7 @@ start_page()
 async function render_timetable_start() {
     try {
 
-        let data = await fetch("http://192.168.31.58:3000/get_teacher", {
+        let data = await fetch("https://api.goodschool.online/get_teacher", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -73,7 +73,7 @@ async function render_timetable_start() {
                 let time_block = ""
                 for (let i in timetable_classes_arr) {
                     if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work"){
-                        let data = await fetch("http://192.168.31.58:3000/get_student", {
+                        let data = await fetch("https://api.goodschool.online/get_student", {
                             method: "POST",
                             headers: {
                                 'Content-Type': 'application/json;charset=utf-8'
@@ -97,7 +97,7 @@ async function render_timetable_start() {
                         let arr_work_id = [] as Array<number>
                         for (let i in timetable_classes_arr) {
                             if (((timetable_classes_arr[i].dayWeek == day && timetable_classes_arr[i].time == time) || (timetable_classes_arr[i].dayWeek == 0 && timetable_classes_arr[i].time == time && day == 7)) && timetable_classes_arr[i].week != "next" && timetable_classes_arr[i].type == "work") {
-                                let data = await fetch("http://192.168.31.58:3000/get_student", {
+                                let data = await fetch("https://api.goodschool.online/get_student", {
                                     method: "POST",
                                     headers: {
                                         'Content-Type': 'application/json;charset=utf-8'
@@ -150,7 +150,7 @@ async function render_timetable_start() {
 }
 render_timetable_start()
 async function render_link_block() {
-    let data = await fetch("http://192.168.31.58:3000/get_teacher", {
+    let data = await fetch("https://api.goodschool.online/get_teacher", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -176,7 +176,7 @@ save_links_platforms.addEventListener("click", async () => {
     if(save_links_platforms.className == "igs_button_universal_B1"){
         save_links_platforms.classList.add("button_active")
         
-        await fetch("http://192.168.31.58:3000/change_teacher", {
+        await fetch("https://api.goodschool.online/change_teacher", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -222,7 +222,7 @@ timetableClasses_thisWeek.addEventListener("click", async (event) => {
         if (all_div_groups != null) all_div_groups.classList.remove("time_groups_selected")
         console.log(target);
         target.classList.add("time_work_selected")
-        let data = await fetch("http://192.168.31.58:3000/get_student", {
+        let data = await fetch("https://api.goodschool.online/get_student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -275,7 +275,7 @@ timetableClasses_thisWeek.addEventListener("click", async (event) => {
         if (all_div_groups != null) all_div_groups.classList.remove("time_groups_selected")
         target.classList.add("time_groups_selected")
         console.log(JSON.parse(target.dataset.id + ""));
-        let data = await fetch("http://192.168.31.58:3000/get_student", {
+        let data = await fetch("https://api.goodschool.online/get_student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -361,7 +361,7 @@ timetableClasses_thisWeek.addEventListener("click", async (event) => {
         student_selected?.classList.remove("student_selected")
         target?.classList.add("student_selected")
         console.log(999);
-        let data = await fetch("http://192.168.31.58:3000/get_student", {
+        let data = await fetch("https://api.goodschool.online/get_student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
