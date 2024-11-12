@@ -85,6 +85,23 @@ h2{
         }
     }
 }
+.checkbox_div{
+    margin-top: 5px;
+    font-size: 17px;
+    
+}
+.document_div{
+    margin-top: 3px;
+    a{
+        color: rgb(52, 114, 114);
+        font-size: 17px;
+        text-decoration: none;
+    }
+    a:hover{
+        color: rgb(99, 173, 173);
+        
+    }
+}
 #buttonSend_registrationStudent{
     margin-bottom: 30px;
 }

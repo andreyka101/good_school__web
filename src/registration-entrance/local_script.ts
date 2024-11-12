@@ -30,6 +30,8 @@ const buttonSend_registrationStudent = document.querySelector("#buttonSend_regis
 // const width_block = document.querySelector(".width_block") as HTMLDivElement
 const code_warning = document.querySelector("#code_warning") as HTMLSpanElement
 const code_warning_none = document.querySelector("#code_warning_none") as HTMLSpanElement
+const checkbox_input = document.querySelector(".checkbox_div input") as HTMLInputElement
+const checkbox_label = document.querySelector(".checkbox_div label") as HTMLLabelElement
 
 const patronymic_input = document.querySelector("#patronymic_input") as HTMLInputElement
 const item_select = document.querySelector("#item_select") as HTMLSelectElement
@@ -161,7 +163,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
         window.location.href = "./registration_teacher.html"
     }
     else {
-        if (name_input.value != "" && surname_input.value != "" && s_num != "" && phone_input.value != "" && email_input.value != "" && class_select.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value && password_input.value.length >= 6 && (phone_input.value.trim()[0] == "+" && phone_input.value.trim()[1] == "7")) {
+        if (checkbox_input.checked && name_input.value != "" && surname_input.value != "" && s_num != "" && phone_input.value != "" && email_input.value != "" && class_select.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value && password_input.value.length >= 6 && (phone_input.value.trim()[0] == "+" && phone_input.value.trim()[1] == "7")) {
             name_warning.style.display = "none"
             name_input.style.backgroundColor = "#FFCC73"
             surname_warning.style.display = "none"
@@ -250,6 +252,9 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
             // }
         }
         else {
+            if(!checkbox_input.checked){
+                checkbox_label.style.color = "red"
+            }
             if (name_input.value == "") {
                 name_warning.style.display = "inline-block"
                 name_input.style.backgroundColor = "#ffb073"

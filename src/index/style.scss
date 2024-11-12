@@ -1,9 +1,9 @@
 .announcement {
     background-color: #60e9d2;
     display: grid;
-    grid-template-columns: auto 358px;
+    grid-template-columns: auto 290px;
     align-items: center;
-    padding: 10px;
+    padding: 10px 60px;
     margin: 10px 20px;
     border-radius: 10px;
     .horizontally {
@@ -483,6 +483,9 @@
             background: url("/public/Vectors11111.svg") 104% -2%/29% no-repeat;
             background-color: #7496cc;
         }
+        .announcement{
+            padding: 10px 30px;
+        }
 }
 @media screen and (max-width:1033px) {
     .advantagesSchool_block{
@@ -498,6 +501,15 @@
         .advantagesSchool_block{
             background: url("/public/Vectors11111.svg") 104% -2%/43% no-repeat;
             background-color: #7496cc;
+        }
+        .announcement{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            .igs_button_universal_A1{
+                padding: 10px 60px;
+            }
         }
 }
 @media screen and (max-width:741px) {
@@ -533,5 +545,10 @@
         }
         .programming_block{
             padding: 15px;
+        }
+        .announcement{
+            .igs_button_universal_A1{
+                padding: 10px 46px;
+            }
         }
 }

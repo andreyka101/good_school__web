@@ -154,6 +154,19 @@ header {
         }
     }
 }
+footer{
+    bottom: 0;
+    position: relative;
+    background-color: #4a4a4a;
+    padding: 30px 10px;
+    display: flex;
+    justify-content: space-evenly;
+    a{
+        font-size: 17px;
+        text-decoration: none;
+        color: white;
+    }
+}
 .top_link_header {
     display: none;
     justify-content: space-evenly;
@@ -178,9 +191,14 @@ header {
     .top_link_header{
         display: inline-flex;
     }
-    body{
-        margin-bottom: 70px;
+    footer{
+        padding-bottom: 90px;
+
     }
+    // FIXME - 1234=5=4321
+    // body{
+    //     margin-bottom: 70px;
+    // }
 }
 @media screen and (max-width: 550px) {
     .top_link_header{
@@ -228,6 +246,9 @@ header {
     }
     .igs_button_universal_A1:hover {
         background-color: #429285;
+    }
+    footer a:hover{
+        color: #c9c9c9;
     }
 }
 .flex_center {
