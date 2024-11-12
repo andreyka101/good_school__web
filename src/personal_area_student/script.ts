@@ -27,7 +27,7 @@ userNameSurname_div.innerText = string_surname.join("") + " " + string_name.join
 
 
 async function start_page() {
-    let data = await fetch("https://api.goodschool.online/get_student_start_page", {
+    let data = await fetch("http://192.168.31.58:3000/get_student_start_page", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -51,7 +51,7 @@ start_page()
 async function render_timetable_start() {
     try {
 
-        let data = await fetch("https://api.goodschool.online/get_teacher", {
+        let data = await fetch("http://192.168.31.58:3000/get_teacher", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -125,7 +125,7 @@ async function render_timetable_start() {
 }
 render_timetable_start()
 async function paid_lessons() {
-    let get_student = await fetch("https://api.goodschool.online/get_student", {
+    let get_student = await fetch("http://192.168.31.58:3000/get_student", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -142,7 +142,7 @@ async function paid_lessons() {
 paid_lessons()
 
 async function render_platform_setup() {
-    let get_student = await fetch("https://api.goodschool.online/get_student", {
+    let get_student = await fetch("http://192.168.31.58:3000/get_student", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -154,7 +154,7 @@ async function render_platform_setup() {
     get_student = await get_student.json()
     let get_student_platform_lesson = ""
     if (get_student.platform_lesson == null) {
-        await fetch("https://api.goodschool.online/change_student", {
+        await fetch("http://192.168.31.58:3000/change_student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -192,7 +192,7 @@ render_platform_setup()
 but_setup_1_platform_setup.addEventListener("click", async () => {
     if (but_setup_1_platform_setup.className == "igs_button_universal_B1 transparent_button") {
 
-        await fetch("https://api.goodschool.online/change_student", {
+        await fetch("http://192.168.31.58:3000/change_student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -216,7 +216,7 @@ but_setup_1_platform_setup.addEventListener("click", async () => {
 but_setup_2_platform_setup.addEventListener("click", async () => {
     if (but_setup_2_platform_setup.className == "igs_button_universal_B1 transparent_button") {
 
-        await fetch("https://api.goodschool.online/change_student", {
+        await fetch("http://192.168.31.58:3000/change_student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -256,7 +256,7 @@ button_1_copy_phone.addEventListener('click', () => {
 })
 link_to_lesson.addEventListener('click', async () => {
     if (link_to_lesson.className != "igs_button_universal_B1 transparent_button") return
-    let get_student = await fetch("https://api.goodschool.online/get_student", {
+    let get_student = await fetch("http://192.168.31.58:3000/get_student", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -266,7 +266,7 @@ link_to_lesson.addEventListener('click', async () => {
         })
     }) as any
     get_student = await get_student.json()
-    let get_teacher = await fetch("https://api.goodschool.online/get_teacher", {
+    let get_teacher = await fetch("http://192.168.31.58:3000/get_teacher", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
