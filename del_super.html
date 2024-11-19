@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>
+        pips
+    </button>
+    <form action="https://pro.selfwork.ru/merchant/v1/init" method="POST">
+        <input type="hidden" name="amount" value="400">
+        <input type="hidden" name="info[0][name]" value="Cвитер ручной работы">
+        <input type="hidden" name="info[0][quantity]" value="2">
+        <input type="hidden" name="info[0][amount]" value="100">
+        <input type="hidden" name="info[1][name]" value="Штаны ручной работы">
+        <input type="hidden" name="info[1][quantity]" value="1">
+        <input type="hidden" name="info[1][amount]" value="200">
+        <input type="hidden" name="order_id" value="92Gn36QV8WVm8DTij4pS1v20m331r0rd92Gn36QV8WVm8DTij4pS1v20m331r0rd92Gn36QV8WVm8DTij4pS1v20m331r0rd92Gn36QV8WVm8DTij4pS1v20m331r0rd92Gn36QV8WVm8DTij4pS1v20m331r0rd">
+        <input type="hidden" name="signature" value="001">
+        <button id="smz-init-payment-button" type="submit">Оплатить</button>
+    </form>
+</body>
+<!-- <script src="https://pro.selfwork.ru/merchant-app/smz-init-payment.js"></script> -->
+<script src="/src/del_super/script.ts" type="module"></script>
+</html>
