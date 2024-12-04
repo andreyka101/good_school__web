@@ -36,7 +36,7 @@ async function start() {
               ${string_patronymic.join("")}
             </p>
             <p>
-            учитель по
+            ${(data[i].item == 'mathematics') ? "учитель" : "репетитор"} по
             ${(data[i].item == 'mathematics') ? 'математике, информатике.' : 'программированию.'}
             </p>
             </span>
