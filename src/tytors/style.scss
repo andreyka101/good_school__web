@@ -1,3 +1,4 @@
+
 .tutors_box{
     display: flex;
     justify-content: space-evenly;
@@ -8,13 +9,19 @@
         background-color: #447BD4;
         padding: 40px 20px;
         margin: 10px;
-        width: 360px;
+        width: 410px;
         min-height: 450px;
         .img_text{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             .photo{
+                border-radius: 5px;
+                // background: url("121381277.png") center / cover;
+                width: 180px;
+                height: 180px;
+            }
+            .photo_diploma{
                 border-radius: 5px;
                 // background: url("121381277.png") center / cover;
                 width: 180px;

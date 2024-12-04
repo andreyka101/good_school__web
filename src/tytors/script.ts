@@ -39,12 +39,11 @@ async function start() {
             учитель по
             ${(data[i].item == 'mathematics') ? 'математике, информатике.' : 'программированию.'}
             </p>
-            <p>
-            ${data[i].education
-      }
-            </p>
             </span>
             </div>
+            <p>
+            ${data[i].education}
+            </p>
             <p class="teacher_text">
             ${data[i].description
       }
@@ -54,3 +53,4 @@ async function start() {
   tutors_box.innerHTML = str_html
 }
 start()
+console.log(window.innerHeight);
