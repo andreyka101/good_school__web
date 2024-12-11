@@ -211,16 +211,16 @@ h2 {
         }
     }
     #link_1 .svg {
-        background: url("whatsapp_s1.svg") center/cover;
+        background: url("/public/whatsapp_s1.svg") center/cover;
     }
     #link_1:hover .svg {
-        background: url("whatsapp_s2.svg") center/cover;
+        background: url("/public/whatsapp_s2.svg") center/cover;
     }
     #link_2 .svg {
-        background: url("telegram_s3.svg") center/cover;
+        background: url("/public/telegram_s3.svg") center/cover;
     }
     #link_2:hover .svg {
-        background: url("telegram_s4.svg") center/cover;
+        background: url("/public/telegram_s4.svg") center/cover;
     }
     .igs_button_universal_B1 {
         margin-top: 6px;
@@ -277,7 +277,7 @@ h2 {
 }
 
 .photo_svg{
-    background: url("personal_area_student_s_1.svg") center/cover;
+    background: url("/public/personal_area_student_s_1.svg") center/cover;
     width: 323px;
     height: 372px;
     position: relative;

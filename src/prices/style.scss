@@ -105,16 +105,16 @@
         height: 290px;
     }
 }
+.prices_cards_block:nth-child(1){
+    background: url("/public/prices_s_1.svg") 98% 5%/104px no-repeat;
+    background-color: #6A93D4;
+}
 .prices_cards_block:nth-child(2){
-    background: url("prices_s_1.svg") 98% 5%/104px no-repeat;
+    background: url("/public/prices_s_2.svg") 99% 2%/120px no-repeat;
     background-color: #6A93D4;
 }
 .prices_cards_block:nth-child(3){
-    background: url("prices_s_2.svg") 99% 2%/120px no-repeat;
-    background-color: #6A93D4;
-}
-.prices_cards_block:nth-child(4){
-    background: url("prices_s_3.svg") 98% 1%/138px no-repeat;
+    background: url("/public/prices_s_3.svg") 98% 1%/138px no-repeat;
     background-color: #6A93D4;
 }
 

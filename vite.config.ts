@@ -25,6 +25,9 @@ export default {
         subscription_selection_start: resolve('subscription_selection_start.html'),
         del: resolve('del.html'),
         del2: resolve('del2.html'),
+        free_lesson: resolve('free_lesson.html'),
+        // doc_1: resolve('doc_1.pdf'),
+        // doc_2: resolve('doc_2.pdf'),
       }
     }
   }

@@ -13,21 +13,21 @@ h2{
     justify-content: space-around;
     align-items: center;
     .photo_svg{
-        background: url("registration_student_s_1.svg") center/cover;
+        background: url("/public/registration_student_s_1.svg") center/cover;
         width: 477px;
         height: 346px;
         margin-right: 100px;
         margin-bottom: 150px;
     }
     .photo_svg_2{
-        background: url("entrance_s_1.svg") center/cover;
+        background: url("/public/entrance_s_1.svg") center/cover;
         width: 477px;
         height: 400px;
         margin-right: 100px;
         // margin-bottom: 150px;
     }
     .photo_svg_3{
-        background: url("confirm_password_s_3.svg") center/cover;
+        background: url("/public/confirm_password_s_3.svg") center/cover;
         width: 477px;
         height: 246px;
         margin-right: 100px;

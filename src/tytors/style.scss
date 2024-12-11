@@ -45,11 +45,11 @@
         }
     }
     .card_teacher:nth-child(1){
-        background: url("tutors_s_1.svg") 227% 131%/85% no-repeat;
+        background: url("/public/tutors_s_1.svg") 227% 131%/85% no-repeat;
         background-color: #447BD4;
     }
     .card_teacher:nth-child(2){
-        background: url("tutors_s_2.svg") -96% 289%/110% no-repeat;
+        background: url("/public/tutors_s_2.svg") -96% 289%/110% no-repeat;
         background-color: #447BD4;
     }
 }
@@ -64,6 +64,10 @@
                     word-break: break-all;
                 }
             }
+        }
+        .card_teacher:nth-child(2){
+            background: url("/public/tutors_s_2.svg") -96% 184%/110% no-repeat;
+            background-color: #447BD4;
         }
     }
 }
@@ -86,7 +90,7 @@
             }
         }
         .card_teacher:nth-child(2){
-        background: url(tutors_s_2.svg) -96% 236% / 110% no-repeat !important;
+        background: url("/public/tutors_s_2.svg") -96% 151% / 110% no-repeat !important;
         background-color: #447BD4 !important;
         }
     }
@@ -104,7 +108,7 @@
             }
         }
         .card_teacher:nth-child(2){
-            background: url(tutors_s_2.svg) -96% 208% / 110% no-repeat !important;
+            background: url("/public/tutors_s_2.svg") -96% 142% / 110% no-repeat !important;
             background-color: #447BD4 !important;
         }
     }
