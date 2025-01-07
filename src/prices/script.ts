@@ -521,7 +521,7 @@ const body = document.querySelector("body") as HTMLBodyElement
 const set_prices = document.querySelector("#set_prices") as HTMLDivElement
 
 async function get_prices_fun() {
-    let data = await fetch("https://api.goodschool.online/get_prices") as any
+    let data = await fetch("http://192.168.31.58:3000/get_prices") as any
     data = await data.json()
     let get_prices = [
         [...data["1-8_individual"]],

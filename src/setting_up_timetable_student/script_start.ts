@@ -59,7 +59,7 @@ async function render_timetable_start() {
         instruction_div.style.display = "none"
     }
 
-    let data = await fetch("https://api.goodschool.online/get_teacher", {
+    let data = await fetch("http://192.168.31.58:3000/get_teacher", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -396,7 +396,7 @@ button_save?.addEventListener("click", async () => {
         data_user_all = Object.assign(data_user_all,{"first_payment":(localStorage.getItem("classes_status_user") + "").split(" ")[1]})
         data_user_all = Object.assign(data_user_all,{"type_class":(localStorage.getItem("classes_status_user") + "").split(" ")[0]})
         
-        let data = await fetch("https://api.goodschool.online/registration_student", {
+        let data = await fetch("http://192.168.31.58:3000/registration_student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
