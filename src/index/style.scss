@@ -67,6 +67,7 @@
     border-radius: 10px;
     .horizontally{
         display: grid;
+        align-items: center;
         grid-template-columns: 418px auto;
         .png{
             border-radius: 10px;
