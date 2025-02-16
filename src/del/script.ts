@@ -17,6 +17,7 @@
 //         window.location.href = "./personal_area_student.html"
 //     }
 // })
+// https://developer.131.ru/widget/payment-widget/
 
 
 
