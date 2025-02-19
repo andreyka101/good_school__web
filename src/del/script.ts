@@ -93,6 +93,10 @@ BbuRL9SD/2iwpPi34UT9MNOOGGtiA3vqmnSjALYqs3HB+BbrI7CR
 
     console.log('Подпись:', signatureBase64);
 
+
+    // var verified = keypair.publicKey.verify(md.digest().bytes(), signature);
+    // console.log('проверка:', Buffer.from(forge.util.binary.raw.decode(privateKey.sign(md))));
+
     let data = await fetch("https://demo.bank131.ru/api/v1/token", {
         method: "POST",
         headers: {
