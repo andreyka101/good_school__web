@@ -45,7 +45,7 @@ const encryptedString = nodeRSA.encrypt({ text, privateKey });
 console.log('Encrypted with Private Key:', encryptedString);
 async function start() {
   const tutors_box = document.querySelector(".tutors_box") as HTMLDivElement
-  let data = await fetch("http://192.168.31.58:3000/get_all_teacher", {
+  let data = await fetch("https://api.goodschool.online/get_all_teacher", {
     method: "POST",
     headers: {
       'Content-Type': 'application/json;charset=utf-8'
