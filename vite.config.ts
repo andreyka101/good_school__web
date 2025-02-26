@@ -4,7 +4,6 @@ export default {
   build: {
     rollupOptions: {
       input: {
-        // @ts-ignore
         main: resolve('index.html'),
         entrance: resolve('entrance.html'),
         items: resolve('items.html'),
@@ -24,6 +23,7 @@ export default {
         setting_up_timetable_teacher: resolve('setting_up_timetable_teacher.html'),
         subscription_selection_start: resolve('subscription_selection_start.html'),
         del: resolve('del.html'),
+        del_x: resolve('del_x.html'),
         del2: resolve('del2.html'),
         free_lesson: resolve('free_lesson.html'),
         // doc_1: resolve('doc_1.pdf'),
