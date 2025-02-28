@@ -22,7 +22,7 @@ export default {
         setting_up_timetable_student: resolve('setting_up_timetable_student.html'),
         setting_up_timetable_teacher: resolve('setting_up_timetable_teacher.html'),
         subscription_selection_start: resolve('subscription_selection_start.html'),
-        del: resolve('del.html'),
+        del: resolve('check_amount_start.html'),
         del_x: resolve('del_x.html'),
         del2: resolve('del2.html'),
         free_lesson: resolve('free_lesson.html'),
