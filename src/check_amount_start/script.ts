@@ -1,22 +1,22 @@
-document.querySelector("button")?.addEventListener("click",async ()=>{
-    let data = await fetch("http://192.168.31.58:3000/payment_confirmation", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            id:+(localStorage.getItem("id_student") as string),
-            ok:true
-        })
-    }) as any
-    data = await data.json()
-    console.log(data);
-    if(data.ok){
-        localStorage.setItem("id_teacher",data.id_t)
-        localStorage.setItem("id_student",data.id_s)
-        window.location.href = "./personal_area_student.html"
-    }
-})
+// document.querySelector("button")?.addEventListener("click",async ()=>{
+//     let data = await fetch("http://192.168.31.58:3000/payment_confirmation", {
+//         method: "POST",
+//         headers: {
+//             'Content-Type': 'application/json;charset=utf-8'
+//         },
+//         body: JSON.stringify({
+//             id:+(localStorage.getItem("id_student") as string),
+//             ok:true
+//         })
+//     }) as any
+//     data = await data.json()
+//     console.log(data);
+//     if(data.ok){
+//         localStorage.setItem("id_teacher",data.id_t)
+//         localStorage.setItem("id_student",data.id_s)
+//         window.location.href = "./personal_area_student.html"
+//     }
+// })
 // https://developer.131.ru/widget/payment-widget/
 
 // https://developer.131.ru/payments/payment-with-form/
@@ -56,19 +56,43 @@ document.querySelector("button")?.addEventListener("click",async ()=>{
 
 
 
-// document.querySelector("button")?.addEventListener("click", async () => {
-//     let data = await fetch("http://192.168.31.58:3000/first_payment", {
-//         method: "POST",
-//         headers: {
-//             'Content-Type': 'application/json;charset=utf-8'
-//         },
-//         body: JSON.stringify({
-//             id: +(localStorage.getItem("id_student") as string),
-//             ok: true
-//         })
-//     }) as any
-//     data = await data.json()
-//     console.log(data);
-//     localStorage.setItem("token_p", data.public_token)
-//     window.location.href = "./del_x.html"
-// })
+(async () => {
+    console.log("llkefjefjejj");
+    let data = await fetch("http://192.168.31.58:3000/get_number_money", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            pay: localStorage.getItem("classes_status_user"),
+            ok: true
+        })
+    }) as any
+    data = await data.json()
+    console.log(data);
+})()
+
+
+
+document.querySelector("button")?.addEventListener("click", async () => {
+    let data = await fetch("http://192.168.31.58:3000/first_payment", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            id: +(localStorage.getItem("id_student") as string),
+            dataUser: JSON.parse(localStorage.getItem("dataUser") as string),
+            ok: true
+        })
+    }) as any
+    data = await data.json()
+    console.log(data);
+    if(data.ok){
+        localStorage.setItem("token_p", data.answer)
+        window.location.href = "./payment_page_start.html"
+    }
+    else{
+        window.location.href = "./"
+    }
+})
