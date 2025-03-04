@@ -1,5 +1,5 @@
 // document.querySelector("button")?.addEventListener("click",async ()=>{
-//     let data = await fetch("http://192.168.31.58:3000/payment_confirmation", {
+//     let data = await fetch("https://api.goodschool.online/payment_confirmation", {
 //         method: "POST",
 //         headers: {
 //             'Content-Type': 'application/json;charset=utf-8'
@@ -26,16 +26,20 @@
 
 // 0|app  | hooks_pay
 // 0|app  | {
-// 0|app  |   type: 'ready_to_confirm',
-// 0|app  |   session: {
-// 0|app  |     id: 'ps_683226',
-// 0|app  |     status: 'in_progress',
-// 0|app  |     created_at: '2025-02-26T11:17:53.605804Z',
-// 0|app  |     updated_at: '2025-02-26T11:25:09.630057Z',
-// 0|app  |     acquiring_payments: [ [Object] ],
-// 0|app  |     next_action: 'confirm'
-// 0|app  |   }
-// 0|app  | }
+//     0|app  |   type: 'payment_finished',
+//     0|app  |   session: {
+//     0|app  |     id: 'ps_687146',
+//     0|app  |     status: 'accepted',
+//     0|app  |     created_at: '2025-03-04T13:33:11.719843Z',
+//     0|app  |     updated_at: '2025-03-04T13:34:14.041302Z',
+//     0|app  |     acquiring_payments: [ [Object] ],
+//     0|app  |     actions: {
+//     0|app  |       confirm: '2025-03-04T13:33:53.469641Z',
+//     0|app  |       capture: '2025-03-04T13:33:53.734278Z'
+//     0|app  |     }
+//     0|app  |   }
+//     0|app  | }
+
 
 
 // [
@@ -58,7 +62,7 @@
 
 (async () => {
     console.log("llkefjefjejj");
-    let data = await fetch("http://192.168.31.58:3000/get_number_money", {
+    let data = await fetch("https://api.goodschool.online/get_number_money", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -75,7 +79,7 @@
 
 
 document.querySelector("button")?.addEventListener("click", async () => {
-    let data = await fetch("http://192.168.31.58:3000/first_payment", {
+    let data = await fetch("https://api.goodschool.online/first_payment", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
