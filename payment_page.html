@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Виджет платежной формы</title>
+
+    <link href="https://widget-demo.bank131.ru/payment-form.css" rel="stylesheet" />
+    <script src="https://widget-demo.bank131.ru/payment-form.js" defer></script>
+  </head>
+
+  <body>
+    <div id="bank131-payment-form"></div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (!window.Bank131PaymentForm) {
+          return;
+        }
+        
+        const paymentForm = new Bank131PaymentForm(localStorage.getItem("token_p"), {
+          isCvcMasked: true,
+          customerInteractionRedirect: {
+            target: "_blank",
+          }});
+          
+          paymentForm.render();
+        });
+        </script>
+        <script type="module" src="./src/payment_page/script.ts"></script>
+  </body>
+</html>
