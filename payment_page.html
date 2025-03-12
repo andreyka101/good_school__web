@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <title>Виджет платежной формы</title>
 
-    <link href="https://widget.bank131.ru/card-tokenizer.css" rel="stylesheet" />
-    <script src="https://widget.bank131.ru/card-tokenizer.js" defer></script>
+    <link href="https://widget.bank131.ru/payment-form.css" rel="stylesheet" />
+    <script src="https://widget.bank131.ru/payment-form.js" defer></script>
   </head>
 
   <body>
@@ -18,11 +18,7 @@
           return;
         }
         
-        const paymentForm = new Bank131PaymentForm(localStorage.getItem("token_p"), {
-          isCvcMasked: true,
-          customerInteractionRedirect: {
-            target: "_blank",
-          }});
+        const paymentForm = new Bank131PaymentForm(localStorage.getItem("token_p"));
           
           paymentForm.render();
         });

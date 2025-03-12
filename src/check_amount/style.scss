@@ -1,0 +1,24 @@
+body{
+    background-color: #ffffff;
+    font-family: system-ui !important;
+    margin: 0;
+}
+.text_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        color: #7496cc;
+        margin-top: 70px;
+    }
+    h2{
+        color: #4f6c9a;
+        margin-bottom: 30px;
+        margin-top: 0px;
+        font-size: 30px;
+    }
+}
+.igs_button_universal_B1{
+    font-size: 18px;
+    padding: 10px 20px;
+}
