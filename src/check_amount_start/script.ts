@@ -54,6 +54,8 @@
 //     0|app  |     metadata: 'hello'
 //     0|app  |   }
 //     0|app  | ]
+import "../interface_good_school.scss"
+import "./style.scss"
 
 
 
@@ -68,12 +70,24 @@
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            pay: localStorage.getItem("classes_status_user"),
+            pay: localStorage.getItem("pay"),
             ok: true
         })
     }) as any
     data = await data.json()
     console.log(data);
+    const pay_num = (localStorage.getItem("pay")as string).split(" ")[1]
+    const div_info = document.querySelector(".text_info") as HTMLDivElement
+    div_info.innerHTML = /*html*/ `
+    <h1>
+        Покупка ${pay_num} ${(pay_num == "1") ? "занятия" : "занятий"}
+    </h1>
+    <h2>
+        сумма ${data.money} руб.
+    </h2>
+    `
+    // const but = document.querySelector("button") as HTMLButtonElement
+    // but.innerText = `перейти к оплате ${(pay_num == "1") ? "занятия" : "занятий"}`
 })()
 
 

@@ -25,7 +25,7 @@ export default {
         check_amount_start: resolve('check_amount_start.html'),
         payment_page_start: resolve('payment_page_start.html'),
         payment_page: resolve('payment_page.html'),
-        del2: resolve('del2.html'),
+        check_amount: resolve('check_amount.html'),
         free_lesson: resolve('free_lesson.html'),
         // doc_1: resolve('doc_1.pdf'),
         // doc_2: resolve('doc_2.pdf'),
