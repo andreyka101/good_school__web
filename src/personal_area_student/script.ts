@@ -1,3 +1,4 @@
+// import "../interface_good_school.scss"
 import "./style.scss"
 
 let userNameSurname_div = document.querySelector(".blockTop_name .user_name_surname") as HTMLDivElement
@@ -41,7 +42,6 @@ async function start_page() {
     if (data.name != localStorage.getItem("name") || data.surname != localStorage.getItem("surname")) {
         localStorage.setItem("name", "")
         localStorage.setItem("surname", "")
-        localStorage.setItem("id_teacher", "")
         localStorage.setItem("id_student", "")
         window.location.href = "./"
     }
@@ -51,13 +51,15 @@ start_page()
 async function render_timetable_start() {
     try {
 
-        let data = await fetch("https://api.goodschool.online/get_teacher", {
+        let data = await fetch("https://api.goodschool.online/get_teacher_for_s", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                id: +(localStorage.getItem("id_teacher") + "")
+                id: localStorage.getItem("id_student"),
+                name:localStorage.getItem("name"),
+                surname:localStorage.getItem("surname"),
             })
         }) as any
         data = await data.json()
@@ -119,19 +121,20 @@ async function render_timetable_start() {
     catch {
         localStorage.setItem("name", "")
         localStorage.setItem("surname", "")
-        localStorage.setItem("id_teacher", "")
         window.location.href = "./"
     }
 }
 render_timetable_start()
 async function paid_lessons() {
-    let get_student = await fetch("https://api.goodschool.online/get_student", {
+    let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            id: +(localStorage.getItem("id_student") + "")
+            id: +(localStorage.getItem("id_student") + ""),
+            name: localStorage.getItem("name"),
+            surname: localStorage.getItem("surname"),
         })
     }) as any
     get_student = await get_student.json()
@@ -142,17 +145,20 @@ async function paid_lessons() {
 paid_lessons()
 
 async function render_platform_setup() {
-    let get_student = await fetch("https://api.goodschool.online/get_student", {
+    let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            id: +(localStorage.getItem("id_student") + "")
+            id: +(localStorage.getItem("id_student") + ""),
+            name: localStorage.getItem("name"),
+            surname: localStorage.getItem("surname"),
         })
     }) as any
     get_student = await get_student.json()
     let get_student_platform_lesson = ""
+    //FIXME - исправить это безобразие
     if (get_student.platform_lesson == null) {
         await fetch("https://api.goodschool.online/change_student", {
             method: "POST",
@@ -161,11 +167,11 @@ async function render_platform_setup() {
             },
             body: JSON.stringify({
                 where: {
-                    id: +(localStorage.getItem("id_student") + "")
+                    id: +(localStorage.getItem("id_student") + ""),
+                    name: localStorage.getItem("name"),
+                    surname: localStorage.getItem("surname"),
                 },
-                data: {
-                    platform_lesson: "Discord"
-                }
+                data: "Discord"
             })
         })
         get_student_platform_lesson = "Discord"
@@ -199,11 +205,11 @@ but_setup_1_platform_setup.addEventListener("click", async () => {
             },
             body: JSON.stringify({
                 where: {
-                    id: +(localStorage.getItem("id_student") + "")
+                    id: +(localStorage.getItem("id_student") + ""),
+                    name: localStorage.getItem("name"),
+                    surname: localStorage.getItem("surname"),
                 },
-                data: {
-                    platform_lesson: "Discord"
-                }
+                data: "Discord"
             })
         })
         but_setup_1_platform_setup.classList.add("button_platform_setup_on")
@@ -223,11 +229,11 @@ but_setup_2_platform_setup.addEventListener("click", async () => {
             },
             body: JSON.stringify({
                 where: {
-                    id: +(localStorage.getItem("id_student") + "")
+                    id: +(localStorage.getItem("id_student") + ""),
+                    name: localStorage.getItem("name"),
+                    surname: localStorage.getItem("surname"),
                 },
-                data: {
-                    platform_lesson: "Zoom"
-                }
+                data: "Zoom"
             })
         })
         but_setup_2_platform_setup.classList.add("button_platform_setup_on")
@@ -256,23 +262,27 @@ button_1_copy_phone.addEventListener('click', () => {
 })
 link_to_lesson.addEventListener('click', async () => {
     if (link_to_lesson.className != "igs_button_universal_B1 transparent_button") return
-    let get_student = await fetch("https://api.goodschool.online/get_student", {
+    let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            id: +(localStorage.getItem("id_student") + "")
+            id: +(localStorage.getItem("id_student") + ""),
+            name: localStorage.getItem("name"),
+            surname: localStorage.getItem("surname"),
         })
     }) as any
     get_student = await get_student.json()
-    let get_teacher = await fetch("https://api.goodschool.online/get_teacher", {
+    let get_teacher = await fetch("https://api.goodschool.online/get_teacher_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            id: +(localStorage.getItem("id_teacher") + "")
+            id: localStorage.getItem("id_student"),
+            name:localStorage.getItem("name"),
+            surname:localStorage.getItem("surname"),
         })
     }) as any
     get_teacher = await get_teacher.json()

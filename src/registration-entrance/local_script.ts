@@ -216,7 +216,6 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                 // localStorage.setItem("name",data.name + "")
                 // localStorage.setItem("surname",data.surname + "")
                 localStorage.setItem("id_student", "0")
-                // localStorage.setItem("id_teacher",data.teacher_id + "")
                 window.location.href = "./subscription_selection_start.html"
             }
             else {
@@ -514,12 +513,11 @@ buttonSend_entrance?.addEventListener("click", async () => {
             surname_input.value = s2
         }
 
-        if (data[0]["teacher_id"]) {
+        if (data[0]["type_class"]) {
             if (data[0].password == md5(password_input.value.trim())) {
                 localStorage.setItem("name", data[0].name + "")
                 localStorage.setItem("surname", data[0].surname + "")
                 localStorage.setItem("id_student", data[0].id + "")
-                localStorage.setItem("id_teacher", data[0].teacher_id + "")
                 localStorage.setItem("classes_status_user", data[0].type_class + " " + data[0].paid_lessons)
                 window.location.href = "./personal_area_student.html"
                 // console.log(0);
@@ -694,9 +692,7 @@ buttonSend_confirm_password_3?.addEventListener("click", async () => {
                     phone: localStorage.getItem("phone"),
                     code: localStorage.getItem("code"),
                 },
-                data:{
-                    password: md5(password_input.value.trim())
-                }
+                data: md5(password_input.value.trim())
             })
         }) as any
         data = await data.json()

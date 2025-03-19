@@ -54,7 +54,6 @@
 //     0|app  |     metadata: 'hello'
 //     0|app  |   }
 //     0|app  | ]
-import "../interface_good_school.scss"
 import "./style.scss"
 
 

@@ -19,7 +19,6 @@
 // })
 
 
-import "../interface_good_school.scss"
 import "./style.scss"
 
 

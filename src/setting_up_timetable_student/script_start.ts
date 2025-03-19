@@ -59,7 +59,7 @@ async function render_timetable_start() {
         instruction_div.style.display = "none"
     }
 
-    let data = await fetch("https://api.goodschool.online/get_teacher", {
+    let data = await fetch("https://api.goodschool.online/get_teacher_for_t_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

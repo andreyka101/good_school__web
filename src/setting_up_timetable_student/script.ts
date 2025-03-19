@@ -84,13 +84,15 @@ async function render_timetable_start() {
         instruction_div.style.display = "none"
     }
 
-    let data = await fetch("https://api.goodschool.online/get_teacher", {
+    let data = await fetch("https://api.goodschool.online/get_teacher_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            id: +(localStorage.getItem("id_teacher") + "")
+            id: localStorage.getItem("id_student"),
+            name: localStorage.getItem("name"),
+            surname: localStorage.getItem("surname"),
         })
     }) as any
     data = await data.json()
@@ -374,19 +376,18 @@ timetableClasses_nextWeek?.addEventListener("click", (e) => {
 button_save?.addEventListener("click", async () => {
     start_page()
 
-    let data = await fetch("https://api.goodschool.online/change_teacher", {
+    let data = await fetch("https://api.goodschool.online/change_teacher_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
             where: {
-                id: +(localStorage.getItem("id_teacher") + "")
+                id: localStorage.getItem("id_student"),
+                name: localStorage.getItem("name"),
+                surname: localStorage.getItem("surname"),
             },
-            data: {
-                timetable_classes: JSON.stringify(timetable_classes_arr)
-
-            }
+            data: JSON.stringify(timetable_classes_arr)
         })
     }) as any
     data = await data.json()
@@ -404,23 +405,22 @@ button_back_global?.addEventListener("click", async () => {
 
 
 notification_exit_yes?.addEventListener("click", async () => {
-    let data = await fetch("https://api.goodschool.online/change_teacher", {
+    let data = await fetch("https://api.goodschool.online/change_teacher_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
             where: {
-                id: +(localStorage.getItem("id_teacher") + "")
+                id: localStorage.getItem("id_student"),
+                name: localStorage.getItem("name"),
+                surname: localStorage.getItem("surname"),
             },
-            data: {
-                timetable_classes: JSON.stringify(timetable_classes_arr)
-
-            }
+            data: JSON.stringify(timetable_classes_arr)
         })
     }) as any
     data = await data.json()
-    if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_student.html"
+    if (data.ok) window.location.href = "./personal_area_student.html"
 })
 
 notification_exit_no?.addEventListener("click", () => {

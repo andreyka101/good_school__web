@@ -30,21 +30,22 @@ start_page()
 async function name() {
     let data = await fetch("https://api.goodschool.online/get_prices") as any
     data = await data.json()
-    let dataUserClass = await fetch("https://api.goodschool.online/get_student", {
+    let dataUserClass = await fetch("https://api.goodschool.online/get_student_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            id: +(localStorage.getItem("id_student") + "")
+            id: +(localStorage.getItem("id_student") + ""),
+            name: localStorage.getItem("name"),
+            surname: localStorage.getItem("surname"),
         })
     }) as any
     dataUserClass = await dataUserClass.json()
 
-    console.log("dataUserClass");
-    console.log((""+localStorage.getItem("classes_status_user")).split(" "));
+    //console.log("dataUserClass");
+    //console.log((""+localStorage.getItem("classes_status_user")).split(" "));
     
-    // console.log(data[dataUserClass.type_class][0]);
     let html_str = ""
     for (let i = 0; i != 3; i++) {
         let span_for_free = ""
