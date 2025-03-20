@@ -1,5 +1,5 @@
 // document.querySelector("button")?.addEventListener("click",async ()=>{
-//     let data = await fetch("http://192.168.31.58:3000/payment_confirmation", {
+//     let data = await fetch("https://api.goodschool.online/payment_confirmation", {
 //         method: "POST",
 //         headers: {
 //             'Content-Type': 'application/json;charset=utf-8'
@@ -63,7 +63,7 @@ import "./style.scss"
 
 (async () => {
     console.log("llkefjefjejj");
-    let data = await fetch("http://192.168.31.58:3000/get_number_money", {
+    let data = await fetch("https://api.goodschool.online/get_number_money", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -92,7 +92,7 @@ import "./style.scss"
 
 
 document.querySelector("button")?.addEventListener("click", async () => {
-    let data = await fetch("http://192.168.31.58:3000/first_payment", {
+    let data = await fetch("https://api.goodschool.online/first_payment", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

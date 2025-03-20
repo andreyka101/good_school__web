@@ -3,7 +3,7 @@ import "./style.scss"
 const prices_cards_block = document.querySelector(".prices_cards_block div") as HTMLDivElement
 
 async function start_page() {
-    let data = await fetch("http://192.168.31.58:3000/get_student_start_page", {
+    let data = await fetch("https://api.goodschool.online/get_student_start_page", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -28,9 +28,9 @@ start_page()
 
 
 async function name() {
-    let data = await fetch("http://192.168.31.58:3000/get_prices") as any
+    let data = await fetch("https://api.goodschool.online/get_prices") as any
     data = await data.json()
-    let dataUserClass = await fetch("http://192.168.31.58:3000/get_student_for_s", {
+    let dataUserClass = await fetch("https://api.goodschool.online/get_student_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
