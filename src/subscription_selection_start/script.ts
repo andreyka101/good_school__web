@@ -26,7 +26,7 @@ button_x_1?.addEventListener("click", () => {
     name()
 })
 async function name() {
-    let data = await fetch("https://api.goodschool.online/get_prices") as any
+    let data = await fetch("http://192.168.31.58:3000/get_prices") as any
     data = await data.json()
     let dataUserClass = JSON.parse(localStorage.getItem("dataUser")+"").class
     if(dataUserClass == "1-4" || dataUserClass == "5-8") dataUserClass = "1-8"

@@ -5,7 +5,7 @@ console.log("hi");
 setInterval(
     async () => {
         try {
-            let data = await fetch("https://api.goodschool.online/payment_information_x", {
+            let data = await fetch("http://192.168.31.58:3000/payment_information_x", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

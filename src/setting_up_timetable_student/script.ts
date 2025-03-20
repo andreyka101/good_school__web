@@ -52,7 +52,7 @@ let timetable_classes_groups_arr: any
 // ]
 
 async function start_page() {
-    let data = await fetch("https://api.goodschool.online/get_student_start_page", {
+    let data = await fetch("http://192.168.31.58:3000/get_student_start_page", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -84,13 +84,13 @@ async function render_timetable_start() {
         instruction_div.style.display = "none"
     }
 
-    let data = await fetch("https://api.goodschool.online/get_teacher_for_s", {
+    let data = await fetch("http://192.168.31.58:3000/get_teacher_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            id: localStorage.getItem("id_student"),
+            id: +(localStorage.getItem("id_student") + ""),
             name: localStorage.getItem("name"),
             surname: localStorage.getItem("surname"),
         })
@@ -376,14 +376,14 @@ timetableClasses_nextWeek?.addEventListener("click", (e) => {
 button_save?.addEventListener("click", async () => {
     start_page()
 
-    let data = await fetch("https://api.goodschool.online/change_teacher_for_s", {
+    let data = await fetch("http://192.168.31.58:3000/change_teacher_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
             where: {
-                id: localStorage.getItem("id_student"),
+                id: +(localStorage.getItem("id_student") + ""),
                 name: localStorage.getItem("name"),
                 surname: localStorage.getItem("surname"),
             },
@@ -405,14 +405,14 @@ button_back_global?.addEventListener("click", async () => {
 
 
 notification_exit_yes?.addEventListener("click", async () => {
-    let data = await fetch("https://api.goodschool.online/change_teacher_for_s", {
+    let data = await fetch("http://192.168.31.58:3000/change_teacher_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
             where: {
-                id: localStorage.getItem("id_student"),
+                id: +(localStorage.getItem("id_student") + ""),
                 name: localStorage.getItem("name"),
                 surname: localStorage.getItem("surname"),
             },

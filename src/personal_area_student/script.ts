@@ -28,7 +28,7 @@ userNameSurname_div.innerText = string_surname.join("") + " " + string_name.join
 
 
 async function start_page() {
-    let data = await fetch("https://api.goodschool.online/get_student_start_page", {
+    let data = await fetch("http://192.168.31.58:3000/get_student_start_page", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -51,17 +51,18 @@ start_page()
 async function render_timetable_start() {
     try {
 
-        let data = await fetch("https://api.goodschool.online/get_teacher_for_s", {
+        let data = await fetch("http://192.168.31.58:3000/get_teacher_for_s", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                id: localStorage.getItem("id_student"),
+                id: +(localStorage.getItem("id_student") + ""),
                 name:localStorage.getItem("name"),
                 surname:localStorage.getItem("surname"),
             })
         }) as any
+        data
         data = await data.json()
         information_about_teacherLink_1.href = "https://wa.me/" + data.phone
         information_about_teacherLink_2.href = "https://t.me/" + data.phone
@@ -118,15 +119,17 @@ async function render_timetable_start() {
         }
         
     }
-    catch {
+    catch(e) {
+        // console.log(e);
         localStorage.setItem("name", "")
         localStorage.setItem("surname", "")
+        localStorage.setItem("id_student", "")
         window.location.href = "./"
     }
 }
 render_timetable_start()
 async function paid_lessons() {
-    let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
+    let get_student = await fetch("http://192.168.31.58:3000/get_student_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -145,7 +148,7 @@ async function paid_lessons() {
 paid_lessons()
 
 async function render_platform_setup() {
-    let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
+    let get_student = await fetch("http://192.168.31.58:3000/get_student_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -160,7 +163,7 @@ async function render_platform_setup() {
     let get_student_platform_lesson = ""
     //FIXME - исправить это безобразие
     if (get_student.platform_lesson == null) {
-        await fetch("https://api.goodschool.online/change_student", {
+        await fetch("http://192.168.31.58:3000/change_student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -198,7 +201,12 @@ render_platform_setup()
 but_setup_1_platform_setup.addEventListener("click", async () => {
     if (but_setup_1_platform_setup.className == "igs_button_universal_B1 transparent_button") {
 
-        await fetch("https://api.goodschool.online/change_student", {
+        but_setup_1_platform_setup.classList.add("button_platform_setup_on")
+        but_setup_2_platform_setup.classList.remove("button_platform_setup_on")
+        link_platform_setup.href = "https://volpi.ru/files/manuals/discord.pdf"
+        link_to_lesson.innerText = "скопировать ник учителя"
+
+        await fetch("http://192.168.31.58:3000/change_student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -212,17 +220,18 @@ but_setup_1_platform_setup.addEventListener("click", async () => {
                 data: "Discord"
             })
         })
-        but_setup_1_platform_setup.classList.add("button_platform_setup_on")
-        but_setup_2_platform_setup.classList.remove("button_platform_setup_on")
-        link_platform_setup.href = "https://volpi.ru/files/manuals/discord.pdf"
-        link_to_lesson.innerText = "скопировать ник учителя"
     }
 
 })
 but_setup_2_platform_setup.addEventListener("click", async () => {
     if (but_setup_2_platform_setup.className == "igs_button_universal_B1 transparent_button") {
-
-        await fetch("https://api.goodschool.online/change_student", {
+        
+        but_setup_2_platform_setup.classList.add("button_platform_setup_on")
+        but_setup_1_platform_setup.classList.remove("button_platform_setup_on")
+        link_platform_setup.href = "https://support.zoom.com/hc/ru/article?id=zm_kb&sysparm_article=KB0061326"
+        link_to_lesson.innerText = "скопировать ссылку на урок"
+        
+        await fetch("http://192.168.31.58:3000/change_student", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -236,10 +245,6 @@ but_setup_2_platform_setup.addEventListener("click", async () => {
                 data: "Zoom"
             })
         })
-        but_setup_2_platform_setup.classList.add("button_platform_setup_on")
-        but_setup_1_platform_setup.classList.remove("button_platform_setup_on")
-        link_platform_setup.href = "https://support.zoom.com/hc/ru/article?id=zm_kb&sysparm_article=KB0061326"
-        link_to_lesson.innerText = "скопировать ссылку на урок"
     }
 })
 
@@ -262,7 +267,7 @@ button_1_copy_phone.addEventListener('click', () => {
 })
 link_to_lesson.addEventListener('click', async () => {
     if (link_to_lesson.className != "igs_button_universal_B1 transparent_button") return
-    let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
+    let get_student = await fetch("http://192.168.31.58:3000/get_student_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -274,13 +279,13 @@ link_to_lesson.addEventListener('click', async () => {
         })
     }) as any
     get_student = await get_student.json()
-    let get_teacher = await fetch("https://api.goodschool.online/get_teacher_for_s", {
+    let get_teacher = await fetch("http://192.168.31.58:3000/get_teacher_for_s", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            id: localStorage.getItem("id_student"),
+            id: +(localStorage.getItem("id_student") + ""),
             name:localStorage.getItem("name"),
             surname:localStorage.getItem("surname"),
         })

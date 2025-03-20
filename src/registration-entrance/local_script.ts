@@ -191,7 +191,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
             }
             console.log(text_phone_input);
 
-            let data = await fetch("https://api.goodschool.online/checking_email", {
+            let data = await fetch("http://192.168.31.58:3000/checking_email", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -224,7 +224,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                 // email_input.value = ""
                 email_input.style.backgroundColor = "#ffb073"
             }
-            // let data = await fetch("https://api.goodschool.online/registration_student", {
+            // let data = await fetch("http://192.168.31.58:3000/registration_student", {
             //     method: "POST",
             //     headers: {
             //         'Content-Type': 'application/json;charset=utf-8'
@@ -370,7 +370,7 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
         let list_items: any
         if (item_select.value == "mathematics") list_items = ["mathematics"]
         else list_items = ["programming"]
-        let data = await fetch("https://api.goodschool.online/registration_teacher", {
+        let data = await fetch("http://192.168.31.58:3000/registration_teacher", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -486,8 +486,10 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
 console.log("ee F FeeEFFF".toLowerCase());
 
 buttonSend_entrance?.addEventListener("click", async () => {
+    console.log(name_input.value);
     if (name_input.value != "" && surname_input.value != "" && password_input.value != "") {
-        let data = await fetch("https://api.goodschool.online/entrance", {
+        console.log(12);
+        let data = await fetch("http://192.168.31.58:3000/entrance", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -499,7 +501,10 @@ buttonSend_entrance?.addEventListener("click", async () => {
             })
         }) as any
         data = await data.json()
-
+        console.log("ll");
+        console.log(data);
+        
+        
         if (data[0].name == "none" && data[0].password == "none") {
             none_warning.style.display = "inline-block"
             let s1 = name_input.value
@@ -512,7 +517,7 @@ buttonSend_entrance?.addEventListener("click", async () => {
             name_input.value = s1
             surname_input.value = s2
         }
-
+        
         if (data[0]["type_class"]) {
             if (data[0].password == md5(password_input.value.trim())) {
                 localStorage.setItem("name", data[0].name + "")
@@ -575,7 +580,7 @@ buttonSend_confirm_password?.addEventListener("click", async () => {
             text_phone_input += i
         }
         console.log(text_phone_input);
-        let data = await fetch("https://api.goodschool.online/post_confirm_password_1", {
+        let data = await fetch("http://192.168.31.58:3000/post_confirm_password_1", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -644,7 +649,7 @@ buttonSend_confirm_password_2?.addEventListener("click", async () => {
         code_warning.style.display = "none"
         code_warning_none.style.display = "none"
         code_input.style.backgroundColor = "#FFCC73"
-        let data = await fetch("https://api.goodschool.online/post_confirm_password_2", {
+        let data = await fetch("http://192.168.31.58:3000/post_confirm_password_2", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -680,7 +685,7 @@ buttonSend_confirm_password_2?.addEventListener("click", async () => {
 })
 buttonSend_confirm_password_3?.addEventListener("click", async () => {
     if (password_input.value != "" && password_input.value == repeatPassword_input.value && password_input.value.length >= 6) {
-        let data = await fetch("https://api.goodschool.online/post_confirm_password_3", {
+        let data = await fetch("http://192.168.31.58:3000/post_confirm_password_3", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
