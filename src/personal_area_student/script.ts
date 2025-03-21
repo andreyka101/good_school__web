@@ -162,38 +162,15 @@ async function render_platform_setup() {
     get_student = await get_student.json()
     let get_student_platform_lesson = ""
     //FIXME - исправить это безобразие
-    if (get_student.platform_lesson == null) {
-        await fetch("https://api.goodschool.online/change_student", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify({
-                where: {
-                    id: +(localStorage.getItem("id_student") + ""),
-                    name: localStorage.getItem("name"),
-                    surname: localStorage.getItem("surname"),
-                },
-                data: "Discord"
-            })
-        })
-        get_student_platform_lesson = "Discord"
-    }
-    else {
-        get_student_platform_lesson = get_student.platform_lesson
-    }
+    get_student_platform_lesson = get_student.platform_lesson
     if (get_student_platform_lesson == "Discord") {
         but_setup_1_platform_setup.classList.add("button_platform_setup_on")
         link_platform_setup.href = "https://volpi.ru/files/manuals/discord.pdf"
+        link_to_lesson.innerHTML = "скопировать <span> ник учителя </span>"
     }
     else {
         but_setup_2_platform_setup.classList.add("button_platform_setup_on")
         link_platform_setup.href = "https://support.zoom.com/hc/ru/article?id=zm_kb&sysparm_article=KB0061326"
-    }
-    if (get_student_platform_lesson == "Discord") {
-        link_to_lesson.innerHTML = "скопировать <span> ник учителя </span>"
-    }
-    else {
         link_to_lesson.innerText = "скопировать ссылку на урок"
     }
 }

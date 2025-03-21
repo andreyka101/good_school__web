@@ -391,7 +391,7 @@ button_save?.addEventListener("click", async () => {
         })
     }) as any
     data = await data.json()
-    if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_student.html"
+    if (data.ok) window.location.href = "./personal_area_student.html"
 })
 
 
