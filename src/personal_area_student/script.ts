@@ -292,7 +292,7 @@ link_to_lesson.addEventListener('click', async () => {
 
     if (super_bool) {
         if (get_student.platform_lesson == "Zoom") {
-            navigator.clipboard.writeText(JSON.parse(get_teacher.lesson_link)[0]).then(function () {
+            navigator.clipboard.writeText(JSON.parse(get_teacher.lesson_link)[1]).then(function () {
                 console.log('Текст успешно скопирован в буфер обмена');
                 link_to_lesson.classList.add("button_active")
                 link_to_lesson.innerText = "ссылка скопирована"

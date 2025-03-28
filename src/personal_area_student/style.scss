@@ -6,6 +6,9 @@ h1 {
     font-weight: 700;
     margin: 25px;
 }
+.timetable_classes_scroll{
+    max-height: 260px !important;
+}
 .paid_lessons {
     background-color: #284a7f;
     color: white;
@@ -128,6 +131,7 @@ h2 {
 .platform_setup_all {
     margin: 0 auto;
     margin-top: 13px;
+    margin-bottom: 50px;
     width: 532px;
     border: #000 3px solid;
     border-radius: 10px;
@@ -324,6 +328,23 @@ h2 {
             width: 178px
         }
     }
+    .timetable_classes_global_block .timetable_classes_scroll {
+        max-height: 250px !important;
+        .timetable_classes{
+            .time_none {
+                width: 35px;
+                height: 35px;
+            }
+            .time_work {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        .timetable_classes_up_day .text_grid_day {
+            width: 35px;
+            height: 30px;
+        }
+    }
     .information_about_teacher{
         margin-right: 0;
     }
@@ -331,6 +352,23 @@ h2 {
 @media screen and (max-width: 790px) {
     h1{
         margin-top: 80px;
+    }
+    .timetable_classes_global_block .timetable_classes_scroll{
+        max-height: 230px !important;
+        .timetable_classes{
+            .time_none {
+                width: 30px;
+                height: 30px;
+            }
+            .time_work {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .timetable_classes_up_day .text_grid_day {
+            width: 30px;
+            height: 30px;
+        }
     }
     .user_name_surname{
         width: 343px !important;
