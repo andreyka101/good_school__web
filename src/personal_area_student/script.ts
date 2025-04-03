@@ -290,6 +290,10 @@ link_to_lesson.addEventListener('click', async () => {
         // if ((timetable_classes[i].time == new_Date.getHours() - 1 && new_Date.getMinutes() >= 50))) super_bool = true
     }
 
+    if(get_student.paid_lessons == 0){
+        super_bool = false
+    }
+
     if (super_bool) {
         if (get_student.platform_lesson == "Zoom") {
             navigator.clipboard.writeText(JSON.parse(get_teacher.lesson_link)[1]).then(function () {
@@ -333,9 +337,18 @@ link_to_lesson.addEventListener('click', async () => {
         }
     }
     else {
-
-        const notification_block_background = document.querySelector(".notification_block_background") as HTMLDivElement
-        notification_block_background.style.display = "flex"
+        if(get_student.paid_lessons == 0){
+            const notification_block_background = document.querySelector(".notification_block_background") as HTMLDivElement
+            notification_block_background.style.display = "flex"
+            const notification_block_span = document.querySelector(".notification_block_background .notification_block span") as HTMLDivElement
+            notification_block_span.innerText = "У вас нет оплаченных занятий."
+        }
+        else{
+            const notification_block_background = document.querySelector(".notification_block_background") as HTMLDivElement
+            notification_block_background.style.display = "flex"
+            const notification_block_span = document.querySelector(".notification_block_background .notification_block span") as HTMLDivElement
+            notification_block_span.innerText = "Cсылку можно будет скопировать за 10 мин перед уроком."
+        }
     }
 })
 notification_button.addEventListener("click", () => {
@@ -343,4 +356,14 @@ notification_button.addEventListener("click", () => {
     notification_block_background.style.display = "none"
 })
 
+
+if((localStorage.getItem('classes_status_user')+ "").split(" ")[1] == "0"){
+    console.log((localStorage.getItem('classes_status_user')+ "").split(" ")[1]);
+    setTimeout(()=>{
+        const notification_block_background = document.querySelector(".notification_block_background") as HTMLDivElement
+        notification_block_background.style.display = "flex"
+        const notification_block_span = document.querySelector(".notification_block_background .notification_block span") as HTMLDivElement
+        notification_block_span.innerText = "У вас нет оплаченных занятий."
+    },2000)
+}
 
