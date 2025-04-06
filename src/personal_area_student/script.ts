@@ -272,21 +272,24 @@ link_to_lesson.addEventListener('click', async () => {
     let timetable_classes = JSON.parse(get_teacher.timetable_classes)
     let new_Date = new Date
     let super_bool = false
+    let det_day_save = new_Date.getDay()
+    if(det_day_save == 0) det_day_save = 7
+
     
     for (let i in timetable_classes) {
         // console.log(timetable_classes);
         // console.log(timetable_classes[i]);
-        // console.log(timetable_classes[i].time == new_Date.getDay());
         
 
 
         // console.log(new_Date.getDay());
-        console.log(new_Date.getHours());
-        console.log(new_Date.getHours());
+        // console.log(det_day_save);
+        // console.log(new_Date.getHours());
+        // console.log(new_Date.getHours());
         
 
 
-        if (timetable_classes[i].id == +(localStorage.getItem("id_student") + "") && timetable_classes[i].week == "this" && (timetable_classes[i].dayWeek == new_Date.getDay() && ((timetable_classes[i].time == new_Date.getHours() && new_Date.getMinutes() <= 50) || (timetable_classes[i].time == new_Date.getHours() - 1 && new_Date.getMinutes() >= 50)))) super_bool = true
+        if (timetable_classes[i].id == +(localStorage.getItem("id_student") + "") && timetable_classes[i].week == "this" && (timetable_classes[i].dayWeek == det_day_save && ((timetable_classes[i].time == new_Date.getHours() && new_Date.getMinutes() <= 50) || (timetable_classes[i].time == new_Date.getHours() - 1 && new_Date.getMinutes() >= 50)))) super_bool = true
         // if ((timetable_classes[i].time == new_Date.getHours() - 1 && new_Date.getMinutes() >= 50))) super_bool = true
     }
 
