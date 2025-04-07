@@ -62,20 +62,20 @@ import "./style.scss"
 
 
 (async () => {
-    console.log("llkefjefjejj");
+    console.log(+(localStorage.getItem("classes_status_user")?.split(" ")[1] as string));
     let data = await fetch("https://api.goodschool.online/get_number_money", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            pay: localStorage.getItem("pay"),
+            pay: localStorage.getItem("classes_status_user"),
             ok: true
         })
     }) as any
     data = await data.json()
     console.log(data);
-    const pay_num = (localStorage.getItem("pay")as string).split(" ")[1]
+    const pay_num = (localStorage.getItem("classes_status_user")as string).split(" ")[1]
     const div_info = document.querySelector(".text_info") as HTMLDivElement
     div_info.innerHTML = /*html*/ `
     <h1>
@@ -92,6 +92,7 @@ import "./style.scss"
 
 
 document.querySelector("button")?.addEventListener("click", async () => {
+    
     let data = await fetch("https://api.goodschool.online/first_payment", {
         method: "POST",
         headers: {

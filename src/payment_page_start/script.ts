@@ -11,9 +11,9 @@ setInterval(
                     'Content-Type': 'application/json;charset=utf-8'
                 },
                 body: JSON.stringify({
-                    id: +(localStorage.getItem("id_student") as string),
                     password: JSON.parse(localStorage.getItem("dataUser") as string).password,
                     name: localStorage.getItem("name"),
+                    surname: localStorage.getItem("surname"),
                     token_p: localStorage.getItem("token_p"),
                 })
             }) as any
