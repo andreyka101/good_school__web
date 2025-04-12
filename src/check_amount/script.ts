@@ -72,6 +72,7 @@ document.querySelector("button")?.addEventListener("click", async () => {
     data = await data.json()
     console.log(data);
     if (data.ok) {
+        localStorage.setItem("buying_new_lesson", localStorage.getItem("pay")+"")
         localStorage.setItem("token_p", data.answer)
         window.location.href = "./payment_page.html"
     }

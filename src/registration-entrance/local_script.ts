@@ -524,6 +524,7 @@ buttonSend_entrance?.addEventListener("click", async () => {
                 localStorage.setItem("surname", data[0].surname + "")
                 localStorage.setItem("id_student", data[0].id + "")
                 localStorage.setItem("classes_status_user", data[0].type_class + " " + data[0].paid_lessons)
+                localStorage.setItem("buying_new_lesson", "")
                 window.location.href = "./personal_area_student.html"
                 // console.log(0);
 

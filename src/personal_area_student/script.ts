@@ -16,6 +16,7 @@ const information_about_teacherLink_2 = document.querySelector(".information_abo
 const information_about_teacherTeacher_p = document.querySelector(".information_about_teacher #teacher_p") as HTMLDivElement
 const link_to_lesson = document.querySelector("#link_to_lesson") as HTMLButtonElement
 const notification_button = document.querySelector(".notification_block button") as HTMLButtonElement
+let intervalId :any
 // @ts-ignore
 let detect = new MobileDetect(window.navigator.userAgent)
 
@@ -141,11 +142,20 @@ async function paid_lessons() {
         })
     }) as any
     get_student = await get_student.json()
-    console.log(get_student);
+    console.log("paid_lessons");
     const paid_lessons_span = document.querySelector(".paid_lessons") as HTMLElement
     paid_lessons_span.innerText = "Оплаченные занятия: " + get_student.paid_lessons
+    if(localStorage.getItem("buying_new_lesson") == ""){
+        clearInterval(intervalId);
+    }
+    else{
+        localStorage.setItem("buying_new_lesson" ,"")
+        intervalId = setInterval(() => {
+            paid_lessons()
+        }, 1000);
+    }
 }
-paid_lessons()
+
 
 async function render_platform_setup() {
     let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
