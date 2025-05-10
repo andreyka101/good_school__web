@@ -28,6 +28,7 @@ export default {
         check_amount: resolve('check_amount.html'),
         free_lesson: resolve('free_lesson.html'),
         payment_end: resolve('payment_end.html'),
+        payment_verification: resolve('payment_verification.html'),
         // doc_1: resolve('doc_1.pdf'),
         // doc_2: resolve('doc_2.pdf'),
       }

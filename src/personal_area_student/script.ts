@@ -16,7 +16,8 @@ const information_about_teacherLink_2 = document.querySelector(".information_abo
 const information_about_teacherTeacher_p = document.querySelector(".information_about_teacher #teacher_p") as HTMLDivElement
 const link_to_lesson = document.querySelector("#link_to_lesson") as HTMLButtonElement
 const notification_button = document.querySelector(".notification_block button") as HTMLButtonElement
-let intervalId :any
+const paid_lessons_span = document.querySelector(".paid_lessons") as HTMLElement
+// let intervalId :any
 // @ts-ignore
 let detect = new MobileDetect(window.navigator.userAgent)
 
@@ -51,7 +52,7 @@ start_page()
 
 async function render_timetable_start() {
     try {
-
+        
         let data = await fetch("https://api.goodschool.online/get_teacher_for_s", {
             method: "POST",
             headers: {
@@ -67,14 +68,14 @@ async function render_timetable_start() {
         data = await data.json()
         information_about_teacherLink_1.href = "https://wa.me/" + data.phone
         information_about_teacherLink_2.href = "https://t.me/" + data.phone
-
+        
         let string_data_surname = data.surname.split("")
         string_data_surname[0] = string_data_surname[0].toUpperCase()
         let string_data_name = data.name.split("")
         string_data_name[0] = string_data_name[0].toUpperCase()
         let string_data_patronymic = data.patronymic.split("")
         string_data_patronymic[0] = string_data_patronymic[0].toUpperCase()
-
+        
         information_about_teacherTeacher_p.innerHTML = "<div>" + string_data_surname.join("") + "</div>" + string_data_name.join("") + " " + string_data_patronymic.join("")
         text_copy_phone = data.phone
         console.log("data");
@@ -89,8 +90,8 @@ async function render_timetable_start() {
         for (let time = 8; time != 22; time++) {
             let derivation_on = false
             str_timetableClasses_thisWeek += `<span class="text_grid_time">
-        ${time}.00
-        </span>`
+            ${time}.00
+            </span>`
             for (let day = 1; day != 8; day++) {
                 let time_block = ""
                 for (let i in timetable_classes_arr) {
@@ -104,7 +105,7 @@ async function render_timetable_start() {
                     derivation_on = true
                 }
                 else str_timetableClasses_thisWeek += `<div data-time="${time}" data-day="${day}" class="time_none"></div>`
-
+                
             }
             if (derivation_on) timetableClasses_thisWeek.innerHTML += str_timetableClasses_thisWeek
             str_timetableClasses_thisWeek = ""
@@ -129,42 +130,42 @@ async function render_timetable_start() {
     }
 }
 render_timetable_start()
-async function paid_lessons() {
-    let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            id: +(localStorage.getItem("id_student") + ""),
-            name: localStorage.getItem("name"),
-            surname: localStorage.getItem("surname"),
-        })
-    }) as any
-    get_student = await get_student.json()
-    console.log("paid_lessons");
-    const paid_lessons_span = document.querySelector(".paid_lessons") as HTMLElement
-    paid_lessons_span.innerText = "Оплаченные занятия: " + get_student.paid_lessons
-    if(localStorage.getItem("buying_new_lesson") == ""){
-        clearInterval(intervalId);
-    }
-    else{
-        localStorage.setItem("buying_new_lesson" ,"")
-        intervalId = setInterval(() => {
-            paid_lessons()
-        }, 1000);
-    }
-}
-
-
-async function render_platform_setup() {
-    let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            id: +(localStorage.getItem("id_student") + ""),
+// async function paid_lessons() {
+    //     let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
+        //         method: "POST",
+        //         headers: {
+            //             'Content-Type': 'application/json;charset=utf-8'
+            //         },
+            //         body: JSON.stringify({
+                //             id: +(localStorage.getItem("id_student") + ""),
+                //             name: localStorage.getItem("name"),
+                //             surname: localStorage.getItem("surname"),
+                //         })
+                //     }) as any
+                //     get_student = await get_student.json()
+                //     console.log("paid_lessons");
+                //     const paid_lessons_span = document.querySelector(".paid_lessons") as HTMLElement
+                //     paid_lessons_span.innerText = "Оплаченные занятия: " + get_student.paid_lessons
+                //     if(localStorage.getItem("buying_new_lesson") == ""){
+                    //         clearInterval(intervalId);
+                    //     }
+                    //     else{
+                        //         localStorage.setItem("buying_new_lesson" ,"")
+                        //         intervalId = setInterval(() => {
+                            //             paid_lessons()
+                            //         }, 1000);
+                            //     }
+                            // }
+                            
+                            
+                            async function render_platform_setup() {
+                                let get_student = await fetch("https://api.goodschool.online/get_student_for_s", {
+                                    method: "POST",
+                                    headers: {
+                                        'Content-Type': 'application/json;charset=utf-8'
+                                    },
+                                    body: JSON.stringify({
+                                        id: +(localStorage.getItem("id_student") + ""),
             name: localStorage.getItem("name"),
             surname: localStorage.getItem("surname"),
         })
@@ -187,12 +188,12 @@ async function render_platform_setup() {
 render_platform_setup()
 but_setup_1_platform_setup.addEventListener("click", async () => {
     if (but_setup_1_platform_setup.className == "igs_button_universal_B1 transparent_button") {
-
+        
         but_setup_1_platform_setup.classList.add("button_platform_setup_on")
         but_setup_2_platform_setup.classList.remove("button_platform_setup_on")
         link_platform_setup.href = "https://volpi.ru/files/manuals/discord.pdf"
         link_to_lesson.innerText = "скопировать ник учителя"
-
+        
         await fetch("https://api.goodschool.online/change_student", {
             method: "POST",
             headers: {
@@ -208,7 +209,7 @@ but_setup_1_platform_setup.addEventListener("click", async () => {
             })
         })
     }
-
+    
 })
 but_setup_2_platform_setup.addEventListener("click", async () => {
     if (but_setup_2_platform_setup.className == "igs_button_universal_B1 transparent_button") {
@@ -284,29 +285,29 @@ link_to_lesson.addEventListener('click', async () => {
     let super_bool = false
     let det_day_save = new_Date.getDay()
     if(det_day_save == 0) det_day_save = 7
-
+    
     
     for (let i in timetable_classes) {
         // console.log(timetable_classes);
         // console.log(timetable_classes[i]);
         
-
-
+        
+        
         // console.log(new_Date.getDay());
         // console.log(det_day_save);
         // console.log(new_Date.getHours());
         // console.log(new_Date.getHours());
         
-
-
+        
+        
         if (timetable_classes[i].id == +(localStorage.getItem("id_student") + "") && timetable_classes[i].week == "this" && (timetable_classes[i].dayWeek == det_day_save && ((timetable_classes[i].time == new_Date.getHours() && new_Date.getMinutes() <= 50) || (timetable_classes[i].time == new_Date.getHours() - 1 && new_Date.getMinutes() >= 50)))) super_bool = true
         // if ((timetable_classes[i].time == new_Date.getHours() - 1 && new_Date.getMinutes() >= 50))) super_bool = true
     }
-
+    
     if(get_student.paid_lessons == 0){
         super_bool = false
     }
-
+    
     if (super_bool) {
         if (get_student.platform_lesson == "Zoom") {
             navigator.clipboard.writeText(JSON.parse(get_teacher.lesson_link)[1]).then(function () {
@@ -333,7 +334,7 @@ link_to_lesson.addEventListener('click', async () => {
             }, function (err) {
                 console.error('Произошла ошибка при копировании текста: ', err);
             });
-
+            
         }
         else {
             navigator.clipboard.writeText(JSON.parse(get_teacher.lesson_link)[1]).then(function () {
@@ -370,6 +371,7 @@ notification_button.addEventListener("click", () => {
 })
 
 
+paid_lessons_span.innerText = "Оплаченные занятия: " + (localStorage.getItem('classes_status_user')+ "").split(" ")[1]
 if((localStorage.getItem('classes_status_user')+ "").split(" ")[1] == "0"){
     console.log((localStorage.getItem('classes_status_user')+ "").split(" ")[1]);
     setTimeout(()=>{
