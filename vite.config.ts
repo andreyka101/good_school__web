@@ -29,6 +29,7 @@ export default {
         free_lesson: resolve('free_lesson.html'),
         payment_end: resolve('payment_end.html'),
         payment_verification: resolve('payment_verification.html'),
+        yandex_7b6a1c0c971104d4: resolve('yandex_7b6a1c0c971104d4.html'),
         // doc_1: resolve('doc_1.pdf'),
         // doc_2: resolve('doc_2.pdf'),
       }
