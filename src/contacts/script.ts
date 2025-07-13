@@ -6,13 +6,13 @@ const email = document.querySelector("#email") as HTMLLinkElement
 let detect = new MobileDetect(window.navigator.userAgent)
 
 if(detect.mobile() != null){
-    phone.href = "tel:1234567890"
+    phone.href = "tel:+79189700187"
     email.href = "mailto:goodschool80@mail.ru"
 }
 phone.addEventListener("click", () => {
     if (detect.mobile() == null) {
 
-        navigator.clipboard.writeText("+79528576944").then(function () {
+        navigator.clipboard.writeText("+79189700187").then(function () {
             console.log('Текст успешно скопирован в буфер обмена');
             phone.classList.add("button_active_1")
             phone.innerHTML = `<div class="svg"></div>
@@ -23,9 +23,9 @@ phone.addEventListener("click", () => {
                 phone.classList.remove("button_active_1")
                 phone.innerHTML = `<div class="svg"></div>
             <div class="information_text">
-            +79528576944
+            +79189700187
             </div>`
-            }, 5000)
+            }, 3000)
         }, function (err) {
             console.error('Произошла ошибка при копировании текста: ', err);
         });
@@ -48,7 +48,7 @@ email.addEventListener("click", () => {
                 <div class="information_text">
                     goodschool80@mail.ru
                 </div>`
-            }, 5000)
+            }, 3000)
         }, function (err) {
             console.error('Произошла ошибка при копировании текста: ', err);
         });
