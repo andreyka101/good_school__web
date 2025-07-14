@@ -91,6 +91,7 @@ async function render_timetable_start() {
     timetable_classes_arr = JSON.parse(data.timetable_classes)
     if (data.timetable_classes_groups == null) timetable_classes_groups_arr = []
     else timetable_classes_groups_arr = JSON.parse(data.timetable_classes_groups)
+    console.log("timetable_classes_groups_arr =" , timetable_classes_groups_arr)
     str_timetableClasses_thisWeek = ""
     str_timetableClasses_nextWeek = ""
     timetableClasses_thisWeek.innerHTML = ''
@@ -266,6 +267,7 @@ timetableClasses_nextWeek?.addEventListener("click", (e) => {
 
     if (key_G_down) {
         if (target.className == "time_none") {
+            console.log("push =" , timetable_classes_groups_arr);
             timetable_classes_groups_arr.push({
                 "type": "groups",
                 "dayWeek": +(target.dataset["day"] + ""),

@@ -386,6 +386,7 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
                 password: md5(password_input.value.trim()),
                 item: list_items[0],
                 timetable_classes: JSON.stringify([]),
+                timetable_classes_groups: JSON.stringify([]),
             })
         }) as any
         data = await data.json()
