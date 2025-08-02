@@ -1,0 +1,4 @@
+        User-agent: *
+        Disallow: public/doc_1.pdf
+        User-agent: *
+        Disallow: public/doc_2.pdf
