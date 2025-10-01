@@ -211,12 +211,49 @@ footer {
 h1 {
     text-align: center;
     font-size: 50px;
-    span{
+    span {
         border-radius: 50px;
     }
-    .span_background{
-        background: 
-        linear-gradient(90deg, #ffffff00, #0fffdb68),
-        linear-gradient(0deg, #2b017068, #ffb70f68);
+    // .span_border {
+    //     // animation-name: h1_anime_border;
+    //     // animation-duration: 3s;
+    //     padding: 10px 13px;
+    //     background: linear-gradient(90deg, #2b0170, #ffb70f);
+    //     .span_background {
+    //         padding: 5px 10px;
+    //         background: linear-gradient(90deg, #6000ff, #ffb70f);
+    //     }
+    // }
+    .span_border {
+        animation-name: h1_anime_border;
+        animation-duration: 3s;
+        // padding: 10px 13px;
+        // background: linear-gradient(90deg, #2b0170, #ffb70f);
+        .span_background {
+            animation-name: h1_anime_background;
+            animation-duration: 3s;
+            // padding: 5px 10px;
+            // background: linear-gradient(90deg, #6000ff, #ffb70f);
+        }
+    }
+}
+@keyframes h1_anime_border {
+    0% {
+        padding: 10px 13px;
+        background: #ffb70f;
+    }
+    10% {
+        padding: 10px 13px;
+        background:#2b0170;
+    }
+}
+@keyframes h1_anime_background {
+    0% {
+        padding: 5px 10px;
+        background: #ffb70f;
+    }
+    100% {
+        padding: 5px 10px;
+        background:#6000ff;
     }
 }
