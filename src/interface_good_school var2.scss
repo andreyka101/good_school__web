@@ -226,12 +226,14 @@ h1 {
     // }
     .span_border {
         animation-name: h1_anime_border;
-        animation-duration: 3s;
+        animation-duration: 100s;
+        animation-iteration-count: infinite;
         // padding: 10px 13px;
         // background: linear-gradient(90deg, #2b0170, #ffb70f);
         .span_background {
             animation-name: h1_anime_background;
-            animation-duration: 3s;
+            animation-duration: 100s;
+            animation-iteration-count: infinite;
             // padding: 5px 10px;
             // background: linear-gradient(90deg, #6000ff, #ffb70f);
         }
@@ -246,14 +248,54 @@ h1 {
         padding: 10px 13px;
         background:#2b0170;
     }
+    30% {
+        padding: 10px 13px;
+        background:#1dfdf2;
+    }
+    50% {
+        padding: 10px 13px;
+        background:#1e1e1e;
+    }
+    70% {
+        padding: 10px 13px;
+        background:#e111c2;
+    }
+    90% {
+        padding: 10px 13px;
+        background:#107a00;
+    }
+    100% {
+        padding: 10px 13px;
+        background:#ffb70f;
+    }
 }
 @keyframes h1_anime_background {
     0% {
         padding: 5px 10px;
         background: #ffb70f;
     }
+    10% {
+        padding: 5px 10px;
+        background:#6200ff;
+    }
+    30% {
+        padding: 5px 10px;
+        background:#1dfdf2;
+    }
+    50% {
+        padding: 5px 10px;
+        background:#ffb7b7;
+    }
+    70% {
+        padding: 5px 10px;
+        background:#e111c2;
+    }
+    90% {
+        padding: 5px 10px;
+        background:#47ff2b;
+    }
     100% {
         padding: 5px 10px;
-        background:#6000ff;
+        background:#ffb70f;
     }
 }
