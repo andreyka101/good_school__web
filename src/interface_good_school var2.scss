@@ -206,7 +206,7 @@ footer {
     }
 }
 
-//LINK -  контент
+//LINK -  контент ******-********-********-**********
 
 h1 {
     text-align: center;
@@ -246,27 +246,27 @@ h1 {
     }
     10% {
         padding: 10px 13px;
-        background:#2b0170;
+        background: #2b0170;
     }
     30% {
         padding: 10px 13px;
-        background:#1dfdf2;
+        background: #1dfdf2;
     }
     50% {
         padding: 10px 13px;
-        background:#1e1e1e;
+        background: #1e1e1e;
     }
     70% {
         padding: 10px 13px;
-        background:#e111c2;
+        background: #e111c2;
     }
     90% {
         padding: 10px 13px;
-        background:#107a00;
+        background: #107a00;
     }
     100% {
         padding: 10px 13px;
-        background:#ffb70f;
+        background: #ffb70f;
     }
 }
 @keyframes h1_anime_background {
@@ -276,26 +276,55 @@ h1 {
     }
     10% {
         padding: 5px 10px;
-        background:#6200ff;
+        background: #6200ff;
     }
     30% {
         padding: 5px 10px;
-        background:#1dfdf2;
+        background: #1dfdf2;
     }
     50% {
         padding: 5px 10px;
-        background:#ffb7b7;
+        background: #ffb7b7;
     }
     70% {
         padding: 5px 10px;
-        background:#e111c2;
+        background: #e111c2;
     }
     90% {
         padding: 5px 10px;
-        background:#47ff2b;
+        background: #47ff2b;
     }
     100% {
         padding: 5px 10px;
-        background:#ffb70f;
+        background: #ffb70f;
+    }
+}
+
+.center_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_full_content {
+    padding-left: 30px;
+    padding-right: 40px;
+    .box_grid_1 {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto auto;
+        grid-template-rows: 80px 80px 80px 80px 80px 80px;
+        gap: 20px;
+        h2 {
+            border-radius: 25px;
+            background-color: #1dfdf2;
+            border: 5px #000 solid;
+            margin: 0;
+            grid-column: span 7;
+        }
+        a {
+            border-radius: 25px;
+            border: 5px #000 solid;
+            background-color: #1dfdf2;
+        }
     }
 }
