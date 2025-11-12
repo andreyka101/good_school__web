@@ -62,8 +62,9 @@
             font-weight: 600;
             padding: 10px 20px;
         }
-        .link_fox{
-            display: flex;
+        .link_fox_owl{
+            display: grid;
+            grid-template-columns: 50px auto;
             align-items: center;
             text-decoration: none;
             font-size: 20px;
@@ -78,28 +79,7 @@
             img{
                 height: 50px;
             }
-            span{
-                margin-left: 10px;
-            }
-        }
-        .link_owl{
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-size: 20px;
-            color: #000000;
-            background-color: #51b4a3;
-            color: #031e47;
-            margin: 4px;
-            padding: 8px 20px;
-            border-radius: 5px;
-            min-width: 78px;
-            text-align: center;
-            img{
-                height: 50px;
-            }
-            span{
-                // display: inline-block;
+            div{
                 margin-left: 10px;
             }
         }
