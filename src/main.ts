@@ -16,18 +16,18 @@ id_header_none?.addEventListener("mouseover", () => {
     localStorage.setItem("registration_configuration", "none")
 })
 
-const menu_on = document.querySelector("#menu_on") as HTMLButtonElement
-console.log(menu_on);
+// const menu_on = document.querySelector("#menu_on") as HTMLButtonElement
+// console.log(menu_on);
 
-menu_on?.addEventListener("click", () => {
-    const arr_invisible_link_header = [...document.querySelectorAll(".invisible_link_header")] as Array<HTMLElement>
-    console.log(arr_invisible_link_header);
-    for (let invisible_link of arr_invisible_link_header) {
-        // console.log(invisible_link);
+// menu_on?.addEventListener("click", () => {
+//     const arr_invisible_link_header = [...document.querySelectorAll(".invisible_link_header")] as Array<HTMLElement>
+//     console.log(arr_invisible_link_header);
+//     for (let invisible_link of arr_invisible_link_header) {
+//         // console.log(invisible_link);
 
-    }
+//     }
 
-})
+// })
 
 
 
