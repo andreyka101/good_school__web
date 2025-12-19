@@ -262,17 +262,29 @@ header {
 footer {
     bottom: 0;
     position: relative;
-    // position: absolute;
+    // - position: absolute;
     background-color: #4a4a4a;
     padding: 30px 10px;
     display: flex;
     margin-top: auto !important;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
     a {
         font-size: 17px;
         text-decoration: none;
         color: white;
     }
+
+
+
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+    .flex-grid{
+        display: flex;
+        flex-direction: column;
+    }
+    
 }
 .top_link_header {
     display: none;
