@@ -76,8 +76,11 @@ scrollableContent.addEventListener('scroll', updateButtonVisibility);
 
 
 // footer
-const phone = document.querySelector("#phone") as HTMLLinkElement
-const email = document.querySelector("#email") as HTMLLinkElement
+const phone = document.querySelector("#phone_footer") as HTMLLinkElement
+const email = document.querySelector("#email_footer") as HTMLLinkElement
+console.log(1);
+console.log(phone);
+
 // @ts-ignore
 let detect = new MobileDetect(window.navigator.userAgent)
 

@@ -279,10 +279,24 @@ footer {
     display: grid;
     justify-content: center;
     grid-template-columns: auto auto auto auto;
-    gap: 20px;
+    gap: 70px;
     .flex-grid{
         display: flex;
         flex-direction: column;
+        span{
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        a{
+            // background-color: ;
+            margin-top: 6px;
+        }
+        .contact{
+            margin-top: 9px;
+
+        }
     }
     
 }
