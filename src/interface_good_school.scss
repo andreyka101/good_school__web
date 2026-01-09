@@ -262,11 +262,11 @@ header {
 footer {
     bottom: 0;
     position: relative;
+    margin-top: auto !important;
     // - position: absolute;
     background-color: #4a4a4a;
     padding: 30px 10px;
     display: flex;
-    margin-top: auto !important;
     // justify-content: space-evenly;
     a {
         font-size: 17px;
@@ -326,11 +326,35 @@ footer {
     }
     footer {
         padding-bottom: 90px;
+        gap: 32px;
     }
     // FIXME - 1234=5=4321
     // body{
     //     margin-bottom: 70px;
     // }
+}
+@media screen and (max-width: 800px) {
+    footer {
+        grid-template-columns: auto auto;
+        gap: 50px;
+    }
+}
+@media screen and (max-width: 500px) {
+    footer {
+        gap: 18px;
+        a{
+            font-size: 18px !important;
+        }
+    }
+}
+@media screen and (max-width: 430px) {
+    footer {
+        gap: 46px;
+        grid-template-columns: auto;
+        a{
+            font-size: 19px !important;
+        }
+    }
 }
 @media screen and (max-width: 550px) {
     .top_link_header {

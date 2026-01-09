@@ -22,6 +22,7 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    margin-bottom: 200px;
     .block_articles {
         width: 25%;
 
@@ -64,18 +65,21 @@
     .link_center .block_articles {
         width: 41%;
     }
-    #tablet_size{
+    #tablet_size {
         margin-top: 35px;
     }
 }
 @media screen and (max-width: 1000px) {
-    .link_center .block_articles {
-        width: 54%;
+    .link_center {
+        margin-bottom: 80px;
+        .block_articles {
+            width: 54%;
+        }
     }
-    #phone_size{
+    #phone_size {
         margin-top: 15px;
     }
-    #tablet_size{
+    #tablet_size {
         margin-top: 15px;
     }
 }

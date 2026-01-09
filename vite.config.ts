@@ -30,8 +30,11 @@ export default {
         payment_end: resolve('payment_end.html'),
         payment_verification: resolve('payment_verification.html'),
         yandex_7b6a1c0c971104d4: resolve('yandex_7b6a1c0c971104d4.html'),
-        povysheniye_uspevayemosti_v_shkole: resolve('articles/povysheniye-uspevayemosti-v-shkole.html'),
         robots: resolve('robots.txt'),
+        articles: resolve('articles.html'),
+        povysheniye_uspevayemosti_v_shkole: resolve('articles/povysheniye-uspevayemosti-v-shkole.html'),
+        detailed-instructions-for-choosing-a-school: resolve('articles/detailed-instructions-for-choosing-a-school.html'),
+        how-to-choose-a-school-for-a-child: resolve('articles/how-to-choose-a-school-for-a-child.html'),
         // doc_1: resolve('doc_1.pdf'),
         // doc_2: resolve('doc_2.pdf'),
       }
