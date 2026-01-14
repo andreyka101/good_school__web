@@ -50,11 +50,11 @@
             }
         }
     }
-    .tiles{
+    .tiles {
         display: grid;
         grid-template-columns: auto auto;
         grid-template-rows: auto auto;
-        h3{
+        h3 {
             text-align: center;
             grid-column: 2 span;
             background-color: #fbbc48;
@@ -62,7 +62,7 @@
             font-weight: 600;
             padding: 10px 20px;
         }
-        .link_fox_owl{
+        .link_fox_owl {
             display: grid;
             grid-template-columns: 50px auto;
             align-items: center;
@@ -76,10 +76,10 @@
             border-radius: 5px;
             min-width: 78px;
             text-align: center;
-            img{
+            img {
                 height: 50px;
             }
-            div{
+            div {
                 margin-left: 10px;
             }
         }
@@ -87,7 +87,7 @@
     @media screen and (max-width: 1180px) {
         grid-template-columns: auto auto;
         grid-template-rows: auto auto;
-        .tiles{
+        .tiles {
             grid-column: 2 span;
         }
     }
@@ -101,10 +101,10 @@
         }
     }
     @media screen and (max-width: 500px) {
-        .tiles{
+        .tiles {
             grid-template-columns: auto;
             grid-template-rows: auto auto auto;
-            h3{
+            h3 {
                 grid-column: 1 span;
             }
         }
@@ -127,13 +127,13 @@
     }
 }
 
-
 .programming_block {
     padding: 20px;
     background-color: #c4e8dc;
     margin: 10px 20px;
     border-radius: 10px;
     .horizontally {
+        max-width: 1600px;
         display: grid;
         align-items: center;
         grid-template-columns: auto auto;
@@ -155,12 +155,14 @@
             .yellow_block {
                 display: inline-block;
                 font-size: 18px;
+                // font-size: 20px;
+                // 501.16
                 background-color: #ffcc73;
                 border-radius: 5px;
                 padding: 9px 100px;
             }
             ul {
-                font-size: 20px;
+                font-size: 19px;
                 text-align: start;
             }
             a {
@@ -271,6 +273,11 @@
         }
     }
 }
+@media screen and (min-width: 1600px) {
+    .programming_block .horizontally {
+        margin: auto;
+    }
+}
 
 .advantagesSchool_block {
     background: url("/public/Vectors11111.svg") 104% -2%/25% no-repeat;
@@ -295,7 +302,7 @@
             ul {
                 margin-bottom: 0;
                 span {
-                    font-size: 17px;
+                    font-size: 19px;
                 }
             }
             .div_a {
@@ -353,6 +360,11 @@
         }
     }
 }
+@media screen and (min-width: 1600px) {
+    .advantagesSchool_block .horizontally {
+        justify-content: center;
+    }
+}
 .groupClasses_block {
     background:
         url("/public/math_book_2c3bj4bbwwii\ 3.svg") 48% 33%/25% no-repeat,
@@ -362,6 +374,9 @@
     border-radius: 10px;
     padding: 30px;
     padding-bottom: 0px;
+    .max1600 {
+        max-width: 1230px;
+    }
     .horizontally {
         display: grid;
         grid-template-columns: 430px auto;
@@ -413,7 +428,7 @@
             }
 
             li {
-                font-size: 17px;
+                font-size: 19px;
                 font-weight: 500;
                 list-style-type: none; /* Убираем маркеры у списка */
             }
@@ -425,7 +440,7 @@
         padding-left: 30px;
         // border: #000000 4px solid;
         li {
-            font-size: 17px;
+            font-size: 19px;
         }
     }
     a {
@@ -438,7 +453,7 @@
             margin: 8px;
             color: #496085;
             transition: 0.3s;
-            font-size: 18px;
+            font-size: 20px;
         }
         svg {
             fill: #000000;
@@ -535,6 +550,11 @@
         a {
             margin-bottom: 0px;
         }
+    }
+}
+@media screen and (min-width: 1600px) {
+    .groupClasses_block .max1600 {
+        margin: auto;
     }
 }
 
