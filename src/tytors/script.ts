@@ -20,7 +20,7 @@ async function start() {
     let string_patronymic = (data[i].patronymic + "").split("")
     string_patronymic[0] = string_patronymic[0].toUpperCase()
 
-    str_html += `<div class="card_teacher">
+    str_html += `
         <div class="img_text">
           <div class="photo" style="${(data[i].item == 'mathematics') ? "background: url('p11.jpeg') center / cover;" : "background: url('p10.jpeg') center / cover;"}"></div>
           <span>
@@ -48,10 +48,18 @@ async function start() {
             <p class="teacher_text">
             ${data[i].description
       }
-        </p>
-      </div>`
+        </p>`
+      if(data[i].item == 'mathematics'){
+        const a_block = document.querySelector("#a1") as HTMLDivElement
+        a_block.innerHTML = str_html
+      }
+      else{
+        const a_block = document.querySelector("#a2") as HTMLDivElement
+        a_block.innerHTML = str_html
+      }
+      str_html = ""
   }
-  tutors_box.innerHTML = str_html
+  // tutors_box.innerHTML = str_html
 }
 start()
 console.log(window.innerHeight);
