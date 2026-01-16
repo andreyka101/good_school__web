@@ -6,15 +6,15 @@ header {
     background: linear-gradient(to bottom left, #458cfe88 20%, #dbfdff85 20% 50%, #458cfe88 50% 70%, #dbfdff85 70%);
     width: 100%;
     height: 100%;
-    position: absolute;
-    z-index: -500;
+    position: fixed;
+    z-index: -501;
 }
 .topBody2 {
     // background-color: rgba(255, 27, 76, 0.516);
     background: linear-gradient(to bottom right, #45fedf88 20%, #c1ffed85 20% 50%, #45fedf88 50% 70%, #c1ffed85 70%);
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     z-index: -500;
 }
 .tutors_box {
@@ -26,6 +26,8 @@ header {
         display: grid;
         grid-template-columns: 410px 300px;
         gap: 20px;
+        margin: 0 10px;
+        margin-top: 20px;
         .information_teacher {
             color: rgb(0, 0, 0);
             border-radius: 15px;
@@ -70,7 +72,7 @@ header {
         }
         .comments_teacher {
             // width: 410px;
-            padding:5px;
+            padding: 5px;
             padding-top: 40px;
             background-color: #ffffff;
             border-radius: 15px;
@@ -109,11 +111,11 @@ header {
                         display: flex;
                         justify-content: space-between;
                         margin-top: 10px;
-                        .comment_star{
+                        .comment_star {
                             display: flex;
                             align-items: center;
                             justify-content: space-between;
-                            .svg_star{
+                            .svg_star {
                                 height: 16px;
                                 width: 16px;
                                 background: url("/public/star_tj4kgwc5d9sj.svg") center/cover;
@@ -125,7 +127,7 @@ header {
                             }
                         }
                     }
-                    .name{
+                    .name {
                         font-size: 19px;
                         font-weight: 600;
                     }
@@ -133,19 +135,32 @@ header {
             }
         }
     }
-    .information_teacher:nth-child(1) {
+    .card_teacher:nth-child(1) .information_teacher {
         background: url("/public/tutors_s_1.svg") 227% 131%/85% no-repeat;
         background-color: #ffffff;
     }
-    .information_teacher:nth-child(2) {
-        background: url("/public/tutors_s_2.svg") -96% 244%/110% no-repeat;
+    // .card_teacher:nth-child(2) .information_teacher {
+    .card_teacher:nth-child(2) .information_teacher {
+        background: url("/public/tutors_s_2.svg") -94% 184%/110% no-repeat;
         background-color: #ffffff;
     }
 }
+@media screen and (max-width: 1510px) {
+    .topBody {
+        // height: 150%;
+    }
+    .topBody2 {
+        // height: 150%;
+    }
+    .tutors_box {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 @media screen and (max-width: 900px) {
     .tutors_box {
         .information_teacher {
-            width: 350px;
             .img_text {
                 span {
                     margin-right: 0;
@@ -154,35 +169,62 @@ header {
                 }
             }
         }
-        .information_teacher:nth-child(1) {
+        .card_teacher:nth-child(1) .information_teacher {
             background: url("/public/tutors_s_1.svg") 227% 124%/89% no-repeat;
             background-color: #ffffff;
         }
-        .information_teacher:nth-child(2) {
+        .card_teacher:nth-child(2) .information_teacher {
             background: url("/public/tutors_s_2.svg") -60% 176%/112% no-repeat;
             background-color: #ffffff;
         }
     }
 }
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 760px) {
+    .topBody {
+        // height: 207%;
+    }
+    .topBody2 {
+        // height: 207%;
+    }
+    .tutors_box .card_teacher {
+        grid-template-columns: 410px;
+        grid-template-rows: auto auto;
+        .comments_teacher .list_comments {
+            // overflow-x: scroll !important;
+            height: 300px;
+        }
+    }
+    #a2 {
+        margin-top: 50px;
+    }
+}
+@media screen and (max-width: 440px) {
     .tutors_box {
-        .information_teacher {
-            width: 318px;
-            margin: 10px 2px;
-            padding: 20px 10px;
-            padding-bottom: 16px;
-            .img_text {
-                // justify-content: space-around;
-                .photo {
-                    width: 150px;
-                    height: 150px;
+        .card_teacher {
+            grid-template-columns: 360px;
+            .information_teacher {
+                // width: 318px;
+                margin: 10px 2px;
+                padding: 20px 10px;
+                padding-bottom: 16px;
+                .img_text {
+                    // justify-content: space-around;
+                    .photo {
+                        width: 150px;
+                        height: 150px;
+                        margin-right: 10px;
+                    }
+                }
+                .teacher_text {
+                    margin-bottom: 0;
+                }
+                .comments_teacher .list_comments {
+                    // overflow-x: scroll !important;
+                    // height: 300px;
                 }
             }
-            .teacher_text {
-                margin-bottom: 0;
-            }
         }
-        .information_teacher:nth-child(2) {
+        .card_teacher:nth-child(2) .information_teacher {
             background: url("/public/tutors_s_2.svg") -96% 151% / 110% no-repeat !important;
             background-color: #ffffff !important;
         }
@@ -190,8 +232,12 @@ header {
 }
 @media screen and (max-width: 360px) {
     .tutors_box {
+        .card_teacher{
+
+            grid-template-columns: 300px;
+        }
         .information_teacher {
-            width: 296px;
+            // width: 296px;
             .img_text {
                 // justify-content: space-around;
                 .photo {
@@ -200,7 +246,7 @@ header {
                 }
             }
         }
-        .information_teacher:nth-child(2) {
+        .card_teacher:nth-child(2) .information_teacher {
             background: url("/public/tutors_s_2.svg") -96% 142% / 110% no-repeat !important;
             background-color: #ffffff !important;
         }

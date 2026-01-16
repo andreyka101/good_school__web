@@ -233,8 +233,12 @@
         justify-content: center;
         align-items: center;
     }
+    @media screen and (max-width: 1200px) {
+        grid-template-columns: 380px auto;
+    }
     @media screen and (max-width: 934px) {
-        .horizontally {
+        grid-template-columns: 300px auto;
+        .two_porogramm {
             grid-template-columns: 336px auto;
             align-items: center;
             .png {
@@ -242,21 +246,15 @@
             }
         }
     }
-    @media screen and (max-width: 828px) {
-        .horizontally {
-            grid-template-columns: 299px auto;
-            align-items: center;
-            .png {
-                height: 202px;
-            }
+    @media screen and (max-width: 800px) {
+        grid-template-columns: auto;
+        margin: 10px 20px;
+        .flex_png {
+            display: none;
         }
-    }
-    @media screen and (max-width: 740px) {
-        .horizontally {
+        .two_porogramm {
+            margin: 0;
             grid-template-columns: auto;
-            .png {
-                display: none;
-            }
             .information .yellow_block {
                 padding: 9px 100px;
             }
@@ -268,7 +266,7 @@
         }
     }
     @media screen and (max-width: 590px) {
-        .horizontally {
+        .two_porogramm {
             .information .yellow_block {
                 padding: 9px 50px;
             }
@@ -279,8 +277,8 @@
             }
         }
     }
-    @media screen and (max-width: 450px) {
-        .horizontally {
+    @media screen and (max-width: 480px) {
+        .two_porogramm {
             // .information .yellow_block{
             //     padding: 9px 50px;
             // }
@@ -362,12 +360,20 @@
             }
         }
     }
+    @media screen and (max-width: 1100px) {
+        .horizontally {
+            grid-template-columns: 250px auto;
+        }
+    }
     @media screen and (max-width: 970px) {
         .horizontally .information {
             margin-left: 0;
         }
     }
-    @media screen and (max-width: 740px) {
+    @media screen and (max-width: 780px) {
+        .horizontally {
+            grid-template-columns:auto;
+        }
         .svg_heart {
             display: none;
         }

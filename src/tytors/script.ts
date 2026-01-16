@@ -1,7 +1,7 @@
 import "./style.scss"
 
 async function start() {
-  const tutors_box = document.querySelector(".tutors_box") as HTMLDivElement
+  // const tutors_box = document.querySelector(".tutors_box") as HTMLDivElement
   let data = await fetch("https://api.goodschool.online/get_all_teacher", {
     method: "POST",
     headers: {
