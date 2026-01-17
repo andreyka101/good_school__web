@@ -16,13 +16,13 @@
   }
   .dual_img {
     display: flex;
-    width: 70%;
+    width: 65%;
   }
-  .portrait_w{
-    width: 30%;
+  .portrait_w {
+    width: 40%;
   }
   .portrait {
-    width: 20%;
+    width: 30%;
   }
   p {
     margin: 10px 0;
@@ -41,6 +41,16 @@
   .center_block {
     img {
       width: 90%;
+    }
+    .dual_img {
+      flex-direction: column;
+      width: 80%;
+    }
+    .portrait{
+      width: 48%;
+    }
+    .portrait_w{
+      width: 70%;
     }
   }
 }
