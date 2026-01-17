@@ -11,13 +11,23 @@
   h1 {
     text-align: center;
   }
-  img{
+  img {
     width: 70%;
   }
-  p{
+  .dual_img {
+    display: flex;
+    width: 70%;
+  }
+  .portrait_w{
+    width: 30%;
+  }
+  .portrait {
+    width: 20%;
+  }
+  p {
     margin: 10px 0;
   }
-  .pX{
+  .pX {
     margin: 0;
     margin-bottom: 10px;
   }
@@ -29,7 +39,7 @@
 }
 @media screen and (max-width: 700px) {
   .center_block {
-    img{
+    img {
       width: 90%;
     }
   }
@@ -37,7 +47,7 @@
 @media screen and (max-width: 460px) {
   .center_block {
     text-align: center;
-    img{
+    img {
       width: 100%;
     }
   }
