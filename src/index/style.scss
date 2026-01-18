@@ -235,7 +235,7 @@
     }
     .grid_historical_articles {
         display: grid;
-        grid-template-columns: 65% 35%;
+        grid-template-columns: auto 420px;
         text-align: center;
         h3{
             font-size: 23px;
