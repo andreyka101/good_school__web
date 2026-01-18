@@ -237,20 +237,19 @@
         display: grid;
         grid-template-columns: auto 420px;
         text-align: center;
-        h3{
+        h3 {
             font-size: 23px;
             margin-bottom: 5px;
         }
-        .link_articles{
+        .link_articles {
             display: flex;
             flex-direction: column;
-            justify-content:center;
-            h4{
+            justify-content: center;
+            h4 {
                 font-size: 21px;
                 margin-bottom: 0px;
-
             }
-            .articles{
+            .articles {
                 text-align: center;
                 background-color: #51b4a3;
                 font-size: 19px;
@@ -260,13 +259,13 @@
                 margin: 20px 5px;
                 padding: 9px;
             }
-            .articles:hover{
+            .articles:hover {
                 background-color: #3b8478;
             }
-            .all_articles{
+            .all_articles {
                 background-color: #f48d6b;
             }
-            .all_articles:hover{
+            .all_articles:hover {
                 background-color: #b0644a;
             }
         }
@@ -301,25 +300,101 @@
             }
         }
     }
-    @media screen and (max-width: 1200px) {
-        grid-template-columns: 380px auto;
+    @media screen and (max-width: 2000px) {
+        .grid_historical_articles {
+            grid-template-columns: auto 275px;
+
+            .block_articles {
+                width: 360px;
+            }
+            .articles {
+                span {
+                    display: block;
+                }
+            }
+        }
+        .info_png {
+            grid-template-columns: 340px auto;
+        }
     }
-    @media screen and (max-width: 934px) {
-        grid-template-columns: 300px auto;
-        .two_porogramm {
-            grid-template-columns: 336px auto;
-            align-items: center;
+    @media screen and (max-width: 1600px) {
+        .info_png {
             .png {
-                height: 222px;
+                width: 225px;
             }
         }
     }
+    @media screen and (max-width: 1450px) {
+        grid-template-columns: 100%;
+        .info_png {
+            grid-template-columns: 410px auto;
+            margin-top: 20px;
+            .png {
+                width: 310px;
+            }
+        }
+        .grid_historical_articles {
+            grid-template-columns: auto auto;
+            .link_articles {
+                width: 420px;
+                margin: auto;
+                .articles span {
+                    display: inline-block;
+                }
+            }
+            .block_articles {
+                width: 520px;
+            }
+        }
+    }
+    @media screen and (max-width: 1100px) {
+        .info_png {
+            grid-template-columns: 300px auto;
+            .png {
+                width: 260px;
+            }
+        }
+        .grid_historical_articles {
+            .link_articles {
+                width: 290px;
+            }
+            .block_articles {
+                width: 380px;
+                span {
+                    display: inline-block;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    // @media screen and (max-width: 934px) {
+    //     grid-template-columns: 300px auto;
+    //     .two_porogramm {
+    //         grid-template-columns: 336px auto;
+    //         align-items: center;
+    //         .png {
+    //             height: 222px;
+    //         }
+    //     }
+    // }
     @media screen and (max-width: 800px) {
-        grid-template-columns: auto;
-        margin: 10px 20px;
-        .two_porogramm {
-            margin: 0;
+        .grid_historical_articles {
+            .link_articles {
+                grid-column: span 2;
+                width: 100%;
+            }
+            .block_articles {
+                grid-column: span 2;
+                width: 100%;
+            }
+        }
+        .info_png {
             grid-template-columns: auto;
+            .png {
+                display: none;
+            }
+        }
+        .two_porogramm {
             .information .yellow_block {
                 padding: 9px 100px;
             }
