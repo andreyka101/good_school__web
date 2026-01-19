@@ -1,0 +1,76 @@
+@import url("../src/interface_good_school.scss");
+
+.center_block {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  width: 70%;
+  font-size: 19px;
+  flex-direction: column;
+  // align-items: center;
+  h1 {
+    text-align: center;
+  }
+  img {
+    width: 70%;
+  }
+  .dual_img {
+    display: flex;
+    width: 65%;
+  }
+  .portrait_w {
+    width: 40%;
+  }
+  .portrait {
+    width: 30%;
+  }
+  .mini {
+    width: 60%;
+  }
+  .portrait_mini {
+    width: 20%;
+  }
+  p {
+    margin: 10px 0;
+  }
+  .pX {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 1060px) {
+  .center_block {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .center_block {
+    img {
+      width: 90%;
+    }
+    .dual_img {
+      flex-direction: column;
+      width: 80%;
+    }
+    .portrait {
+      width: 48%;
+    }
+    .portrait_w {
+      width: 70%;
+    }
+    .mini {
+      width: 80%;
+    }
+    .portrait_mini {
+      width: 40%;
+    }
+  }
+}
+@media screen and (max-width: 460px) {
+  .center_block {
+    text-align: center;
+    img {
+      width: 100%;
+    }
+  }
+}

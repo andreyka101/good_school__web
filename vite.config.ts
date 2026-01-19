@@ -32,9 +32,15 @@ export default {
         yandex_7b6a1c0c971104d4: resolve('yandex_7b6a1c0c971104d4.html'),
         robots: resolve('robots.txt'),
         articles: resolve('articles.html'),
+
         povysheniye_uspevayemosti_v_shkole: resolve('articles/povysheniye-uspevayemosti-v-shkole.html'),
         detailed_instructions_for_choosing_a_school: resolve('articles/detailed-instructions-for-choosing-a-school.html'),
         how_to_choose_a_school_for_a_child: resolve('articles/how-to-choose-a-school-for-a-child.html'),
+
+        howthegreekscalculatedtheearthsradius: resolve("historical_articles/how-the-greeks-calculated-the-earth's-radius.html"),
+        pythagoras: resolve('historical_articles/pythagoras.html'),
+        thalesofmiletus: resolve('historical_articles/thales-of-miletus.html'),
+        thefirstscientists: resolve('historical_articles/the-first-scientists.html'),
         // doc_1: resolve('doc_1.pdf'),
         // doc_2: resolve('doc_2.pdf'),
       }
