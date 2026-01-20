@@ -1,4 +1,5 @@
-        User-agent: *
-        Disallow: public/doc_1.pdf
-        User-agent: *
-        Disallow: public/doc_2.pdf
+User-agent: *
+Disallow: public/doc_1.pdf
+Disallow: public/doc_2.pdf
+
+Sitemap: https://goodschool.online/sitemap.xml
