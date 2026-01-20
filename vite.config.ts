@@ -32,7 +32,7 @@ export default {
         yandex_7b6a1c0c971104d4: resolve('yandex_7b6a1c0c971104d4.html'),
         robots: resolve('robots.txt'),
         articles: resolve('articles.html'),
-        sitemap: resolve('sitemap.xml'),
+        sitemap: resolve('assetsInclude/sitemap.xml'),
 
         povysheniye_uspevayemosti_v_shkole: resolve('articles/povysheniye-uspevayemosti-v-shkole.html'),
         detailed_instructions_for_choosing_a_school: resolve('articles/detailed-instructions-for-choosing-a-school.html'),
