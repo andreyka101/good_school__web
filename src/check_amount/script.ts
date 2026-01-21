@@ -14,7 +14,7 @@
 // data = await data.json()
 // console.log(data);
 // if(data.ok){
-// window.location.href = "./personal_area_student.html"
+// window.location.href = "./personal-area-student.html"
 // }
 // })
 
@@ -74,7 +74,7 @@ document.querySelector("button")?.addEventListener("click", async () => {
     if (data.ok) {
         localStorage.setItem("buying_new_lesson", localStorage.getItem("pay")+"")
         localStorage.setItem("token_p", data.answer)
-        window.location.href = "./payment_page.html"
+        window.location.href = "./payment-page.html"
     }
     // else{
     // window.location.href = "./"

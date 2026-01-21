@@ -104,5 +104,5 @@ prices_cards_block.addEventListener('click',(e)=>{
     if(target.className != "igs_button_universal_B1") return
     console.log(target.dataset.num);
     localStorage.setItem("pay", target.dataset.num+"")
-    window.location.href = "./check_amount.html"
+    window.location.href = "./check-amount.html"
 })

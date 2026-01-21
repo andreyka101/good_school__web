@@ -14,6 +14,6 @@ setInterval(async () => {
     console.log(data.paid_lessons)
     if(+((localStorage.getItem('classes_status_user')+ "").split(" ")[1]) != data.paid_lessons){
         localStorage.setItem("classes_status_user", (localStorage.getItem('classes_status_user')+ "").split(" ")[0] + " " + data.paid_lessons)
-        window.location.href = "./personal_area_student.html"
+        window.location.href = "./personal-area-student.html"
     }
 }, 500)

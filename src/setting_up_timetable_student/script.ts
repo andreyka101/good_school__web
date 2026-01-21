@@ -391,7 +391,7 @@ button_save?.addEventListener("click", async () => {
         })
     }) as any
     data = await data.json()
-    if (data.ok) window.location.href = "./personal_area_student.html"
+    if (data.ok) window.location.href = "./personal-area-student.html"
 })
 
 
@@ -420,11 +420,11 @@ notification_exit_yes?.addEventListener("click", async () => {
         })
     }) as any
     data = await data.json()
-    if (data.ok) window.location.href = "./personal_area_student.html"
+    if (data.ok) window.location.href = "./personal-area-student.html"
 })
 
 notification_exit_no?.addEventListener("click", () => {
-    window.location.href = "./personal_area_student.html"
+    window.location.href = "./personal-area-student.html"
 })
 
 

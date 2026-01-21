@@ -90,5 +90,5 @@ prices_cards_block.addEventListener('click',(e)=>{
     if(target.className != "igs_button_universal_B1") return
     console.log(target.dataset.num);
     localStorage.setItem("classes_status_user", target.dataset.num+"")
-    window.location.href = "./setting_up_timetable_student_start.html"
+    window.location.href = "./setting-up-timetable-student-start.html"
 })

@@ -20,7 +20,7 @@ console.log("hi");
 //             data = await data.json()
 //             console.log(data);
 //             if (data.ok) {
-//                 window.location.href = "./personal_area_student.html"
+//                 window.location.href = "./personal-area-student.html"
 //             }
 
 //         }

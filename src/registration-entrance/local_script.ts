@@ -52,7 +52,7 @@ if (localStorage.getItem("dataUser") != "" && localStorage.getItem("dataUser") !
         surname_input.value = dataUser.surname
     }
     else {
-        if (window.location.href == "http://localhost:5173/registration_student.html" || window.location.href == "http://192.168.31.58:5173/registration_student.html") {
+        if (window.location.href == "http://localhost:5173/registration-student.html" || window.location.href == "http://192.168.31.58:5173/registration-student.html") {
             name_input.value = dataUser.name
             surname_input.value = dataUser.surname
             phone_input.value = dataUser.phone
@@ -160,7 +160,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
     if (s3_select.value != "") s_num = s3_select.value.split(" ")
     if (s4_select.value != "") s_num = s4_select.value.split(" ")
     if (name_input.value.toLowerCase().trim() == "admin" && surname_input.value.toLowerCase().trim() == "root" && password_input.value == "392ab4") {
-        window.location.href = "./registration_teacher.html"
+        window.location.href = "./registration-teacher.html"
     }
     else {
         if (checkbox_input.checked && name_input.value != "" && surname_input.value != "" && s_num != "" && phone_input.value != "" && email_input.value != "" && class_select.value != "" && password_input.value != "" && password_input.value == repeatPassword_input.value && password_input.value.length >= 6 && (phone_input.value.trim()[0] == "+" && phone_input.value.trim()[1] == "7")) {
@@ -216,7 +216,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
                 // localStorage.setItem("name",data.name + "")
                 // localStorage.setItem("surname",data.surname + "")
                 localStorage.setItem("id_student", "0")
-                window.location.href = "./subscription_selection_start.html"
+                window.location.href = "./subscription-selection-start.html"
             }
             else {
                 email_warning.style.display = "inline-block"
@@ -247,7 +247,7 @@ buttonSend_registrationStudent?.addEventListener("click", async () => {
             //     localStorage.setItem("surname",data.surname + "")
             //     localStorage.setItem("id_student",data.id + "")
             //     localStorage.setItem("id_teacher",data.teacher_id + "")
-            //     window.location.href = "./setting_up_timetable_student_start.html"
+            //     window.location.href = "./setting-up-timetable-student-start.html"
             // }
         }
         else {
@@ -398,7 +398,7 @@ buttonSend_registrationTeacher?.addEventListener("click", async () => {
             localStorage.setItem("surname", data.surname + "")
             localStorage.setItem("id_teacher", data.id + "")
             localStorage.setItem("timetable_classes_teacher", "")
-            window.location.href = "./personal_area_teacher.html"
+            window.location.href = "./personal-area-teacher.html"
         }
     }
     else {
@@ -526,7 +526,7 @@ buttonSend_entrance?.addEventListener("click", async () => {
                 localStorage.setItem("id_student", data[0].id + "")
                 localStorage.setItem("classes_status_user", data[0].type_class + " " + data[0].paid_lessons)
                 localStorage.setItem("buying_new_lesson", "")
-                window.location.href = "./personal_area_student.html"
+                window.location.href = "./personal-area-student.html"
                 // console.log(0);
 
             }
@@ -537,7 +537,7 @@ buttonSend_entrance?.addEventListener("click", async () => {
                 localStorage.setItem("surname", data[0].surname + "")
                 localStorage.setItem("id_teacher", data[0].id + "")
                 localStorage.setItem("timetable_classes_teacher", data[0].timetable_classes + "")
-                window.location.href = "./personal_area_teacher.html"
+                window.location.href = "./personal-area-teacher.html"
             }
         }
 
@@ -600,7 +600,7 @@ buttonSend_confirm_password?.addEventListener("click", async () => {
             localStorage.setItem("name" , name_input.value.toLowerCase().trim())
             localStorage.setItem("phone" , text_phone_input)
             localStorage.setItem("email_cipher" , data.email_cipher)
-            window.location.href = "./confirm_password_2.html"
+            window.location.href = "./confirm-password-2.html"
         }
         else{
             none_warning.style.display = "inline-block"
@@ -667,7 +667,7 @@ buttonSend_confirm_password_2?.addEventListener("click", async () => {
 
         if(data.answer){
             localStorage.setItem("code", code_input.value.trim())
-            window.location.href = "./confirm_password_3.html"
+            window.location.href = "./confirm-password-3.html"
         }
         else{
             code_warning_none.style.display = "inline-block"

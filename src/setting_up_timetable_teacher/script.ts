@@ -447,7 +447,7 @@ button_save?.addEventListener("click", async () => {
         })
     }) as any
     data = await data.json()
-    if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_teacher.html"
+    if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal-area-teacher.html"
 })
 
 
@@ -478,10 +478,10 @@ notification_exit_yes?.addEventListener("click", async () => {
         })
     }) as any
     data = await data.json()
-    if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal_area_teacher.html"
+    if (data.id == +(localStorage.getItem("id_teacher") + "")) window.location.href = "./personal-area-teacher.html"
 })
 
 notification_exit_no?.addEventListener("click", () => {
-    window.location.href = "./personal_area_teacher.html"
+    window.location.href = "./personal-area-teacher.html"
 })
 

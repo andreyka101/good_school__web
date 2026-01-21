@@ -410,7 +410,7 @@ button_save?.addEventListener("click", async () => {
             localStorage.setItem("surname",data.surname)
             localStorage.setItem("id_student",data.id)
             console.log();
-            window.location.href = "./check_amount_start.html"
+            window.location.href = "./check-amount-start.html"
         }
 })
 

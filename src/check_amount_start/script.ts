@@ -14,7 +14,7 @@
 //     if(data.ok){
 //         localStorage.setItem("id_teacher",data.id_t)
 //         localStorage.setItem("id_student",data.id_s)
-//         window.location.href = "./personal_area_student.html"
+//         window.location.href = "./personal-area-student.html"
 //     }
 // })
 // https://developer.131.ru/widget/payment-widget/
@@ -108,7 +108,7 @@ document.querySelector("button")?.addEventListener("click", async () => {
     console.log(data);
     if(data.ok){
         localStorage.setItem("token_p", data.answer)
-        window.location.href = "./payment_page_start.html"
+        window.location.href = "./payment-page-start.html"
     }
     else{
         window.location.href = "./"

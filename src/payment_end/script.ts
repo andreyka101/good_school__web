@@ -25,7 +25,7 @@ setInterval(
             if (data.ok) {
                 localStorage.setItem("id_teacher", data.id_t)
                 localStorage.setItem("id_student", data.id_s)
-                window.location.href = "./personal_area_student.html"
+                window.location.href = "./personal-area-student.html"
             }
 
         }
