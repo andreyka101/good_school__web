@@ -233,7 +233,7 @@
             }
         }
     }
-    .grid_historical_articles {
+    .grid_blog {
         display: grid;
         grid-template-columns: auto 420px;
         text-align: center;
@@ -301,7 +301,7 @@
         }
     }
     @media screen and (max-width: 2000px) {
-        .grid_historical_articles {
+        .grid_blog {
             grid-template-columns: auto 275px;
 
             .block_articles {
@@ -333,7 +333,7 @@
                 width: 310px;
             }
         }
-        .grid_historical_articles {
+        .grid_blog {
             grid-template-columns: auto auto;
             .link_articles {
                 width: 420px;
@@ -354,7 +354,7 @@
                 width: 260px;
             }
         }
-        .grid_historical_articles {
+        .grid_blog {
             .link_articles {
                 width: 290px;
             }
@@ -378,7 +378,7 @@
     //     }
     // }
     @media screen and (max-width: 800px) {
-        .grid_historical_articles {
+        .grid_blog {
             .link_articles {
                 grid-column: span 2;
                 width: 100%;

@@ -29,7 +29,7 @@ export default {
         free_lesson: resolve('free-lesson.html'),
         payment_end: resolve('payment-end.html'),
         payment_verification: resolve('payment-verification.html'),
-        yandex_7b6a1c0c971104d4: resolve('yandex-7b6a1c0c971104d4.html'),
+        yandex_7b6a1c0c971104d4: resolve('yandex_7b6a1c0c971104d4.html'),
         robots: resolve('robots.txt'),
         articles: resolve('articles.html'),
 
