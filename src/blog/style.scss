@@ -1,0 +1,76 @@
+@import url("../interface_good_school.scss");
+main {
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    h1 {
+        margin-top: 55px;
+        text-align: center;
+    }
+    h2 {
+        margin-top: 86px;
+        text-align: center;
+    }
+    .center_block {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 80%;
+    }
+    .main_grid {
+        display: grid;
+        grid-template-columns: 1000px 1000px;
+        grid-template-rows: 905px;
+        gap: 150px;
+        justify-content: center;
+        .div_h2 {
+            border-radius: 40px;
+            text-align: center;
+            a {
+                display: grid;
+                grid-template-columns: 350px auto;
+                align-items: center;
+                margin: 10px;
+                font-size: 21px;
+                text-align: center;
+                background-color: #51b4a3;
+                border-radius: 20px;
+                text-decoration: none;
+                color: #031e47;
+                padding: 10px;
+                img {
+                    width: 350px;
+                    border-radius: 20px;
+                }
+                .text_link {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    h3 {
+                        font-size: 22px;
+                    }
+                    p {
+                        width: 90%;
+                    }
+                }
+            }
+            a:hover {
+                background-color: #3b8478;
+                // color: #909090;
+                img {
+                    // background-color: #3b8478;
+                    filter: brightness(70%);
+                }
+            }
+        }
+        .div_h2:nth-child(1) {
+            background-color: #6a93d4;
+            // a {
+            //     background-color: #8ba7d2;
+            // }
+        }
+        .div_h2:nth-child(2) {
+            background-color: #ffab73;
+        }
+    }
+}
