@@ -54,23 +54,30 @@ main {
                     }
                 }
             }
+        }
+        .div_h2:nth-child(1) {
+            background-color: #6a93d4;
+            a {
+                background-color: #cadeff;
+            }
             a:hover {
-                background-color: #3b8478;
-                // color: #909090;
+                background-color: #a3c5fb;
                 img {
-                    // background-color: #3b8478;
                     filter: brightness(70%);
                 }
             }
         }
-        .div_h2:nth-child(1) {
-            background-color: #6a93d4;
-            // a {
-            //     background-color: #8ba7d2;
-            // }
-        }
         .div_h2:nth-child(2) {
             background-color: #ffab73;
+            a {
+                background-color: #fce1cf;
+            }
+            a:hover {
+                background-color: #ffc8a4;
+                img {
+                    filter: brightness(70%);
+                }
+            }
         }
     }
 }
