@@ -11,57 +11,63 @@
 
 <body>
   <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(103315130, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/103315130" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+    ym(103315130, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/103315130" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
   <a href="./" class="igs_button_universal_A1 back_global">назад</a>
-  <div class="center_block">
-    <div class="width_block">
-      <h1>
-        Вход
-      </h1>
-      <span id="name_warning" class="warning">
-        не введено имя
-      </span>
-      <span id="none_warning" class="warning">
-        неверные имя, фамилия или пароль
+  <main>
+    <div class="center_block">
+      <div class="width_block">
+        <h1>
+          Вход
+        </h1>
+        <span id="name_warning" class="warning">
+          не введено имя
+        </span>
+        <span id="none_warning" class="warning">
+          неверные имя, фамилия или пароль
 
-      </span>
-      <input id="name_input" class="receiving_data" type="text" placeholder="имя">
-      <span id="surname_warning" class="warning">
-        не введена фамилия
-      </span>
-      <input id="surname_input" class="receiving_data" type="text" placeholder="фамилия">
-      <span id="password_warning" class="warning">
-        не введен пароль
-      </span>
-      <input id="password_input" class="receiving_data" type="password" placeholder="пароль">
-      <div style="display: flex;justify-content: center; margin-top: 20px;">
-        <button id="buttonSend_entrance" class="igs_button_universal_B1">
-          войти
-        </button>
+        </span>
+        <input id="name_input" class="receiving_data" type="text" placeholder="имя">
+        <span id="surname_warning" class="warning">
+          не введена фамилия
+        </span>
+        <input id="surname_input" class="receiving_data" type="text" placeholder="фамилия">
+        <span id="password_warning" class="warning">
+          не введен пароль
+        </span>
+        <input id="password_input" class="receiving_data" type="password" placeholder="пароль">
+        <div style="display: flex;justify-content: center; margin-top: 20px;">
+          <button id="buttonSend_entrance" class="igs_button_universal_B1">
+            войти
+          </button>
+        </div>
+        <div style="display: inline-flex;justify-content: center; margin-top: 8px;">
+          <a href="./confirm-password.html" style="text-decoration: none;color: #031e47;">
+            забыли пароль?
+          </a>
+        </div>
       </div>
-      <div style="display: inline-flex;justify-content: center; margin-top: 8px;">
-        <a href="./confirm-password.html" style="text-decoration: none;color: #031e47;">
-          забыли пароль?
-        </a>
-      </div>
+      <div class="photo_svg_2"></div>
     </div>
-    <div class="photo_svg_2"></div>
-  </div>
+  </main>
 
 
 
