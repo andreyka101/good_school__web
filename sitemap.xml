@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
    
+   <!-- https://goodschool.online/sitemap.xml -->
    <url>
       <loc>https://goodschool.online/</loc>
       <lastmod>2026-01-20</lastmod>
@@ -55,6 +56,8 @@
       <loc>https://goodschool.online/blog.html</loc>
       <lastmod>2026-01-23</lastmod>
    </url>
+   
+   <url>
       <loc>https://goodschool.online/blog/the-first-scientists.html</loc>
       <lastmod>2026-01-20</lastmod>
    </url>
