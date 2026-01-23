@@ -53,6 +53,11 @@
    
    <url>
    <!--  -->
+
+   <url>
+      <loc>https://goodschool.online/blog.html</loc>
+      <lastmod>2026-01-23</lastmod>
+   </url>
       <loc>https://goodschool.online/blog/the-first-scientists.html</loc>
       <lastmod>2026-01-20</lastmod>
    </url>
@@ -70,6 +75,21 @@
    <url>
       <loc>https://goodschool.online/articles/detailed-instructions-for-choosing-a-school.html</loc>
       <lastmod>2026-01-20</lastmod>
+   </url>
+   
+   <url>
+      <loc>https://goodschool.online/articles/how-far-is-it-to-the-sun.html</loc>
+      <lastmod>2026-01-23</lastmod>
+   </url>
+   
+   <url>
+      <loc>https://goodschool.online/articles/archimedes-law-leverage.html</loc>
+      <lastmod>2026-01-23</lastmod>
+   </url>
+   
+   <url>
+      <loc>https://goodschool.online/articles/measure-length-from-cubit-to-meter.html</loc>
+      <lastmod>2026-01-23</lastmod>
    </url>
 
 

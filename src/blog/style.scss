@@ -20,16 +20,20 @@ main {
     .main_grid {
         display: grid;
         grid-template-columns: 1000px 1000px;
-        grid-template-rows: 905px;
+        grid-template-rows: 955px;
         gap: 150px;
         justify-content: center;
+        margin-bottom: 60px;
         .div_h2 {
             border-radius: 40px;
             text-align: center;
+            overflow-y: auto;
+            padding-bottom: 20px;
             a {
                 display: grid;
                 grid-template-columns: 350px auto;
                 align-items: center;
+                // align-items: stretch;
                 margin: 10px;
                 font-size: 21px;
                 text-align: center;
@@ -76,6 +80,57 @@ main {
                 background-color: #ffc8a4;
                 img {
                     filter: brightness(70%);
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 2190px) {
+        .main_grid {
+            gap: 30px;
+            grid-template-columns: auto auto;
+            margin: 0 20px;
+            margin-bottom: 60px;
+        }
+    }
+    @media screen and (max-width: 1700px) {
+        .main_grid {
+            gap: 20px;
+            margin: 0 10px;
+            margin-bottom: 40px;
+            .div_h2 a {
+                grid-template-columns: auto auto;
+                img {
+                    width: 300px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1400px) {
+        .main_grid {
+            grid-template-columns: auto;
+            grid-template-rows: 955px 955px;
+            width: 800px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+    }
+    @media screen and (max-width: 1400px) {
+        .main_grid {
+            width: auto;
+            margin: 0 10px;
+            margin-bottom: 40px;
+        }
+    }
+    @media screen and (max-width: 750px) {
+        .main_grid {
+            .div_h2 a {
+                display: flex;
+                flex-direction: column;
+                img{
+                    width: 100%;
+                }
+                p {
+                    display: none;
                 }
             }
         }

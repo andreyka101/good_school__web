@@ -18,6 +18,13 @@
     display: flex;
     width: 65%;
   }
+  .dual_img_top {
+    display: flex;
+    align-items: flex-start;
+    img{
+      width: 30%;
+    }
+  }
   .portrait_w {
     width: 40%;
   }
@@ -26,6 +33,7 @@
   }
   .mini {
     width: 60%;
+    
   }
   .portrait_mini {
     width: 20%;
