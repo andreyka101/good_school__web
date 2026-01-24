@@ -273,32 +273,36 @@ footer {
         text-decoration: none;
         color: white;
     }
-
-
+    ul {
+        list-style-type: none; /* Убирает точки */
+        padding: 0; /* Убирает левый отступ */
+        margin: 0; /* Убирает внешние отступы */
+        li {
+            margin-top: 6px;
+        }
+    }
 
     display: grid;
     justify-content: center;
     grid-template-columns: auto auto auto auto;
     gap: 70px;
-    .flex-grid{
+    .flex-grid {
         display: flex;
         flex-direction: column;
-        span{
+        span {
             color: #fff;
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 8px;
         }
-        a{
+        a {
             // background-color: ;
             margin-top: 6px;
         }
-        .contact{
+        .contact {
             margin-top: 9px;
-
         }
     }
-    
 }
 .top_link_header {
     display: none;
@@ -342,7 +346,7 @@ footer {
 @media screen and (max-width: 500px) {
     footer {
         gap: 18px;
-        a{
+        a {
             font-size: 18px !important;
         }
     }
@@ -351,7 +355,7 @@ footer {
     footer {
         gap: 46px;
         grid-template-columns: auto;
-        a{
+        a {
             font-size: 19px !important;
         }
     }
