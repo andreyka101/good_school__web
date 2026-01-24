@@ -83,17 +83,6 @@ header {
                 min-width: 78px;
                 text-align: center;
             }
-            a {
-                font-size: 18px;
-                text-decoration: none;
-                background-color: #51b4a3;
-                color: #031e47;
-                margin: 4px;
-                padding: 8px 20px;
-                border-radius: 5px;
-                min-width: 78px;
-                text-align: center;
-            }
             // button{
             //     border: 0;
             //     font-size: 18px;
@@ -259,15 +248,26 @@ header {
         }
     }
 }
+@keyframes gradient {
+    0% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 50% 100%;
+    }
+    100% {
+        background-position: 50% 0%;
+    }
+}
 footer {
     bottom: 0;
     position: relative;
     margin-top: auto !important;
     // - position: absolute;
-    background-color: #4a4a4a;
+    // background-color: #4a4a4a;
+    background-color: #404040;
     padding: 30px 10px;
-    display: flex;
-    // justify-content: space-evenly;
+    padding-bottom: 20px;
     a {
         font-size: 17px;
         text-decoration: none;
@@ -281,11 +281,37 @@ footer {
             margin-top: 6px;
         }
     }
-
-    display: grid;
-    justify-content: center;
-    grid-template-columns: auto auto auto auto;
-    gap: 70px;
+    .block_developer {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+        a {
+            display: flex;
+            align-items: center;
+            margin-right: 60px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 23px;
+            font-weight: 700;
+            color: #404040;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 1rem,
+                #404040 1rem,
+                #404040 2rem
+            );
+            background-size: 500% 500%;
+            animation: gradient 5s linear infinite;
+            .icon {
+                height: 60px;
+                width: 60px;
+                background: url("/public/cookiesoft_v_2_1.svg") center/cover;
+                margin-right: 7px;
+            }
+        }
+    }
     .flex-grid {
         display: flex;
         flex-direction: column;
@@ -303,6 +329,12 @@ footer {
             margin-top: 9px;
         }
     }
+}
+.footer {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+    gap: 70px;
 }
 .top_link_header {
     display: none;
@@ -328,9 +360,11 @@ footer {
     .top_link_header {
         display: inline-flex;
     }
+    .footer {
+        gap: 32px;
+    }
     footer {
         padding-bottom: 90px;
-        gap: 32px;
     }
     // FIXME - 1234=5=4321
     // body{
@@ -338,13 +372,22 @@ footer {
     // }
 }
 @media screen and (max-width: 800px) {
-    footer {
+    // .block_developer a {
+    //     animation-timing-function: steps(10) !important;
+    //     animation-duration: 30s;
+    // }
+    .footer {
         grid-template-columns: auto auto;
         gap: 50px;
     }
 }
 @media screen and (max-width: 500px) {
-    footer {
+    .block_developer {
+        a {
+            margin: 0 !important;
+        }
+    }
+    .footer {
         gap: 18px;
         a {
             font-size: 18px !important;
@@ -352,7 +395,7 @@ footer {
     }
 }
 @media screen and (max-width: 430px) {
-    footer {
+    .footer {
         gap: 46px;
         grid-template-columns: auto;
         a {
@@ -381,7 +424,7 @@ footer {
     z-index: 100;
     font-size: 19px;
     display: inline-block;
-    margin: 20px;
+    margin: 30px;
     border: 0px #000 solid;
 }
 .igs_button_universal_B1 {
@@ -409,6 +452,15 @@ footer {
     }
     footer a:hover {
         color: #c9c9c9;
+    }
+    footer .block_developer a:hover {
+        animation-play-state: paused;
+        // animation-duration: 7s;
+        background-image: repeating-linear-gradient(-45deg, #ceffff, #ceffff 1rem, #ffc9c9 1rem, #ffc9c9 2rem);
+        color: #404040;
+        // .icon {
+        //     background: url("/public/cookiesoft_v_2_2.svg") center/cover;
+        // }
     }
 }
 .flex_center {
