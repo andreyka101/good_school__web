@@ -403,6 +403,11 @@ footer {
         }
     }
 }
+@media screen and (max-width: 380px) {
+    .block_developer a span {
+        width: 145px;
+    }
+}
 @media screen and (max-width: 550px) {
     .top_link_header {
         margin: 10px 20px;
