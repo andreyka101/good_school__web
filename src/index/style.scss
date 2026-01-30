@@ -430,22 +430,49 @@
         }
     }
 }
-@media screen and (min-width: 1600px) {
-    .programming_block .horizontally {
-        margin: auto;
+@media screen and (max-width: 430px) {
+    .programming_block {
+        margin: 0 !important;
+        .two_porogramm {
+            margin: 10px 6px !important;
+        }
     }
 }
+// @media screen and (min-width: 1600px) {
+//     .programming_block .horizontally {
+//         margin: auto;
+//     }
+// }
 
 .advantagesSchool_block {
-    background: url("/public/Vectors11111.svg") 104% -2%/25% no-repeat;
-    background-color: #7abdb4;
-    margin: 10px 20px;
-    border-radius: 10px;
-    padding: 23px;
+    margin: 10px 10px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    .two_advantages {
+        margin: 0px 10px;
+        padding: 23px;
+        border-radius: 10px;
+    }
     li {
         list-style-type: none; /* Убираем маркеры у списка */
     }
+    .flex_you {
+        display: flex;
+        align-items: center;
+        background: url("/public/tv_h916wzqc8064.svg") 87% 55%/22% no-repeat;
+        background-color: #7abdb4;
+        .Xiframe {
+            width: 622px;
+            height: 350px;
+        }
+        .Xtext {
+            font-size: 20px;
+            margin: 0 60px;
+        }
+    }
     .horizontally {
+        background: url("/public/Vectors11111.svg") 104% -2%/25% no-repeat;
+        background-color: #7abdb4;
         // display: flex;
         // justify-content: flex-start;
         // align-items: center;
@@ -500,9 +527,48 @@
             }
         }
     }
+    @media screen and (max-width: 2300px) {
+        grid-template-columns: 45% 55%;
+    }
+    @media screen and (max-width: 2100px) {
+        .flex_you .Xiframe {
+            width: 500px;
+            height: 282px;
+        }
+        .horizontally {
+            grid-template-columns: 25% auto 5%;
+        }
+    }
+    @media screen and (max-width: 1800px) {
+        .flex_you {
+            display: flex;
+            flex-direction: column;
+            padding-top: 30px;
+            .Xiframe {
+                width: 447px;
+                height: 252px;
+            }
+        }
+    }
+    @media screen and (max-width: 1500px) {
+        grid-template-columns: 100%;
+        .flex_you {
+            margin-top: 10px;
+            flex-direction: row;
+        }
+    }
     @media screen and (max-width: 1100px) {
         .horizontally {
             grid-template-columns: 250px auto;
+        }
+        .flex_you{
+            .Xtext{
+                margin-right: 0px;
+            }
+            .Xiframe {
+                width: 380px;
+                height: 214px;
+            }
         }
     }
     @media screen and (max-width: 970px) {
@@ -732,18 +798,12 @@
             url("/public/Group_svg_py.svg") 100% 114%/200px no-repeat;
         background-color: #f48d6b;
     }
-    .advantagesSchool_block {
-        background: url("/public/Vectors11111.svg") 104% -2%/29% no-repeat;
-        background-color: #7abdb4;
-    }
+    // .advantagesSchool_block {
+    //     background: url("/public/Vectors11111.svg") 104% -2%/29% no-repeat;
+    //     background-color: #7abdb4;
+    // }
     .announcement {
         padding: 10px 30px;
-    }
-}
-@media screen and (max-width: 1033px) {
-    .advantagesSchool_block {
-        background: url("/public/Vectors11111.svg") 104% -2%/35% no-repeat;
-        background-color: #7abdb4;
     }
 }
 @media screen and (max-width: 894px) {
@@ -752,10 +812,6 @@
             url("/public/math_book_2c3bj4bbwwii 3.svg") 48% 36%/244px no-repeat,
             url("/public/Group_svg_py.svg") 100% 114%/200px no-repeat;
         background-color: #f48d6b;
-    }
-    .advantagesSchool_block {
-        background: url("/public/Vectors11111.svg") 104% -2%/43% no-repeat;
-        background-color: #7abdb4;
     }
     .announcement {
         display: flex;
@@ -786,9 +842,6 @@
     .advantagesSchool_block {
         margin: 10px 6px;
     }
-    .programming_block {
-        margin: 10px 6px;
-    }
     .announcement {
         margin: 10px 6px;
     }
@@ -798,9 +851,6 @@
         padding: 15px;
     }
     .advantagesSchool_block {
-        padding: 15px;
-    }
-    .programming_block {
         padding: 15px;
     }
     .announcement {
