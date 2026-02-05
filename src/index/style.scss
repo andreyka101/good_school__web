@@ -24,7 +24,7 @@ strong {
     font-weight: 600;
 }
 
-.link {
+.link_free {
     text-decoration: none;
     padding: 10px;
     width: auto;
@@ -47,13 +47,50 @@ strong {
         transition: 1.5s;
     }
 }
-.link:hover {
+.link_free:hover {
     transition: 1.5s;
     background-color: #516a91;
 
     span {
         transition: 1.5s;
         background: #fff8e3;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+.link_reg {
+    text-decoration: none;
+    padding: 10px;
+    width: auto;
+    border: 3px #51b4a3 solid;
+    border-radius: 50px;
+    background-color: #ffd2b3;
+    // background-color: #ffffff;
+    transition: 1.5s;
+    // display: inline-grid;
+    // grid-template-columns: 55px auto;
+    // align-items: center;
+    display: inline-block;
+    font-size: 21px;
+    span {
+        // display: inline-block;
+        background: linear-gradient(90deg, #144f45, #51b4a3);
+        font-weight: 900;
+        background-clip: text;
+        color: transparent;
+        // font-size: 25px;
+        transition: 1.5s;
+    }
+}
+.link_reg:hover {
+    transition: 1.5s;
+    background-color: #144f45;
+    border: 3px #000000 solid;
+
+    span {
+        transition: 1.5s;
+        background: #ffd2b3;
         background-clip: text;
         color: transparent;
     }
@@ -210,15 +247,22 @@ h4 {
 
 .main_h1_section_a1 {
     background-color: #60e9d2;
-    padding: 10px 60px;
+    padding: 10px 20px;
     margin: 10px 20px;
     border-radius: 10px;
     text-align: center;
     h1 {
         margin: 10px 0;
+        span {
+            display: inline-block;
+        }
     }
 }
 .main_text_section_a1 {
+    // background:
+    //     url("/public/background-index-photo/pot-plant.svg") 91% 220% / 10% no-repeat,
+    //     url("/public/background-index-photo/sun.svg") 14% 370%/11% no-repeat,
+    //     url("/public/background-index-photo/acorn.svg") 80% 103%/4% no-repeat;
     background-color: #60e9d2;
     padding: 10px 60px;
     margin: 10px 20px;
@@ -233,6 +277,10 @@ h4 {
     }
 }
 .FreeTrialLesson_section_a2 {
+    // background:
+    //     url("/public/background-index-photo/pens.svg") 65% 100%/8% no-repeat,
+    //     url("/public/background-index-photo/closed-book-label.svg") 76% 70%/13% no-repeat,
+    //     url("/public/background-index-photo/rainbow.svg") -5% 23%/35% no-repeat;
     background-color: #ffce79;
     padding: 10px 60px;
     margin: 10px 20px;
@@ -265,12 +313,15 @@ h4 {
         margin: 10px 20px;
         border-radius: 10px;
         text-align: center;
+        h2 {
+            margin: 10px 0;
+        }
     }
     .text_b2 {
-        background-color: #ffab73;
         padding: 10px 60px;
         margin: 10px 20px;
         border-radius: 10px;
+        background-color: #ffab73;
         display: grid;
         grid-template-columns: 720px auto;
         align-items: center;
@@ -296,6 +347,18 @@ h4 {
             }
         }
     }
+    // .text_b2:nth-child(2) {
+    //     background:
+    //         url("/public/background-index-photo/calculator.svg") 43% 88%/8% no-repeat,
+    //         url("/public/background-index-photo/open-book.svg") 29% 117%/15% no-repeat;
+    //     background-color: #ffab73;
+    // }
+    // .text_b2:nth-child(3) {
+    //     background:
+    //         url("/public/background-index-photo/graphic-tablet.svg") 73% 154%/14% no-repeat,
+    //         url("/public/background-index-photo/computer-mouse.svg") 89% 112%/12% no-repeat;
+    //     background-color: #ffab73;
+    // }
 }
 .groupClasses_section_a4 {
     background-color: #60e9d2;
@@ -355,7 +418,232 @@ h4 {
 }
 .historicalArticles_section_a6 {
     background-color: #ffab73;
+    padding: 40px 60px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto 540px;
+    align-items: center;
+    .blog_links {
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        text-align: center;
+        a {
+            border: #000000 2px solid;
+            background-color: #51b4a3;
+            text-decoration: none;
+            color: #031e47;
+            padding: 10px;
+        }
+        a:nth-child(1) {
+            border-radius: 20px 20px 0 0;
+            border-bottom: 0;
+        }
+        a:nth-child(2) {
+            border-bottom: 0;
+        }
+        a:nth-child(4) {
+            border-radius: 0 0 20px 20px;
+            border-top: 0;
+        }
+        a:hover {
+            background-color: #3b8478;
+        }
+        .all_blogs {
+            background-color: #f48d6b;
+        }
+        .all_blogs:hover {
+            background-color: #b0644a;
+        }
+        .big_link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0px;
+            img {
+                margin: 20px;
+                margin-bottom: 10px;
+                border-radius: 20px;
+            }
+            span {
+                margin-bottom: 10px;
+            }
+        }
+        .big_link:hover {
+            img {
+                filter: brightness(70%);
+            }
+        }
+    }
+    .main_text_container {
+        width: 1400px;
+        margin: 0 auto;
+    }
+}
+.teachingMethod_section_a7 {
+    background-color: #60e9d2;
     padding: 10px 60px;
     margin: 10px 20px;
     border-radius: 10px;
+    display: grid;
+    grid-template-columns: 740px auto;
+    align-items: center;
+    padding-bottom: 25px;
+    img {
+        border-radius: 15px;
+    }
+    .main_text_container {
+        width: 1300px;
+        margin: 0 auto;
+        h2 {
+            text-align: center;
+            margin: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            margin: 0;
+            margin-top: 18px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
+.benefitsTraining_section_a8 {
+    background-color: #ffce79;
+    padding: 10px 60px;
+    margin: 10px 20px;
+    padding-right: 50px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto 370px 370px;
+    align-items: center;
+    gap: 10px;
+    img {
+        border-radius: 15px;
+    }
+    .main_text_container {
+        width: 1300px;
+        margin: 0 auto;
+        h2 {
+            text-align: center;
+        }
+    }
+}
+.final_section_a9 {
+    background-color: #ffab73;
+    padding: 10px 60px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 300px auto;
+    align-items: center;
+    margin-bottom: 60px;
+
+    .main_text_container {
+        width: 1300px;
+        margin: 0 auto;
+        h2 {
+            text-align: center;
+        }
+        .div_link {
+            text-align: center;
+            // margin-top: 10px;
+            margin-bottom: 5px;
+        }
+    }
+}
+@media screen and (max-width: 2350px) {
+    .main_text_section_a1 .main_text_container {
+        max-width: 1430px;
+    }
+    .FreeTrialLesson_section_a2 {
+        .main_text_container {
+            max-width: 1000px;
+        }
+    }
+    .exampleLesson_section_a5 {
+        .main_text_container {
+            max-width: 1100px;
+        }
+    }
+    .historicalArticles_section_a6 {
+        .main_text_container {
+            max-width: 1000px;
+        }
+    }
+    .teachingMethod_section_a7 {
+        grid-template-columns: 680px auto;
+        .main_text_container {
+            max-width: 1040px;
+        }
+    }
+    .benefitsTraining_section_a8 {
+        .main_text_container {
+            max-width: 960px;
+        }
+    }
+    .final_section_a9 {
+        .main_text_container {
+            max-width: 1200px;
+        }
+    }
+}
+@media screen and (max-width: 2000px) {
+    .main_text_section_a1 {
+        .main_text_container {
+            max-width: 970px;
+        }
+    }
+    .FreeTrialLesson_section_a2 {
+        .main_text_container {
+            max-width: 800px;
+        }
+    }
+    .ourDirections_section_a3 {
+        .text_b2 {
+            grid-template-columns: 600px auto;
+            .main_text_container {
+                max-width: 800px;
+            }
+        }
+    }
+    .groupClasses_section_a4 {
+        grid-template-columns: auto 470px;
+        .main_text_container {
+            max-width: 900px;
+        //     width: 20px;
+        // display: inline-block;
+        }
+    }
+    .exampleLesson_section_a5 {
+        .main_text_container {
+            max-width: 900px;
+        }
+    }
+    .historicalArticles_section_a6 {
+        .main_text_container {
+            max-width: 800px;
+        }
+    }
+    .teachingMethod_section_a7 {
+        grid-template-columns: 600px auto;
+        .main_text_container {
+            max-width: 800px;
+        }
+    }
+    .benefitsTraining_section_a8 {
+        grid-template-columns: auto 330px 330px;
+        .main_text_container {
+            max-width: 700px;
+        }
+    }
+    .final_section_a9 {
+        .main_text_container {
+            max-width: 900px;
+        }
+    }
 }
