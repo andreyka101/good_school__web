@@ -278,11 +278,14 @@
     <section class="main_text_section_a1">
       <img src="public/fox-squirrel-reading-book.png" width="100%"
         alt="Лиса и белка читают книгу - символ дружелюбного и умного сообщества онлайн-школы Good School. Учим математике, Python, JavaScript и готовим к ОГЭ и ЕГЭ">
+
       <div class="main_text_container">
         <p><strong>Индивидуальные и групповые уроки для школьников. Математика, информатика, создание игр на Python и
             сайтов на JavaScript. Первый урок - бесплатно!</strong> Начните с диагностики знаний и составления
           персонального плана обучения.</p>
+      </div>
 
+      <div class="main_text_container" id="long_text_grid_с1">
         <ul>
           <li><strong>Подготовка к ОГЭ и ЕГЭ:</strong> Системная работа над экзаменами по математике и информатике для
             уверенности и высоких баллов.</li>
@@ -305,7 +308,6 @@
           методикой и платформой. Это не просто презентация, а полноценный фрагмент урока.</p>
       </div>
       <div class="main_text_container">
-
         <h3>Что включает в себя пробный урок?</h3>
         <ul>
           <li><strong>Диагностика уровня:</strong> Проанализируем текущие знания, сильные стороны и пробелы ученика.
@@ -318,8 +320,10 @@
             под
             ваши задачи.</li>
         </ul>
+      </div>
+      <div class="main_text_container" id="long_text_grid_с2">
         <div class="div_link">
-          <a href="" class="link_free">
+          <a href="./free-lesson.html" class="link_free">
             <span>
               Выбрать направление и записаться
             </span>
@@ -333,7 +337,14 @@
     <!-- Блок «Наши направления» (H2) -->
     <section id="choose-course" class="ourDirections_section_a3">
       <div class="title_b1">
-        <h2>Выберите курс, который подходит именно вам</h2>
+        <h2>
+          <span>
+            Выберите курс, который
+          </span>
+          <span>
+            подходит именно вам
+          </span>
+        </h2>
       </div>
 
       <article class="text_b2">
@@ -399,7 +410,7 @@
             другим ученикам, посмотреть на задачу с разных сторон.</li>
         </ul>
       </div>
-      <img width="100%" src="public/group-school-children-watching-video.jpg"
+      <img id="id_img_d1" width="100%" src="public/group-school-children-watching-video.jpg"
         alt="Онлайн-занятие в мини-группе: дети следят за объяснением преподавателя. Эффективный формат для подготовки к ОГЭ по математике и изучения основ программирования.">
       <div class="main_text_container">
         <!-- 1 -->
@@ -419,7 +430,7 @@
 
         <!-- <p><a href="#free-lesson">Узнать расписание и доступные группы для записи</a></p> -->
       </div>
-      <img width="100%" src="public/group-lesson-school-children-rabbit.png"
+      <img id="id_img_d2" width="100%" src="public/group-lesson-school-children-rabbit.png"
         alt="Интерактивное онлайн-занятие в мини-группе. Учительница объясняет материал, а ученики на своих экранах участвуют в уроке. Современный формат обучения в команде единомышленников.">
     </article>
 
@@ -433,11 +444,14 @@
           style="border: none;" allow="clipboard-write; autoplay" allowFullScreen></iframe>
       </div>
 
-      <div class="main_text_container">
+
+      <div class="main_text_container" id="long_text_grid_с1">
         <h2>Посмотрите, как проходит живое онлайн-занятие</h2>
         <p>Лучший способ оценить качество обучения - увидеть все своими глазами. В этом видео - реальный фрагмент нашего
           занятия по программированию Python или математике. Обратите внимание на интерактивную доску, живое общение с
           учеником и структуру объяснения материала.</p>
+      </div>
+      <div class="main_text_container">
         <h3>Что вы увидите в видео?</h3>
         <ul>
           <li><strong>Формат общения:</strong> Как строится диалог между преподавателем и учеником в Zoom или Discord
@@ -460,10 +474,14 @@
 
     <!-- Блок «Истории и факты» (H2) -->
     <article class="historicalArticles_section_a6">
-      <div class="main_text_container">
+      <div class="main_text_container" id="long_text_grid_с1">
         <h2>Математика и программирование: увлекательные истории великих открытий</h2>
+      </div>
+      <div class="main_text_container" id="long_text_grid_с2">
         <p>Мы убеждены, что интерес к предмету рождается из понимания его истории и практической ценности. В нашем блоге
           мы рассказываем, как рождались формулы и алгоритмы, которые меняли мир и лежат в основе современной науки.</p>
+      </div>
+      <div class="main_text_container">
         <h3>Почему это полезно для учебы?</h3>
         <ul>
           <li><strong>Контекст вместо заучивания:</strong> История помогает запомнить правило, связав его с именем
@@ -476,15 +494,34 @@
         </ul>
       </div>
       <div class="blog_links">
-        <a class="big_link" href="">
+        <a class="big_link" href="./blog/how-the-greeks-calculated-the-earth's-radius.html">
           <img src="public/articles_photo/g4o1.png" width="90%" alt="">
           <span>
-            Как греки вычислили радиус Земли? (276-194 г. до н э)
+            <span style="display: inline-block;">
+              Как греки вычислили радиус Земли?
+            </span>
+            <span style="display: inline-block;">
+              (276-194 г. до н э)
+            </span>
           </span>
         </a>
-        <a href="">Фалес из Милета (нач. Vll-кoн.VI до н.э.)</a>
-        <a href="">Пифагор (570-490 гг. до н.э.)</a>
-        <a class="all_blogs" href="">статьи</a>
+        <a href="./blog/thales-of-miletus.html">
+          <span style="display: inline-block;">
+            Фалес из Милета
+          </span>
+          <span style="display: inline-block;">
+            (нач. Vll-кoн.VI до н.э.)
+          </span>
+        </a>
+        <a href="./blog/pythagoras.html">
+          <span style="display: inline-block;">
+            Пифагор
+          </span>
+          <span style="display: inline-block;">
+            (570-490 гг. до н.э.)
+          </span>
+        </a>
+        <a class="all_blogs" href="./blog.html">статьи</a>
       </div>
 
       <!-- <p><a href="https://goodschool.online/blog.html" title="Читать статьи по истории математики и науки">👉 Перейти в раздел с познавательными статьями о науке и узнать больше!</a></p> -->
@@ -494,20 +531,26 @@
     <article class="teachingMethod_section_a7">
       <img src="public/boy-school-book-tablet.jpg" width="100%"
         alt="Мальчик за партой с книгой и планшетом на фоне футуристического города. Метафора обучения в Good School: совмещаем фундаментальные знания по математике с навыками программирования для будущего.">
-      <div class="main_text_container">
+      <div class="main_text_container" id="long_text_grid_с1">
         <h2>Четкая и удобная система обучения от записи до результата</h2>
         <p>Мы создали технологичный и прозрачный процесс обучения математике и программированию онлайн, чтобы вы могли
           сосредоточиться на знаниях, а не на организационных вопросах.</p>
+      </div>
+      <div class="main_text_container" id="long_text_grid_с2">
         <h3>Шаг 1: Легкая запись и оплата на сайте</h3>
         <p>Зарегистрируйтесь, выберите направление (математика, информатика или программирование) и удобное время для
           пробного урока в нашем расписании. Оплата пакетов занятий происходит онлайн - быстро и безопасно через
           современные платежные системы.</p>
+      </div>
+      <div class="main_text_container" id="long_text_grid_с3">
         <h3>Шаг 2: Современная платформа для занятий</h3>
         <p>Уроки по математике и программированию проходят в Zoom или Discord с использованием интерактивной
           онлайн-доски
           (Miro, Jamboard). Все материалы, записи занятий и домашние задания сохраняются и доступны вам в личном
           кабинете.
         </p>
+      </div>
+      <div class="main_text_container" id="long_text_grid_с4">
         <h3>Шаг 3: Постоянная поддержка и обратная связь</h3>
         <p>После каждого урока по математике или программированию вы получаете домашнее задание. Преподаватель проверяет
           его и дает развернутый комментарий. Мы всегда на связи в Telegram или WhatsApp для срочных вопросов по учебе.
@@ -517,10 +560,12 @@
 
     <!-- Блок «Форматы и преимущества» (H2) -->
     <article class="benefitsTraining_section_a8">
-      <div class="main_text_container">
+      <div class="main_text_container" id="long_text_grid_с1">
         <h2>Индивидуальный подход в удобном для вас формате</h2>
         <p>Мы предлагаем разные форматы обучения математике и программированию, чтобы каждый ученик мог найти подходящий
           вариант по цене и интенсивности занятий.</p>
+      </div>
+      <div class="main_text_container" id="long_text_grid_с2">
         <h3>Индивидуальные занятия</h3>
         <p>Максимум внимания преподавателя, план, полностью адаптированный под цели и темп ученика. Идеально для
           подготовки к ЕГЭ по математике или информатике, быстрого устранения пробелов в знаниях.</p>
@@ -528,6 +573,9 @@
         <p>Экономия до 30% по сравнению с индивидуальными уроками. Здоровый дух соперничества и поддержки, групповые
           проекты по программированию и обсуждения задач по математике. Группы формируются строго по возрасту и уровню
           знаний.</p>
+
+      </div>
+      <div class="main_text_container" id="long_text_grid_с3">
         <h3>Наши ключевые преимущества</h3>
         <ul>
           <li><strong>Прямой контакт с педагогом:</strong> Никаких менеджеров - все вопросы по обучению математике или
@@ -540,9 +588,9 @@
             информатике</li>
         </ul>
       </div>
-      <img src="public/individual-lesson-student.jpg" width="100%"
+      <img id="id_img_d1" src="public/individual-lesson-student.jpg" width="100%"
         alt="Персональное занятие с репетитором. Прямой контакт с педагогом, гибкое расписание и контроль прогресса - ключевые преимущества индивидуального обучения математике и программированию в нашей школе.">
-      <img src="public/group-lesson-students.jpg" width="100%"
+      <img id="id_img_d2" src="public/group-lesson-students.jpg" width="100%"
         alt="Преподаватель объясняет задание небольшой группе учеников за круглым столом. Иллюстрация занятий в мини-группах (2-4 человека) в Good School: живое обсуждение, командная работа по математике и программированию и экономия до 30%.">
     </article>
 
@@ -550,16 +598,20 @@
     <section class="final_section_a9">
       <img src="public/carefree-confident-lion.png" width="100%"
         alt="Лев против 'учебы без забот'. Хотите чувствовать себя уверенно как лев на ОГЭ и ЕГЭ по математике? Начните с бесплатного урока и получите план подготовки от эксперта.">
-      <div class="main_text_container">
+      <div class="main_text_container" id="long_text_grid_с1">
         <h2>Готовы сделать первый шаг к уверенным знаниям и высоким баллам?</h2>
+      </div>
+      <div class="main_text_container">
         <p>Не откладывайте будущее своего ребенка или свою мечту овладеть IT-навыками на потом. Запишитесь на бесплатный
           пробный урок по математике или программированию прямо сейчас и получите четкий план действий от наших
           экспертов.
           Опытный репетитор по математике для подготовки к ЕГЭ или разработчик по программированию Python ждут вас!</p>
+      </div>
+      <div class="main_text_container" id="long_text_grid_с2">
         <div class="div_link">
-          <a href="#free-lesson" class="link_reg">
+          <a href="./free-lesson.html" class="link_reg">
             <span>
-              Записаться на бесплатный урок по математике или программированию
+              Записаться на бесплатный урок
             </span>
           </a>
         </div>
@@ -672,7 +724,6 @@
       </a>
     </div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
   <script type="module" src="/src/index/script.ts"></script>
   <script type="module" src="/src/main.ts"></script>

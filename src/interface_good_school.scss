@@ -82,16 +82,20 @@ header {
             list-style: none;
             padding: 0;
             margin: 0;
+            align-items: center;
             li {
-                display: inline-block;
-                background-color: #51b4a3;
+                // display: inline-block;
+                padding: 0;
                 margin: 4px;
-                padding: 8px 20px;
-                border-radius: 5px;
-                min-width: 78px;
-                text-align: center;
-                font-size: 18px;
                 a {
+                    // min-width: 78px;
+                    margin: 0;
+                    display: inline-block;
+                    background-color: #51b4a3;
+                    padding: 8px 20px;
+                    border-radius: 5px;
+                    text-align: center;
+                    font-size: 18px;
                     color: #031e47;
                     text-decoration: none;
                 }
@@ -118,15 +122,20 @@ header {
                 }
             }
             .li_span {
-                font-size: 18px;
-                text-decoration: none;
-                background-color: #144f45;
-                color: #51b4a3;
                 margin: 4px;
-                padding: 8px 20px;
-                border-radius: 5px;
-                min-width: 78px;
-                text-align: center;
+                // display: inline-block;
+                padding: 0;
+                span {
+                    margin: 0;
+                    display: inline-block;
+                    font-size: 18px;
+                    background-color: #144f45;
+                    color: #51b4a3;
+                    padding: 8px 20px;
+                    border-radius: 5px;
+                    // min-width: 78px;
+                    text-align: center;
+                }
             }
         }
     }
@@ -136,7 +145,10 @@ header {
                 // max-width: 70%;
                 // margin: 0 auto;
                 li {
-                    padding: 8px !important;
+                    span,
+                    a {
+                        padding: 8px !important;
+                    }
                 }
             }
         }
@@ -199,17 +211,20 @@ header {
                 // overflow-x: hidden;
                 li {
                     // display: none;
-                    min-width: auto;
-                    padding: 6px !important;
-                    display: inline-block;
-                    white-space: nowrap;
+                    span,
+                    a {
+                        // min-width: auto;
+                        padding: 6px !important;
+                        // display: inline-block;
+                        white-space: nowrap;
+                    }
                 }
-                .li_span {
-                    // display: none;
-                    min-width: auto;
-                    display: inline-block;
-                    white-space: nowrap;
-                }
+                // .li_span {
+                //     // display: none;
+                //     min-width: auto;
+                //     display: inline-block;
+                //     white-space: nowrap;
+                // }
                 // button{
                 //     display: inline-block;
                 // }
