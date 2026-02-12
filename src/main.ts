@@ -1,17 +1,17 @@
-const id_header_oge = document.querySelector("#id_header_oge") as HTMLElement
-id_header_oge?.addEventListener("mouseover", () => {
+const id_registration_oge = document.querySelector("#id_registration_oge") as HTMLElement
+id_registration_oge?.addEventListener("mouseover", () => {
 
     localStorage.setItem("dataUser", "")
     localStorage.setItem("registration_configuration", "oge")
 })
-const id_header_prog = document.querySelector("#id_header_prog") as HTMLElement
-id_header_prog?.addEventListener("mouseover", () => {
+const id_registration_prog = document.querySelector("#id_registration_prog") as HTMLElement
+id_registration_prog?.addEventListener("mouseover", () => {
 
     localStorage.setItem("dataUser", "")
     localStorage.setItem("registration_configuration", "prog")
 })
-const id_header_none = document.querySelector("#id_header_none") as HTMLElement
-id_header_none?.addEventListener("mouseover", () => {
+const id_registration_none = document.querySelector("#id_registration_none") as HTMLElement
+id_registration_none?.addEventListener("mouseover", () => {
     localStorage.setItem("dataUser", "")
     localStorage.setItem("registration_configuration", "none")
 })
