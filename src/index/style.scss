@@ -892,6 +892,7 @@ h4 {
     .main_text_section_a1 {
         img {
             grid-row: span 1;
+            // content: url("public/boxGrid_1_n3.png");
         }
         #long_text_grid_с1 {
             grid-column: span 2;
@@ -1116,7 +1117,7 @@ h4 {
             }
         }
     }
-    h1{
+    h1 {
         font-size: 28px !important;
     }
 }
