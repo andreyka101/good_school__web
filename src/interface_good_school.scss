@@ -301,13 +301,14 @@ footer {
         font-size: 17px;
         text-decoration: none;
         color: white;
+        margin-top: 6px;
     }
     ul {
         list-style-type: none; /* Убирает точки */
         padding: 0; /* Убирает левый отступ */
         margin: 0; /* Убирает внешние отступы */
         li {
-            margin-top: 6px;
+            margin-top: 0px;
         }
     }
     .block_developer {
