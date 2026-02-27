@@ -11,11 +11,6 @@
    </url>
    
    <url>
-      <loc>https://goodschool.online/prices.html</loc>
-      <lastmod>2025-06-15</lastmod>
-   </url>
-   
-   <url>
       <loc>https://goodschool.online/items.html</loc>
       <lastmod>2025-06-15</lastmod>
    </url>
@@ -59,7 +54,7 @@
       <loc>https://goodschool.online/obrabotka-dannyh.html</loc>
       <lastmod>2026-02-14</lastmod>
    </url>
-
+ <!-- остоновился здесь -->
    <url>
       <loc>https://goodschool.online/o-nas.html</loc>
       <lastmod>2026-02-14</lastmod>

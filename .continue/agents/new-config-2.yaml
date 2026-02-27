@@ -1,0 +1,15 @@
+models:
+  - title: LM Studio (RX 9070)
+    model: qwen2.5-coder
+    apiBase: http://127.0.0.1
+    provider: openai
+
+tabAutocompleteModel:
+  title: Autocomplete
+  model: qwen2.5-coder
+  apiBase: http://127.0.0.1
+  provider: openai
+
+contextProviders:
+  - name: code
+  - name: docs
