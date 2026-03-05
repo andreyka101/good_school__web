@@ -287,16 +287,143 @@ header {
         background-position: 50% 0%;
     }
 }
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: flex-end;
+    height: 0px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    // &:hover {
+    //     background-color: #0056b3;
+    // }
+
+    // Класс для поднятия над футером
+    &.above-footer {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        bottom: -100px;
+        // top: 50px;
+        z-index: 10;
+        // bottom: auto;
+        // right: auto;
+        // bottom: 120px; // Регулируйте это значение под высоту футера
+    }
+
+    .but_link_top_all {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: border-box;
+        margin: 10px;
+        padding: 10px;
+        background-color: #ecd0a0;
+        border: #000000 2px solid;
+        border-radius: 20px;
+        img {
+            width: 100%;
+        }
+    }
+    .but_link_top_all:hover {
+        background-color: #c0a980;
+    }
+    #scroll_top_but {
+        width: 90px;
+        display: inline-flex;
+        align-items: center;
+    }
+    #free_lesson_but {
+        width: auto;
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: 600;
+        text-decoration: none;
+        background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient2 10s ease infinite;
+        transform: translate3d(0, 0, 0);
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 20px;
+        transition: 1s;
+        border: #ffffff 2px solid;
+    }
+    #free_lesson_but:hover {
+        animation-play-state: paused;
+        color: #000000;
+        border: #000000 2px solid;
+    }
+    .link_scroll_top {
+        position: relative;
+        // display: inline-flex;
+        display: none;
+        flex-direction: column;
+    }
+    @media screen and (max-width: 600px) {
+        margin-right: 0px;
+        margin-bottom: 0;
+        .but_link_top_all {
+            margin: 5px;
+            width: 60px;
+            height: 60px;
+        }
+    }
+    @media screen and (max-width: 450px) {
+        right: 0px;
+        // margin-right: 0px;
+        // margin-bottom: 0;
+        .but_link_top_all {
+            margin: 2px;
+            width: 50px;
+            height: 50px;
+        }
+    }
+    @media screen and (max-width: 380px) {
+        right: 0px;
+        // margin-right: 0px;
+        // margin-bottom: 0;
+        .but_link_top_all {
+            margin: 2px;
+        }
+        #free_lesson_but {
+            font-size: 18px;
+        }
+        #scroll_top_but {
+            width: 60px;
+        }
+    }
+}
+@keyframes gradient2 {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 footer {
     bottom: 0;
     position: relative;
-    margin-top: auto !important;
+    margin-top: auto;
     // - position: absolute;
     // background-color: #4a4a4a;
     background-color: #404040;
     padding: 30px 10px;
     padding-bottom: 20px;
     padding-top: 80px;
+    margin-top: 60px;
     a {
         font-size: 17px;
         text-decoration: none;
@@ -796,13 +923,5 @@ footer {
     }
 }
 
-
-
-
-
-.background-form-container{
-    
+.background-form-container {
 }
-
-
-

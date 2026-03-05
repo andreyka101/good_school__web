@@ -63,14 +63,12 @@ import "./style.scss"
 
 const name = document.querySelector("#inp_name") as HTMLInputElement
 const phone = document.querySelector("#inp_phone") as HTMLInputElement
-const button = document.querySelector("button") as HTMLButtonElement
+const button = document.querySelector("#but") as HTMLButtonElement
+const form_container = document.querySelector(".form_container") as HTMLDivElement
+const end_container = document.querySelector(".end_container") as HTMLDivElement
 
-button.addEventListener("click", async () => {
-    // alert("ok")
-    console.log({
-        name: name.value,
-        phone: phone.value
-    });
+console.log("123");
+button?.addEventListener("click", async () => {
     let data = await fetch("https://api.goodschool.online/api/omega", {
         method: "POST",
         headers: {
@@ -82,8 +80,15 @@ button.addEventListener("click", async () => {
         })
     }) as any
     data = await data.json()
-    // alert(data)
-    console.log(data);
+
+    if (data.ok) {
+        // console.log("ok")
+        form_container.style.display = "none"
+        end_container.style.display = "inline-flex"
+    }
+    else {
+        console.log("err")
+    }
 
 })
 
