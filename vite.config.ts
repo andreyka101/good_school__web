@@ -6,7 +6,7 @@ export default {
       input: {
         main: resolve('index.html'),
         entrance: resolve('entrance.html'),
-        items: resolve('items.html'),
+        items: resolve('online-courses.html'),
         // prices: resolve('prices.html'),
         tutors: resolve('repetitory.html'),
         confirm_password: resolve('confirm-password.html'),
