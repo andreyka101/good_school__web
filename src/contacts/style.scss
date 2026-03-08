@@ -1,0 +1,191 @@
+@import url("../interface_good_school.scss");
+
+.topBody {
+    background: linear-gradient(to bottom left, #458cfe88 20%, #dbfdff85 20% 50%, #458cfe88 50% 70%, #dbfdff85 70%);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -501;
+}
+.topBody2 {
+    // background-color: rgba(255, 27, 76, 0.516);
+    background: linear-gradient(to bottom right, #45fedf88 20%, #c1ffed85 20% 50%, #45fedf88 50% 70%, #c1ffed85 70%);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -500;
+    background-position: center 20%;
+    // background-size: 100% 50px;
+}
+
+.main_grid_block {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+    gap: 0px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    h2 {
+        text-align: center;
+        font-weight: 600;
+        font-size: 25px;
+        margin: 23px 0px;
+    }
+    .button_a_block {
+        display: flex;
+        justify-content: center;
+        .igs_button_universal_B1 {
+            padding: 5px;
+            display: grid;
+            grid-template-columns: 60px 250px;
+            align-items: center;
+            text-align: center;
+            font-size: 17px;
+            .svg {
+                width: 60px;
+                height: 60px;
+            }
+            .information_text {
+            }
+        }
+        a {
+            width: 310px;
+        }
+    }
+    #whatsapp .block_svg {
+        padding: 10px;
+        background-color: #d8baff;
+        border-radius: 11px;
+        .svg {
+            width: 40px;
+            height: 40px;
+            background: url("/public/max-icon.svg") center/cover;
+        }
+    }
+    #telegram .svg {
+        background: url("/public/telegram_s3.svg") center/cover;
+    }
+    #email .svg {
+        background: url("/public/email_s7.svg") center/cover;
+    }
+    #phone .svg {
+        background: url("/public/phone_s9.svg") center/cover;
+    }
+    #vkontakte .svg {
+        background: url("/public/vkontakte_s5.svg") center/cover;
+    }
+    @media (hover: hover) {
+        #whatsapp:hover .block_svg {
+            background-color: #ad84e3;
+        }
+        #telegram:hover .svg {
+            background: url("/public/telegram_s4.svg") center/cover;
+        }
+        #email:hover .svg {
+            background: url("/public/email_s8.svg") center/cover;
+        }
+        #phone:hover .svg {
+            background: url("/public/phone_s10.svg") center/cover;
+        }
+        #vkontakte:hover .svg {
+            background: url("/public/vkontakte_s6.svg") center/cover;
+        }
+    }
+    .div_img_block {
+        grid-row: 1/ 8;
+        grid-column: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .div_img {
+            margin-top: 20px;
+            width: 700px;
+            height: 412px;
+            // background: url("/public/contact_photo.png") center/cover;
+            border-radius: 10px;
+        }
+    }
+    .button_active_1 {
+        background-color: #144f45;
+        color: #51b4a3;
+    }
+    .button_active_2 {
+        background-color: #144f45;
+        color: #51b4a3;
+    }
+    .button_active_2 .svg {
+        background: url("/public/email_s11.svg") center/cover !important;
+    }
+    .button_active_1 .svg {
+        background: url("/public/phone_s12.svg") center/cover !important;
+    }
+}
+.free_block {
+    grid-template-rows: auto auto auto auto auto;
+    .div_img_block {
+        grid-row: 1 / 5;
+    }
+}
+body {
+    justify-content: space-between;
+}
+.igs_button_universal_B1 {
+    font-size: 18px !important;
+}
+
+.link_free {
+    text-decoration: none;
+    padding: 10px;
+    width: auto;
+    border: 3px #000000 solid;
+    border-radius: 50px;
+    background-color: #ffebac;
+    transition: 1.5s;
+    // display: inline-grid;
+    // grid-template-columns: 55px auto;
+    // align-items: center;
+    display: inline-block;
+    font-size: 21px;
+    text-align: center;
+    margin-top: 5px;
+    span {
+        // display: inline-block;
+        background: linear-gradient(90deg, #2a384e, #82a8e4);
+        font-weight: 900;
+        background-clip: text;
+        color: transparent;
+        // font-size: 25px;
+        transition: 1.5s;
+    }
+}
+.link_free:hover {
+    transition: 1.5s;
+    background-color: #516a91;
+    span {
+        transition: 1.5s;
+        background: #fff8e3;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .div_img {
+        width: 550px !important;
+        height: 336px !important;
+    }
+}
+@media screen and (max-width: 890px) {
+    .div_img {
+        width: 432px !important;
+        height: 268px !important;
+    }
+}
+@media screen and (max-width: 770px) {
+    .div_img_block {
+        display: none !important;
+    }
+    .main_grid_block {
+        grid-template-columns: auto;
+    }
+}
