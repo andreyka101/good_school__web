@@ -5,64 +5,161 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="icon_web.svg" />
-  <!-- <meta itemprop="description" name="description" content="Выберете направление ребёнка в школе математики и программирования.Репетитор ОГЭ ЕГЭ по математике репетитор по Python, разработка игр Godot сайтов"> -->
-  <meta itemprop="headline" name="title" content="Предметы математики и программирования в Good School online.">
-  <!-- индивидуальнае уроки -->
-  <title>обучение: математике, информатике, программированию, у нас недорогие индивидуальные и групповые занятия</title>
   <link rel="canonical" href="https://goodschool.online/online-courses.html" />
+  <!-- <meta itemprop="headline" name="title" content="Предметы математики и программирования в Good School online."> -->
   <link rel="stylesheet" href="/src/online-courses/style.scss">
+  <!-- 1. МЕТА-ДАННЫЕ (Title и Description - 3 варианта на выбор) -->
+<!-- ВАРИАНТ 1 (Самый полный и информативный) -->
+<title>Курсы и цены онлайн-школы Good School: математика, информатика, программирование</title>
+<meta name="description" content="Стоимость индивидуальных и групповых занятий по математике, информатике и программированию (Python, Godot, веб-разработка). Подготовка к ОГЭ и ЕГЭ. Бесплатный пробный урок.">
 
-  <!-- Open Graph для соцсетей -->
-  <meta property="og:title" content="Предметы и цены онлайн-школы Good School">
-  <meta property="og:description"
-    content="Качественное образование в сфере точных наук. Прозрачные цены, опытные преподаватели, бесплатный пробный урок.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://goodschool.online/prices.html">
-  <meta property="og:image" content="https://goodschool.online/images/og-preview.jpg">
+<!-- ВАРИАНТ 2 (Акцент на стоимость и подготовку к экзаменам) -->
+<!-- <title>Цены на подготовку к ЕГЭ и ОГЭ по математике и информатике | Good School</title> -->
+<!-- <meta name="description" content="Стоимость индивидуальных занятий для 10-11 классов — от 1600₽, групповых — от 800₽. Курсы программирования от 700₽. Прозрачные цены и опытные преподаватели."> -->
 
-  <!-- Микроразметка Schema.org для организации -->
-  <script type="application/ld+json">
+<!-- ВАРИАНТ 3 (Акцент на курсы программирования и индивидуальный подход) -->
+<!-- <title>Курсы программирования для детей и подготовка к школе по математике | Good School</title> -->
+<!-- <meta name="description" content="Обучение Python, создание игр на Godot, веб-разработка. Индивидуальные уроки по математике для 1-11 классов. Выберите свой формат и цену! Первый урок - бесплатно."> -->
+
+<!-- 2. ХЛЕБНЫЕ КРОШКИ (Breadcrumbs) JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-        "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "Good School Online",
-        "url": "https://goodschool.online",
-        "logo": "https://goodschool.online/logo.png",
-        "description": "Онлайн-школа математики, информатики и программирования",
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "RU"
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://goodschool.online/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Направления обучения",
+      "item": "https://goodschool.online/online-courses.html"
+    }
+  ]
+}
+</script>
+
+<!-- 3. SCHEMA.ORG JSON-LD (ItemList с предложениями Course) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Курсы онлайн-школы Good School",
+  "description": "Индивидуальные и групповые занятия по математике, информатике и программированию с указанием цен.",
+  "numberOfItems": 5,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Course",
+        "name": "Индивидуальные занятия. Математика, информатика (1-9 классы)",
+        "description": "Подготовка к ОГЭ, ВПР, устранение пробелов. Индивидуальный план.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Good School",
+          "sameAs": "https://goodschool.online"
         },
         "offers": {
-            "@type": "Offer",
-            "description": "Индивидуальные и групповые занятия онлайн",
-            "price": "700",
-            "priceCurrency": "RUB"
+          "@type": "Offer",
+          "price": "1200",
+          "priceCurrency": "RUB",
+          "description": "за 50 минут",
+          "availability": "https://schema.org/InStock"
         }
-    }
-    </script>
-
-  <!-- Микроразметка для хлебных крошек -->
-  <script type="application/ld+json">
+      }
+    },
     {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Главная",
-                "item": "https://goodschool.online"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Предметы и цены",
-                "item": "https://goodschool.online/prices.html"
-            }
-        ]
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Course",
+        "name": "Индивидуальные занятия. Подготовка к ЕГЭ (10-11 классы)",
+        "description": "Углубленная подготовка к ЕГЭ по математике и информатике, олимпиадам.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Good School",
+          "sameAs": "https://goodschool.online"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "1600",
+          "priceCurrency": "RUB",
+          "description": "за 50 минут",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Course",
+        "name": "Индивидуальные занятия. Программирование",
+        "description": "Python, Godot, веб-разработка (JavaScript), мобильные приложения. Для детей и взрослых.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Good School",
+          "sameAs": "https://goodschool.online"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "1200",
+          "priceCurrency": "RUB",
+          "description": "за 50 минут",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Course",
+        "name": "Групповые занятия. Подготовка к ЕГЭ",
+        "description": "Мини-группы до 5 человек для подготовки к ЕГЭ по математике и информатике.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Good School",
+          "sameAs": "https://goodschool.online"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "800",
+          "priceCurrency": "RUB",
+          "description": "за 50 минут",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Course",
+        "name": "Групповые занятия. Программирование",
+        "description": "Командная работа над IT-проектами в мини-группах.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Good School",
+          "sameAs": "https://goodschool.online"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "700",
+          "priceCurrency": "RUB",
+          "description": "за 50 минут",
+          "availability": "https://schema.org/InStock"
+        }
+      }
     }
-    </script>
+  ]
+}
+</script>
 </head>
 
 <body>
