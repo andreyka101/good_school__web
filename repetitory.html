@@ -5,13 +5,178 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="icon_web.svg" />
-  <meta itemprop="description" name="description"
-    content="У нас лучшие репетиторы математики и программирования 👨‍🎓.">
-  <!-- <meta itemprop="description" name="description" content="У нас лучшие репетиторы математики и программирования 👨‍🎓. Репетитор ОГЭ ЕГЭ по математике информатике программирование Python, разработка игр Godot сайтов"> -->
-  <!-- <meta itemprop="headline" name="title" content="Репетиторы по математике и программированию в Good School online."> -->
-  <title>Репетиторы по математике, информатике и по программированию</title>
   <link rel="canonical" href="https://goodschool.online/repetitory.html" />
   <link rel="stylesheet" href="/src/repetitory/style.scss">
+  <!-- 1. МЕТА-ДАННЫЕ (Title и Description - 3 варианта на выбор) -->
+  <!-- ВАРИАНТ 1 (Самый полный и информативный) -->
+  <title>Репетиторы по математике, информатике и программированию | Команда Good School</title>
+  <meta name="description"
+    content="Опытные репетиторы по математике (подготовка к ОГЭ, ЕГЭ) и программированию (Python, JavaScript, Godot) для детей. Индивидуальные и групповые онлайн-занятия. Реальные отзывы учеников.">
+
+  <!-- ВАРИАНТ 2 (Акцент на экспертизу и образование) -->
+  <!-- <title>Преподаватели онлайн-школы Good School | Математика и IT для школьников</title> -->
+  <!-- <meta name="description" content="Знакомьтесь с нашими преподавателями: учитель математики с педагогическим образованием и практикующий fullstack-разработчик. Индивидуальный подход к каждому ученику."> -->
+
+  <!-- ВАРИАНТ 3 (Акцент на предметы и подготовку) -->
+  <!-- <title>Подготовка к ОГЭ и ЕГЭ по математике и информатике | Репетиторы Good School</title> -->
+  <!-- <meta name="description" content="Квалифицированные репетиторы для школьников 1-11 классов. Помощь в освоении школьной программы, углубленное изучение математики и программирования с нуля."> -->
+
+  <!-- 2. ХЛЕБНЫЕ КРОШКИ (Breadcrumbs) JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://goodschool.online/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Репетиторы",
+      "item": "https://goodschool.online/repetitory.html"
+    }
+  ]
+}
+</script>
+
+  <!-- 3. SCHEMA.ORG JSON-LD (ItemList с профилями преподавателей) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Преподаватели онлайн-школы Good School",
+  "description": "Опытные репетиторы по математике, информатике и программированию",
+  "numberOfItems": "2",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Person",
+        "name": "Выглендалова Анна Валерьевна",
+        "jobTitle": "Репетитор по математике и информатике",
+        "description": "Учитель математики с высшим техническим и педагогическим образованием. Помогает ученикам 1-11 классов понять и полюбить математику, готовит к ОГЭ и ЕГЭ, работает с детьми любого уровня подготовки.",
+        "image": "https://goodschool.online/assets/repetitor-matematiki-anna-vyglendalova-DB2He3UJ.jpeg",
+        "email": "anna.v@goodschool.online",
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Учитель математики",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "Москва"
+          },
+          "educationRequirements": "Высшее образование: Алтайский Государственный Технический Университет (информатик-экономист), Федеральный Институт повышения квалификации (учитель математики)"
+        },
+        "subjectOf": {
+          "@type": "Course",
+          "name": "Математика и информатика",
+          "description": "Подготовка к ОГЭ и ЕГЭ, устранение пробелов, олимпиадная математика"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Ольга"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "reviewBody": "Хочу выразить огромную благодарность репетитору Анне Валерьевне! У нас была сложная ситуация: сын в 9-м классе... пробный ОГЭ сын написал на 15 баллов!",
+            "datePublished": "2026-01-20"
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Светлана"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "reviewBody": "Занимались со специалистом чтобы дополнительно подготовиться к поступлению в мат. класс... Рекомендую.",
+            "datePublished": "2025-04-16"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "18"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Person",
+        "name": "Квашнин Андрей Сергеевич",
+        "jobTitle": "Репетитор по программированию",
+        "description": "Практикующий fullstack-разработчик. Обучает детей и подростков программированию на Python, JavaScript, созданию игр на Godot и веб-разработке. Упор на практику и реальные проекты.",
+        "image": "https://goodschool.online/assets/repetitor-programmirovaniya-andrey-kvashnin-BFTvSLzC.jpeg",
+        "email": "andrey.k@goodschool.online",
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Разработчик программного обеспечения",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "Москва"
+          },
+          "educationRequirements": "Среднее профессиональное: Наладчик аппаратного и программного обеспечения, АНО ДПО \"Академия ТОП\" (разработчик ПО, web-разработчик)"
+        },
+        "subjectOf": {
+          "@type": "Course",
+          "name": "Программирование для детей",
+          "description": "Python для начинающих, создание игр на Godot, веб-разработка на JavaScript"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Виктор"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "reviewBody": "Дочь захотела научиться программировать «как папа». Я сам разработчик, но времени учить нет. Отдали Андрею Сергеевичу. Результат превзошел ожидания!",
+            "datePublished": "2025-10-17"
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Денис"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "reviewBody": "Андрей Сергеевич, вы — волшебник! Ребенок, который мог часами сидеть в TikTok, теперь сам проектирует уровни и пишет скрипты для персонажей в Godot.",
+            "datePublished": "2025-09-23"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "15"
+        }
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
