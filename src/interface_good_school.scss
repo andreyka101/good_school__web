@@ -77,7 +77,7 @@ header {
             z-index: 20;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            // flex-wrap: wrap;
 
             list-style: none;
             padding: 0;
@@ -87,12 +87,13 @@ header {
                 // display: inline-block;
                 padding: 0;
                 margin: 4px;
+                line-height: normal !important;
                 a {
                     // min-width: 78px;
                     margin: 0;
                     display: inline-block;
                     background-color: #51b4a3;
-                    padding: 8px 20px;
+                    padding: 8px 20px !important;
                     border-radius: 5px;
                     text-align: center;
                     font-size: 18px;
@@ -160,30 +161,15 @@ header {
             }
         }
     }
-    @media screen and (max-width: 1192px) {
-        .top_block {
-            .block_a_global {
-                width: 664px;
-            }
-        }
-    }
-    @media screen and (max-width: 950px) {
-        position: relative;
-        top: 0px;
-        .top_block {
-            svg {
-                height: 140px;
-            }
-        }
-    }
-    @media screen and (max-width: 700px) {
-        .top_block {
-            svg {
-                height: 114px;
-            }
-        }
-    }
-    @media screen and (max-width: 666px) {
+    // @media screen and (max-width: 1192px) {
+    //     .top_block {
+    //         .block_a_global {
+    //             width: 664px;
+    //         }
+    //     }
+    // }
+    // @media screen and (max-width: 800px) {
+    @media screen and (max-width: 790px) {
         .top_block {
             svg {
                 width: calc(100% - 10px);
@@ -228,6 +214,22 @@ header {
                 // button{
                 //     display: inline-block;
                 // }
+            }
+        }
+    }
+    @media screen and (max-width: 950px) {
+        position: relative;
+        top: 0px;
+        .top_block {
+            svg {
+                height: 140px;
+            }
+        }
+    }
+    @media screen and (max-width: 700px) {
+        .top_block {
+            svg {
+                height: 114px;
             }
         }
     }

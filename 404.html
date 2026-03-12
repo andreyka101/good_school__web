@@ -11,6 +11,42 @@
     <title>Бесплатное пробное занятие по математике и программированию</title>
     <link rel="canonical" href="https://goodschool.online/404.html" />
     <link rel="stylesheet" href="/src/o-nas/style.scss">
+    <style>
+        footer {
+            width: 100%;
+            bottom: 0;
+            position: absolute;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .err {
+            width: 14%;
+            margin-top: 60px;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        @media screen and (max-width: 1700px) {
+            .err {
+                width: 20%;
+            }
+
+        }
+
+        @media screen and (max-width: 800px) {
+            .err {
+                width: 30%;
+            }
+
+            footer {
+                position: relative;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -93,22 +129,15 @@
                         <li>
                             <a class="invisible_link_header" href="./online-courses.html">направления обучения</a>
                         </li>
-                                    <!-- <li>
+                        <!-- <li>
               <a class="invisible_link_header" href="./prices.html">цены</a>
             </li> -->
                         <li>
                             <a class="invisible_link_header" href="./contacts.html">контакты</a>
                         </li>
                         <li>
-                            <a class="invisible_link_header" id="id_registration_oge"
-                                href="./registration-student.html">подготовка к ОГЭ,
-                                ЕГЭ
-                            </a>
-                        </li>
-                        <li>
 
-                            <a class="invisible_link_header" id="id_registration_prog"
-                                href="./registration-student.html">программирование</a>
+                            <a class="invisible_link_header" id="id_registration_none" href="./blog.html">статьи</a>
                         </li>
                         <li>
 
@@ -131,8 +160,10 @@
     </header>
 
     <main>
-        404
+        <img class="err" src="public/error-404-photo.svg" alt="">
+
     </main>
+
 
     <footer>
         <div class="footer">
