@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="icon_web.svg" />
   <link rel="canonical" href="https://goodschool.online/repetitory.html" />
-  <link rel="stylesheet" href="/src/repetitory/style.scss">
+  <!-- <link rel="stylesheet" href="/src/repetitory/style.scss"> -->
   <!-- 1. МЕТА-ДАННЫЕ (Title и Description - 3 варианта на выбор) -->
   <!-- ВАРИАНТ 1 (Самый полный и информативный) -->
   <title>Репетиторы по математике, информатике и программированию | Команда Good School</title>
@@ -181,21 +181,24 @@
 
 <body>
   <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-    (function (m, e, t, r, i, k, a) {
-      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-      m[i].l = 1 * new Date();
-      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })
-      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        (function (m, e, t, r, i, k, a) {
+          m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+          m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-    ym(103315130, "init", {
-      clickmap: true,
-      trackLinks: true,
-      accurateTrackBounce: true,
-      webvisor: true
+        ym(103315130, "init", {
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: false, // отключено
+          webvisor: false // отключено (если не нужно)
+        });
+      }, 1000); // Задержка в 1 секунду после загрузки страницы
     });
+
   </script>
   <noscript>
     <div><img src="https://mc.yandex.ru/watch/103315130" style="position:absolute; left:-9999px;" alt="" /></div>
@@ -299,7 +302,7 @@
         <div class="information_teacher" id="a1">
           <div class="img_text">
             <!-- <div class="photo"> -->
-            <img src="public/repetitor-matematiki-anna-vyglendalova.jpeg" width="100%"
+            <img src="public/repetitor-matematiki-anna-vyglendalova-desktop.jpeg" width="100%"
               alt="Репетитор по математике и информатике Анна Валерьевна Выглендалова. Высшее образование, подготовка к ОГЭ и ЕГЭ, помощь школьникам.">
             <!-- </div> -->
             <span>
@@ -729,7 +732,7 @@
         <div class="information_teacher" id="a2">
           <div class="img_text">
             <!-- <div class="photo"> -->
-            <img src="public/repetitor-programmirovaniya-andrey-kvashnin.jpeg" width="100%"
+            <img src="public/repetitor-programmirovaniya-andrey-kvashnin-desktop.jpeg" width="100%"
               alt="Андрей Квашнин — преподаватель курсов по программированию для детей: Python, web-разработка, создание мобильных приложений и игр | Онлайн-школа Goodsсhool">
             <!-- </div> -->
             <span>
@@ -1128,7 +1131,7 @@
     </div>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
-  <!-- <script type="module" src="/src/repetitory/script.ts"></script> -->
+  <script type="module" src="/src/repetitory/script.ts"></script>
   <script type="module" src="/src/main.ts"></script>
 </body>
 

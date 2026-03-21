@@ -20,28 +20,6 @@
   <!-- <title>Регистрация | Good School — онлайн-школа математики и IT</title> -->
   <!-- <meta name="description" content="Присоединяйтесь к Good School! Регистрация на сайте для записи на курсы по математике и программированию для школьников. Первый урок — бесплатно."> -->
 
-  <!-- 2. ХЛЕБНЫЕ КРОШКИ (Breadcrumbs) JSON-LD -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Главная",
-      "item": "https://goodschool.online/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Регистрация на пробный урок",
-      "item": "https://goodschool.online/registration-student.html"
-    }
-  ]
-}
-</script>
-
   <!-- 3. SCHEMA.ORG JSON-LD (WebPage с акцентом на форму) -->
   <script type="application/ld+json">
 {
@@ -72,6 +50,29 @@
     "@type": "RegisterAction",
     "target": "https://goodschool.online/registration-student.html"
   }
+}
+</script>
+
+  <!-- 2. ХЛЕБНЫЕ КРОШКИ (Breadcrumbs) JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://goodschool.online/registration-student.html#breadcrumb",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://goodschool.online/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Регистрация на пробный урок",
+      "item": "https://goodschool.online/registration-student.html"
+    }
+  ]
 }
 </script>
 </head>

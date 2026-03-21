@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="ru">
 
+<!-- hero-desktop.jpg — для ПК.
+hero-mobile.jpg — для телефонов.
+hero-tablet.jpg — для планшетов. -->
+
 <!-- https://goodschool.online/sitemap.xml -->
 
 <head itemscope itemtype="http://schema.org/WPHeader">
@@ -59,7 +63,7 @@
       "publisher": {
         "@id": "https://goodschool.online/#organization"
       },
-      "inLanguage": "ru-RU",
+      "inLanguage": "ru-RU"
     },
     {
       "@type": "BreadcrumbList",
@@ -135,7 +139,7 @@
 
 <body>
   <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     (function (m, e, t, r, i, k, a) {
       m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
       m[i].l = 1 * new Date();
@@ -150,6 +154,31 @@
       accurateTrackBounce: true,
       webvisor: true
     });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/103315130" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript> -->
+  <!-- /Yandex.Metrika counter -->
+
+  <!-- Yandex.Metrika counter -->
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        (function (m, e, t, r, i, k, a) {
+          m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+          m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(103315130, "init", {
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: false, // отключено
+          webvisor: false // отключено (если не нужно)
+        });
+      }, 1000); // Задержка в 1 секунду после загрузки страницы
+    });
+
   </script>
   <noscript>
     <div><img src="https://mc.yandex.ru/watch/103315130" style="position:absolute; left:-9999px;" alt="" /></div>
@@ -272,7 +301,7 @@
     </div>
 
     <section class="main_text_section_a1">
-      <img id src="public/fox-squirrel-reading-book.png" width="100%"
+      <img src="public/fox-squirrel-reading-book-desktop.png" width="100%"
         alt="Лиса и белка читают книгу - символ дружелюбного и умного сообщества онлайн-школы Good School. Учим математике, Python, JavaScript и готовим к ОГЭ и ЕГЭ">
 
       <div class="main_text_container">
@@ -326,7 +355,7 @@
           </a>
         </div>
       </div>
-      <img src="public/satisfied-student-after-trial-lesson.jpg" width="100%"
+      <img src="public/satisfied-student-after-trial-lesson-desktop.jpg" width="100%"
         alt="Ученица показывает лайк и сердечко - символ одобрения методики Good School. Убедитесь в эффективности на бесплатном пробном уроке по математике и программированию.">
     </article>
 
@@ -344,7 +373,7 @@
       </div>
 
       <article class="text_b2">
-        <img src="public/math-boards-formulas.jpeg" width="100%"
+        <img id="id_num_img_1" src="public/math-boards-formulas-desktop.jpeg" width="100%"
           alt="Учебная доска с графиками, формулами и диаграммами по математике. Онлайн-занятия с опытным педагогом для подготовки к ОГЭ, ЕГЭ и развития логического мышления у школьников.">
         <div class="main_text_container" id="long_text_grid_с1">
           <h3>Математика и информатика для школьников</h3>
@@ -364,7 +393,7 @@
       </article>
 
       <article class="text_b2">
-        <img src="public/tools-professional-development.jpeg" width="100%"
+        <img id="id_num_img_2" src="public/tools-professional-development-desktop.jpeg" width="100%"
           alt="Инструменты разработчика для курсов программирования. Освойте востребованные навыки: Python, JavaScript, Godot - и создавайте свои первые проекты с нуля.">
         <div class="main_text_container" id="long_text_grid_с1">
           <h3>Программирование для детей и взрослых</h3>
@@ -406,7 +435,7 @@
             другим ученикам, посмотреть на задачу с разных сторон.</li>
         </ul>
       </div>
-      <img id="id_img_d1" width="100%" src="public/group-school-children-watching-video.jpg"
+      <img id="id_img_d1" width="100%" src="public/group-school-children-watching-video-desktop.jpg"
         alt="Онлайн-занятие в мини-группе: дети следят за объяснением преподавателя. Эффективный формат для подготовки к ОГЭ по математике и изучения основ программирования.">
       <div class="main_text_container">
         <!-- 1 -->
@@ -426,7 +455,7 @@
 
         <!-- <p><a href="#free-lesson">Узнать расписание и доступные группы для записи</a></p> -->
       </div>
-      <img id="id_img_d2" width="100%" src="public/group-lesson-school-children-rabbit.png"
+      <img id="id_img_d2" width="100%" src="public/group-lesson-school-children-rabbit-desktop.png"
         alt="Интерактивное онлайн-занятие в мини-группе. Учительница объясняет материал, а ученики на своих экранах участвуют в уроке. Современный формат обучения в команде единомышленников.">
     </article>
 
@@ -435,9 +464,12 @@
     <!-- Блок «Пример нашего урока» (H2) -->
     <article class="exampleLesson_section_a5">
       <div class="frame_video">
-
-        <iframe width="720" height="405" src="https://rutube.ru/play/embed/d06ee51fb430dd861dedf501fad1ec12"
-          style="border: none;" allow="clipboard-write; autoplay" allowFullScreen></iframe>
+        <iframe width="1840" height="1035" src="https://www.youtube.com/embed/3c8iHtv5fwg"
+          title="Квадратное неравенства которое не имеет решения" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- <iframe width="720" height="405" src="https://rutube.ru/play/embed/d06ee51fb430dd861dedf501fad1ec12"
+          style="border: none;" allow="clipboard-write; autoplay" allowFullScreen></iframe> -->
       </div>
 
 
@@ -491,7 +523,8 @@
       </div>
       <div class="blog_links">
         <a class="big_link" href="./blog/kak-greki-vychislili-radius-zemli.html">
-          <img src="public/articles_photo/g4o1.png" width="90%" alt="">
+          <img src="public/articles_photo/eratosfen-drevnegrecheskie-uchenye-radius-zemli-desktop.webp" width="90%"
+            alt="">
           <span>
             <span style="display: inline-block;">
               Как греки вычислили радиус Земли?
@@ -525,7 +558,7 @@
 
     <!-- Блок «Как мы учим?» (H2) -->
     <article class="teachingMethod_section_a7">
-      <img src="public/boy-school-book-tablet.jpg" width="100%"
+      <img src="public/boy-school-book-tablet-desktop.jpg" width="100%"
         alt="Мальчик за партой с книгой и планшетом на фоне футуристического города. Метафора обучения в Good School: совмещаем фундаментальные знания по математике с навыками программирования для будущего.">
       <div class="main_text_container" id="long_text_grid_с1">
         <h2>Четкая и удобная система обучения от записи до результата</h2>
@@ -584,15 +617,15 @@
             информатике</li>
         </ul>
       </div>
-      <img id="id_img_d1" src="public/individual-lesson-student.jpg" width="100%"
+      <img id="id_img_d1" src="public/individual-lesson-student-desktop.jpg" width="100%"
         alt="Персональное занятие с репетитором. Прямой контакт с педагогом, гибкое расписание и контроль прогресса - ключевые преимущества индивидуального обучения математике и программированию в нашей школе.">
-      <img id="id_img_d2" src="public/group-lesson-students.jpg" width="100%"
+      <img id="id_img_d2" src="public/group-lesson-students-desktop.jpg" width="100%"
         alt="Преподаватель объясняет задание небольшой группе учеников за круглым столом. Иллюстрация занятий в мини-группах (2-4 человека) в Good School: живое обсуждение, командная работа по математике и программированию и экономия до 30%.">
     </article>
 
     <!-- Финальный призыв к действию (H2) -->
     <section class="final_section_a9">
-      <img src="public/carefree-confident-lion.png" width="100%"
+      <img src="public/carefree-confident-lion-desktop.png" width="100%"
         alt="Лев против 'учебы без забот'. Хотите чувствовать себя уверенно как лев на ОГЭ и ЕГЭ по математике? Начните с бесплатного урока и получите план подготовки от эксперта.">
       <div class="main_text_container" id="long_text_grid_с1">
         <h2>Готовы сделать первый шаг к уверенным знаниям и высоким баллам?</h2>

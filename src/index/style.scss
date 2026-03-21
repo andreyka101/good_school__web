@@ -1022,6 +1022,11 @@ h4 {
         }
     }
 }
+@media screen and (max-width: 800px) {
+    .main_text_section_a1 img {
+        content: url("public/fox-squirrel-reading-book-mobile.png");
+    }
+}
 @media screen and (max-width: 770px) {
     .main_text_container,
     .top_text_container {
@@ -1052,6 +1057,30 @@ h4 {
         #long_text_grid_с1 {
             grid-column: 1;
         }
+    }
+    .FreeTrialLesson_section_a2 img {
+        content: url("public/satisfied-student-after-trial-lesson-mobile.jpg");
+    }
+    .ourDirections_section_a3 #id_num_img_1 {
+        content: url("public/math-boards-formulas-mobile.jpeg");
+    }
+    .ourDirections_section_a3 #id_num_img_2 {
+        content: url("public/tools-professional-development-mobile.jpeg");
+    }
+    .groupClasses_section_a4 img {
+        content: url("public/group-lesson-school-children-rabbit-mobile.png");
+    }
+    .historicalArticles_section_a6 img {
+        content: url("../public/articles_photo/eratosfen-drevnegrecheskie-uchenye-radius-zemli-mobile.webp");
+    }
+    .teachingMethod_section_a7 img {
+        content: url("public/boy-school-book-tablet-mobile.jpg");
+    }
+    .benefitsTraining_section_a8 #id_img_d1 {
+        content: url("public/individual-lesson-student-mobile.jpg");
+    }
+    .benefitsTraining_section_a8 #id_img_d2 {
+        content: url("public/group-lesson-students-mobile.jpg");
     }
 }
 @media screen and (max-width: 550px) {

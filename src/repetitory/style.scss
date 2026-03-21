@@ -208,6 +208,14 @@ header {
         margin-top: 50px;
     }
 }
+@media screen and (max-width: 600px) {
+    #a1 img {
+        content: url("public/repetitor-matematiki-anna-vyglendalova-mobile.jpeg");
+    }
+    #a2 img {
+        content: url("public/repetitor-programmirovaniya-andrey-kvashnin-mobile.jpeg");
+    }
+}
 @media screen and (max-width: 440px) {
     .tutors_box {
         .card_teacher {
@@ -239,7 +247,7 @@ header {
 @media screen and (max-width: 360px) {
     .tutors_box {
         width: 100%;
-        
+
         .card_teacher {
             grid-template-columns: auto;
         }

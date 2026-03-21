@@ -17,28 +17,6 @@
     <!-- <title>Публичная оферта онлайн-школы Good School | Условия обучения</title> -->
     <!-- <meta name="description" content="Договор на обучение математике и программированию. Стоимость занятий, порядок оплаты и возврата, реквизиты самозанятого. Актуальная версия для скачивания."> -->
 
-    <!-- 2. ХЛЕБНЫЕ КРОШКИ (Breadcrumbs) JSON-LD -->
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Главная",
-      "item": "https://goodschool.online/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Договор оферты",
-      "item": "https://goodschool.online/oferta.html"
-    }
-  ]
-}
-</script>
-
     <!-- 3. SCHEMA.ORG JSON-LD (WebPage с уточнением) -->
     <script type="application/ld+json">
 {
@@ -108,30 +86,57 @@
   }
 }
 </script>
+
+
+    <!-- 2. ХЛЕБНЫЕ КРОШКИ (Breadcrumbs) JSON-LD -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://goodschool.online/oferta.html#breadcrumb"
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://goodschool.online/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Договор оферты",
+      "item": "https://goodschool.online/oferta.html"
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
+  <!-- Yandex.Metrika counter -->
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
         (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+          m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+          m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
         })
-            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
         ym(103315130, "init", {
-            clickmap: true,
-            trackLinks: true,
-            accurateTrackBounce: true,
-            webvisor: true
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: false, // отключено
+          webvisor: false // отключено (если не нужно)
         });
-    </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/103315130" style="position:absolute; left:-9999px;" alt="" /></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
+      }, 1000); // Задержка в 1 секунду после загрузки страницы
+    });
+
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/103315130" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
     <header id="top_h">
         <div class="top_block">
             <svg width="1257" height="193" viewBox="0 0 1257 193" fill="none" xmlns="http://www.w3.org/2000/svg">

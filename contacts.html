@@ -71,28 +71,31 @@
 
 <body>
   <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-    (function (m, e, t, r, i, k, a) {
-      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-      m[i].l = 1 * new Date();
-      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })
-      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        (function (m, e, t, r, i, k, a) {
+          m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+          m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-    ym(103315130, "init", {
-      clickmap: true,
-      trackLinks: true,
-      accurateTrackBounce: true,
-      webvisor: true
+        ym(103315130, "init", {
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: false, // отключено
+          webvisor: false // отключено (если не нужно)
+        });
+      }, 1000); // Задержка в 1 секунду после загрузки страницы
     });
+
   </script>
   <noscript>
     <div><img src="https://mc.yandex.ru/watch/103315130" style="position:absolute; left:-9999px;" alt="" /></div>
   </noscript>
+  <!-- /Yandex.Metrika counter -->
   <div class="topBody"></div>
   <div class="topBody2"></div>
-  <!-- /Yandex.Metrika counter -->
   <header id="top_h">
     <div class="top_block">
       <svg width="1257" height="193" viewBox="0 0 1257 193" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -241,7 +244,8 @@
       </div>
       <div class="div_img_block">
         <!-- <div class="div_img"></div> -->
-        <img class="div_img" src="/public/contact_photo.png" alt="Обратная связь">
+        <img class="div_img" src="/public/komanda-prepodavateley-dai-pyat.webp"
+          alt="Учительница и ученица в школьном коридоре. Педагог присела, чтобы дать пять — тёплая атмосфера обучения на странице контактов.">
       </div>
     </div>
   </main>
